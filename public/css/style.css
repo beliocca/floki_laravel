@@ -117,7 +117,7 @@ marquee {
   display: flex;
 }
 .main-menu-small-screen{
-  display: hidden;
+  display: none;
 }
 
 
@@ -245,7 +245,7 @@ marquee {
       }
 
     .dropdown-user-menu{
-      display: hidden;
+      display: block;
     }
 
     .no-dropdown-user-menu{
@@ -253,25 +253,21 @@ marquee {
     }
 
     .main-menu-large-screen{
-      display: hidden;
+      display: none;
     }
     .main-menu-small-screen{
       display: flex;
     }
 
     .search-menu-large-screen{
-      display: hidden;
+      display: none;
     }
 
     .menu-floki{
-      display: hidden;
-      position: static;
-    }
+      display: none;
+      }
 
-    .menu-floki-links{
-      display: hidden;
-      position: static;
-    }
+
 
 .main-menu-small-screen nav button{
   margin: 2px;

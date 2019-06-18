@@ -39,9 +39,9 @@
           <!--Floki's Stylesheets-->
           <link rel="stylesheet" href="css/style.css"/>
 
-  </head>
+</head>
 
-  <body>
+<body>
     <marquee
       class="promocion d- d-none d-sm-flex"
       behavior="scroll"
@@ -51,57 +51,55 @@
       con 20% off //
     </marquee>
 
-    <header>
+  <header>
 
-        <div class="header-container">
-
-            <div class="user-navbar">
-
-                <nav class="navbar navbar-expand-lg">
-
-                      <div class="nav-item shopping-cart">
-                          <a class="nav-link" href="#cart">
-                            <i class="fas fa-shopping-cart"></i>
-                          </a>
-                        </div>
+    <div class="header-container">
 
 
+        {{-- menu login - register - cart --}}
+        <div class="user-navbar">
+            <nav class="navbar navbar-expand-lg">
 
-                        @if (Route::has('login'))
+                <div class="nav-item shopping-cart">
+                      <a class="nav-link" href="#cart">
+                        <i class="fas fa-shopping-cart"></i>
+                      </a>
+                </div>
 
-                      <div class="dropdown dropdown-user-menu">
-                            @auth
-                              <button
-                                class="btn "
-                                type="button"
-                                id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                data-target="#navbarSupportedContent"
-                                aria-controls="navbarSupportedContent"
-                                aria-label="Toggle navigation"
-                              >
-                                    <i class="fas fa-user-circle"></i>
+            @if (Route::has('login'))
 
-                              </button>
+                <div class="dropdown dropdown-user-menu">
+                      @auth
+                        <button
+                          class="btn "
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          data-target="#navbarSupportedContent"
+                          aria-controls="navbarSupportedContent"
+                          aria-label="Toggle navigation"
+                        >
+                              <i class="fas fa-user-circle"></i>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                      <ul class="navbar-nav">
-                                        <li class="dropdown-item">
-                                          <a class="nav-link" href="/perfil">Mi perfil</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                          <form class="" action="{{ route('logout') }}" method="post">
-                                            @csrf
-                             <button type="submit" name="" class="nav-link">Log out</button>
-                                          </form>
+                        </button>
 
-                                        </li>
-                                      </ul>
-                                    </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <ul class="navbar-nav">
+                                  <li class="dropdown-item">
+                                    <a class="nav-link" href="/perfil">Mi perfil</a>
+                                  </li>
+                                  <li class="dropdown-item">
+                                    <form class="" action="{{ route('logout') }}" method="post">
+                                      @csrf
+                                        <button type="submit" name="" class="nav-link">Log out</button>
+                                    </form>
+                                  </li>
+                                </ul>
+                       </div>
 
-                        @else
+                     @else
 
                           <button
                             class="btn "
@@ -130,57 +128,55 @@
                               </ul>
                           </div>
 
-                          @endauth
 
-                          </div>
+                        @endauth
+                        </div>
 
-                          <div class="no-dropdown-user-menu">
-                                @auth
-                                    <ul class="navbar-nav">
-                                            <li class="">
-                                              <a class="nav-link" href="/perfil">Mi perfil</a>
-                                            </li>
-                                            <li class="">
-                                              <form class="" action="{{ route('logout') }}" method="post">
-                                                @csrf
-                                 <button type="submit" name="" class="nav-link">Log out</button>
-                                              </form>
+                  <div class="no-dropdown-user-menu">
+                            @auth
+                                <ul class="navbar-nav">
+                                    <li class="">
+                                      <a class="nav-link" href="/perfil">Mi perfil</a>
+                                    </li>
+                                    <li class="">
+                                      <form class="" action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                          <button type="submit" name="" class="nav-link">Log out</button>
+                                      </form>
 
-                                            </li>
-                                          </ul>
-
-
+                                    </li>
+                                </ul>
                             @else
 
-                                  <ul class="navbar-nav">
-                                    <li class="">
-                                      <a class="nav-link" href="{{ route('login') }}">Log in</a>
-                                    </li>
-                                    <li class="">
-                                      @if (Route::has('register'))
-                                        <a class="nav-link" href="{{ route('register') }}">Sign in</a>
-                                      @endif
-                                    </li>
-                                  </ul>
-
-
+                                <ul class="navbar-nav">
+                                  <li class="">
+                                    <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                                  </li>
+                                  <li class="">
+                                    @if (Route::has('register'))
+                                      <a class="nav-link" href="{{ route('register') }}">Sign in</a>
+                                    @endif
+                                  </li>
+                                </ul>
 
                               @endauth
+                  </div>
+              @endif
 
-                              </div>
-                        @endif
+          </nav>
+        </div>
 
-              </nav>
-            </div>
 
-            <div class="header-logo">
+        {{-- logo header --}}
+          <div class="header-logo">
               <a href="/"><img src="images/logo2.png" alt=""/></a>
             </div>
 
+        {{-- main menu large screen + search --}}
         <div class="main-navbar main-menu-large-screen" >
-              <nav class="navbar navbar-expand-lg menu-floki">
+            <nav class="navbar navbar-expand-lg menu-floki">
 
-                  <ul class="navbar-nav mr-auto menu-floki-links">
+                <ul class="navbar-nav mr-auto menu-floki-links">
                     <li class="nav-item dropdown">
                       <a
                         class="nav-link dropdown-toggle dropdown"
@@ -217,6 +213,87 @@
                 <ul class="search-menu-large-screen">
                     <li>
                       <form class="search formu-inline" action="/search" method="get">
+                          <input class="form-control" type="text" name="search" placeholder="Search"
+                           />
+                          <button class="btn" type="submit">
+                            <i class="fas fa-search"></i>
+                          </button>
+
+                      </form>
+                    </li>
+                </ul>
+
+              </nav>
+            </div>
+
+        {{-- main menu mobile + search --}}
+      <div class="main-navbar dropdown dropdown-collapse main-menu-small-screen"  >
+            <nav class="navbar navbar-expand-lg ">
+                <button
+                  class="navbar-toggler btn btn-menu"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  data-target="#navbarSupportedContent1"
+                  aria-controls="navbarSupportedContent1"
+                  aria-label="Toggle navigation"
+                >
+                <i class="fas fa-bars"></i>
+                </button>
+
+
+                <ul class="dropdown-menu menu-floki-dropdown
+                 menu-floki-links-small-screen" id="navbarSupportedContent1">
+                    <li class="dropdown-item ">
+                      <a
+                        class="nav-link"
+                        href="#shop"
+                        data-toggle="collapse"
+                        data-target="#shop"
+                        role="button"
+                        aria-controls="shop"
+                        aria-expanded="false"
+                      >
+                        SHOP
+                      </a>
+                          <ul class="collapse nav-item" id="shop">
+                            <li>
+                              <a  href="/shop/living">living</a>
+                            </li>
+                            <li>
+                              <a href="/shop/comedor">comedor</a>
+                            </li>
+                            <li>
+                              <a  href="/shop/cocina">cocina</a>
+                            </li>
+                            <li>
+                              <a  href="/shop/dormitorio">dormitorio</a>
+                            </li>
+                            <li>
+                              <a  href="/shop/bath">baño</a>
+                            </li>
+                            <li>
+                              <a href="/shop/oficina">home office</a>
+                            </li>
+                            <li>
+                              <a  href="/shop">Todas las categorias</a>
+                            </li>
+                          </ul>
+                    </li>
+                    <li class="dropdown-item nav-item">
+                      <a class="nav-link" href="/inspiracion">Inspiración</a>
+                    </li>
+                    <li class="dropdown-item nav-item">
+                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                    </li>
+                    <li class="dropdown-item nav-item">
+                      <a class="nav-link" href="/contacto">Contacto</a>
+                    </li>
+
+                    <li>
+                      <form class="dropdown-item search formu-inline" action="/search" method="get">
                         <input class="form-control" type="text" name="search" placeholder="Search"
                          />
                         <button class="btn" type="submit">
@@ -225,93 +302,14 @@
 
                       </form>
                     </li>
-                  </ul>
-
-              </nav>
-            </div>
-      </div>
-
-
-      <div class="main-navbar dropdown dropdown-collapse main-menu-small-screen"  >
-            <nav class="navbar navbar-expand-lg ">
-              <button
-                class="navbar-toggler btn btn-menu"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                data-target="#navbarSupportedContent1"
-                aria-controls="navbarSupportedContent1"
-                aria-label="Toggle navigation"
-              >
-              <i class="fas fa-bars"></i>
-              </button>
-
-
-                <ul class="dropdown-menu menu-floki-dropdown
-                 menu-floki-links-small-screen" id="navbarSupportedContent1">
-                  <li class="dropdown-item ">
-                    <a
-                      class="nav-link"
-                      href="#shop"
-                      data-toggle="collapse"
-                      data-target="#shop"
-                      role="button"
-                      aria-controls="shop"
-                      aria-expanded="false"
-                    >
-                      SHOP
-                    </a>
-                    <ul class="collapse nav-item" id="shop">
-                      <li>
-                        <a  href="/shop/living">living</a>
-                      </li>
-                      <li>
-                        <a href="/shop/comedor">comedor</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/cocina">cocina</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/dormitorio">dormitorio</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/bath">baño</a>
-                      </li>
-                      <li>
-                        <a href="/shop/oficina">home office</a>
-                      </li>
-                      <li>
-                        <a  href="/shop">Todas las categorias</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown-item nav-item">
-                    <a class="nav-link" href="/inspiracion">Inspiración</a>
-                  </li>
-                  <li class="dropdown-item nav-item">
-                    <a class="nav-link" href="/nosotros">Sobre nosotros</a>
-                  </li>
-                  <li class="dropdown-item nav-item">
-                    <a class="nav-link" href="/contacto">Contacto</a>
-                  </li>
-
-                  <li>
-                    <form class="dropdown-item search formu-inline" action="/search" method="get">
-                      <input class="form-control" type="text" name="search" placeholder="Search"
-                       />
-                      <button class="btn" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-
-                    </form>
-                  </li>
                 </ul>
 
             </nav>
           </div>
-    </div>
+
+
+
+  </div>
 
   </header>
 
