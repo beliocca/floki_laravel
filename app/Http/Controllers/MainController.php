@@ -6,9 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\LoginUsers;
 
-class RegisterController extends Controller
+class MainController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    // use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -46,14 +46,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validateLogin(array $data)
     {
       $rules = [
-        'name' => ['required', 'string', 'max:255'],
-        'last_name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'email' => ['required', 'string', 'email', 'max:255', 'exists:users,email'],
         'password' => ['required', 'string', 'min:8'],
-        'tyc' => ['accepted'],
       ];
 
       $messages = [
@@ -67,39 +64,53 @@ class RegisterController extends Controller
       ];
 
       $niceNames = array(
-          'name' => 'nombre',
-          'last_name' => 'apellido',
           'email' => 'email',
           'password' => 'contraseña',
-          'tyc' => 'términos y condiciones',
-      );
+        );
 
-      $validator = Validator::make($data, $rules, $messages);
+      $validator = Validator::make($request, $rules, $messages);
       $validator->setAttributeNames($niceNames);
 
         return $validator;
 
-    }
+      }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-      // if (!isset($data['newsletter'])) {
-      //   return $data['newsletter'] = 0;
-      // }
+//     public function rules()
+//     {
+//         return [
+//             'email' => ['required', 'email', 'exists:users,email'],
+//             'password'  => ['required', 'min:8', 'confirmed'],
+//         ];
+//     }
+//
+//     public function messages()
+//     {
+//         return [
+//           'failed' => 'No coindicen esos datos',
+//             'email.required' => 'ingrese un email',
+//             'email.exists' => 'Ese email no existe',
+//             'email' => 'ingrese un mail válido con formato usuario@mail.com',
+//             'min' => [ 'string' => 'La :attribute debe tener al menos :min caracteres'],
+//             'password.required'  => 'ingrese contraseña',
+//             'password.confirmed' => 'La contraseña no coincide'
+//         ];
+//     }
+//     public function attributes()
+// {
+//     return [
+//         'email' => 'e-mail',
+//         'password' => 'contraseña',
+//     ];
+// }
+//
+//   public function getFailedLoginMessage(){
+//
+//     return [
+//       'failed' => 'No coindicen esos datos',
+//       'throttle' => 'Muchos intentos. Please try again in :seconds seconds.',
+//     ];
+//
+// }
 
-        return User::create([
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'role_id' => $data['role'],
-            'newsletter' => $data['newsletter']
-        ]);
-    }
+
 }

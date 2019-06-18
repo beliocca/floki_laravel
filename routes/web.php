@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-// probando
+Route::post('login', 'MainController@validateLogin');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
