@@ -72,7 +72,7 @@
                       <div class="dropdown dropdown-user-menu">
                             @auth
                               <button
-                                class="btn "
+                                class="btn"
                                 type="button"
                                 id="dropdownMenuButton"
                                 data-toggle="dropdown"
@@ -178,8 +178,9 @@
             </div>
 
         <div class="main-navbar main-menu-large-screen" >
-              <nav class="navbar navbar-expand-lg menu-floki">
+              <nav class="navbar navbar-expand-lg ">
 
+                <div class="menu-floki" >
                   <ul class="navbar-nav mr-auto menu-floki-links">
                     <li class="nav-item dropdown">
                       <a
@@ -214,7 +215,7 @@
                     </li>
                 </ul>
 
-                <ul class="search-menu-large-screen">
+                <ul class="search-menu">
                     <li>
                       <form class="search formu-inline" action="/search" method="get">
                         <input class="form-control" type="text" name="search" placeholder="Search"
@@ -226,89 +227,72 @@
                       </form>
                     </li>
                   </ul>
-
+                </div>
               </nav>
             </div>
       </div>
 
 
-      <div class="main-navbar dropdown dropdown-collapse main-menu-small-screen"  >
+      <div class="main-navbar main-menu-small-screen" >
             <nav class="navbar navbar-expand-lg ">
               <button
                 class="navbar-toggler btn btn-menu"
                 type="button"
-                id="dropdownMenuButton"
                 data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
                 data-target="#navbarSupportedContent1"
                 aria-controls="navbarSupportedContent1"
+                aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-              <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
               </button>
-
-
-                <ul class="dropdown-menu menu-floki-dropdown
-                 menu-floki-links-small-screen" id="navbarSupportedContent1">
-                  <li class="dropdown-item ">
+              <div class="collapse navbar-collapse menu-floki" id="navbarSupportedContent1">
+                <ul class="navbar-nav mr-auto menu-floki-links">
+                  <li class="nav-item dropdown">
                     <a
-                      class="nav-link"
-                      href="#shop"
-                      data-toggle="collapse"
-                      data-target="#shop"
+                      class="nav-link dropdown-toggle dropdown"
+                      href="#"
+                      id="navbarDropdown"
                       role="button"
-                      aria-controls="shop"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      SHOP
+                      Shop
                     </a>
-                    <ul class="collapse nav-item" id="shop">
-                      <li>
-                        <a  href="/shop/living">living</a>
-                      </li>
-                      <li>
-                        <a href="/shop/comedor">comedor</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/cocina">cocina</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/dormitorio">dormitorio</a>
-                      </li>
-                      <li>
-                        <a  href="/shop/bath">baño</a>
-                      </li>
-                      <li>
-                        <a href="/shop/oficina">home office</a>
-                      </li>
-                      <li>
-                        <a  href="/shop">Todas las categorias</a>
-                      </li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/shop/living">living</a>
+                      <a class="dropdown-item" href="/shop/comedor">comedor</a>
+                      <a class="dropdown-item" href="/shop/cocina">cocina</a>
+                      <a class="dropdown-item" href="/shop/dormitorio">dormitorio</a>
+                      <a class="dropdown-item" href="/shop/bath">baño</a>
+                      <a class="dropdown-item" href="/shop/oficina">home office</a>
+                      <a class="dropdown-item" href="/shop">Todas las categorias</a>
+                    </div>
                   </li>
-                  <li class="dropdown-item nav-item">
+                  <li class="nav-item">
                     <a class="nav-link" href="/inspiracion">Inspiración</a>
                   </li>
-                  <li class="dropdown-item nav-item">
+                  <li class="nav-item">
                     <a class="nav-link" href="/nosotros">Sobre nosotros</a>
                   </li>
-                  <li class="dropdown-item nav-item">
+                  <li class="nav-item">
                     <a class="nav-link" href="/contacto">Contacto</a>
                   </li>
-
+                  </ul>
+                  <ul class="search-menu">
                   <li>
-                    <form class="dropdown-item search formu-inline" action="/search" method="get">
+                    <form class="search formu-inline" action="/search" method="get">
                       <input class="form-control" type="text" name="search" placeholder="Search"
                        />
                       <button class="btn" type="submit">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search">large</i>
                       </button>
 
                     </form>
                   </li>
                 </ul>
-
+              </div>
             </nav>
           </div>
     </div>
@@ -373,22 +357,6 @@
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-// Collapse accordion every time dropdown is shown
-$('.dropdown-collapse').on('show.bs.dropdown', function (event) {
-  var collapse = $(this).find($(this).data('accordion'));
-  collapse.find('.panel-collapse.in').collapse('hide');
-});
-
-// Prevent dropdown to be closed when we click on an accordion link
-$('.dropdown-collapse').on('click', 'a[data-toggle="collapse"]', function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-  $($(this).data('parent')).find('.panel-collapse.in').collapse('hide');
-  $($(this).attr('href')).collapse('show');
-})
-</script>
 
       <!--  scripts de Javascript-->
 

@@ -40,9 +40,9 @@ marquee {
   min-height: 80vh;
 }
 
-.user-navbar .dropdown-menu{
+/* .user-navbar .dropdown-menu{
 
-}
+} */
 
 .user-navbar button {
   background-color: rgba(255, 0, 0, 0);
@@ -79,7 +79,7 @@ marquee {
   color: #0d4659;
   /* text-transform: uppercase; */
   outline: none;
-  
+
 
 }
 
@@ -112,6 +112,15 @@ marquee {
 }
 
 /* main navbar */
+
+.main-menu-large-screen{
+  display: flex;
+}
+.main-menu-small-screen{
+  display: hidden;
+}
+
+
 .navbar .btn-menu {
   border: none;
   text-transform: uppercase;
@@ -132,7 +141,7 @@ marquee {
   flex-direction: row;
   justify-content: flex-end;
   /* margin-bottom: 5px; */
-  position: relative;
+  /* position: relative; */
 }
 
 .menu-floki-links{
@@ -205,44 +214,67 @@ marquee {
 
 /* media query responsive header */
 @media (max-width: 992px) {
-  .header-container {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: flex;
-    align-content: space-between;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
-  .main-navbar {
-    margin-left: 10px;
-  }
+      .header-container {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        align-content: space-between;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+      .main-navbar {
+        margin-left: 10px;
+      }
 
-  .header-logo,
-  .main-navbar,
-  .user-navbar {
-    width: 33%;
-  }
-  .header-logo img {
-    max-width: 50%;
-    padding-top: 3px;
-  }
-  .main-navbar .navbar-toggler {
-    margin-left: 0;
-  }
-  .user-navbar .navbar-collapse {
-    text-align: right;
-  }
-  .search input {
-    width: 100px;
-    outline: none;
-  }
+      .header-logo,
+      .main-navbar,
+      .user-navbar {
+        width: 33%;
+      }
+      .header-logo img {
+        max-width: 50%;
+        padding-top: 3px;
+      }
+      .main-navbar .navbar-toggler {
+        margin-left: 0;
+      }
 
-.dropdown-user-menu{
-  display: block;
-}
+      .search input {
+        width: 100px;
+        outline: none;
+      }
 
-.no-dropdown-user-menu{
-  display: none;
+    .dropdown-user-menu{
+      display: hidden;
+    }
+
+    .no-dropdown-user-menu{
+      display: none;
+    }
+
+    .main-menu-large-screen{
+      display: hidden;
+    }
+    .main-menu-small-screen{
+      display: flex;
+    }
+
+    .search-menu-large-screen{
+      display: hidden;
+    }
+
+    .menu-floki{
+      display: hidden;
+      position: static;
+    }
+
+    .menu-floki-links{
+      display: hidden;
+      position: static;
+    }
+
+.main-menu-small-screen nav button{
+  margin: 2px;
 }
 
 }
