@@ -29,105 +29,84 @@
           <span class="sr-only">Next</span>
       </a>
   </section>
+
+  <div class="home-stripe">
+    <h1>NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 </h1>
+  </div>
+
+
   <!-- CATEGORIAS -->
-  <section class="container home-categorias">
-      <div class="row">
-          <article class="col-lg-4 col-md-6 mb-4   categoria">
+  <section class=" home-categorias">
+          <article class=" categoria">
               <a href="#">
-                  <img class="img-fluid" src="images/home/link-living.jpg" alt="" />
+                  <img class="" src="images/home/link-living.jpg" alt="" />
                   <h2>living</h2>
               </a>
           </article>
 
-          <article class="col-lg-4 col-md-6 mb-4   categoria">
+          <article class=" categoria">
               <a href="#">
                   <img class="img-fluid" src="images/home/link-comedor.jpg" alt="" />
                   <h2>comedor</h2>
               </a>
           </article>
 
-          <article class="col-lg-4 col-md-6 mb-4 categoria">
+          <article class=" categoria">
               <a href="#">
                   <img class="img-fluid" src="images/home/link-cocina.jpg" alt="" />
                   <h2>cocina</h2>
               </a>
           </article>
 
-          <article class="col-lg-4 col-md-6 mb-4 categoria">
+          <article class=" categoria">
               <a href="#">
                   <img class="img-fluid" src="images/home/link-habitacion.jpg" alt="" />
                   <h2>habitacion</h2>
               </a>
           </article>
 
-          <article class="col-lg-4 col-md-6 mb-4 categoria">
+          <article class="categoria">
               <a href="#">
                   <img class="img-fluid" src="images/home/link-bath.jpg" alt="" />
                   <h2>baño</h2>
               </a>
           </article>
 
-          <article class="col-lg-4 col-md-6 mb-4 categoria">
+          <article class="categoria">
               <a href="#">
                   <img class="img-fluid" src="images/home/link-oficina.jpg" alt="" />
                   <h2>home office</h2>
               </a>
           </article>
-      </div>
+
   </section>
-  <!--carrusel con imagenes interactivas -->
-  <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-          <div class="imagen-interactiva slider1 carousel-item active">
-              <img src="images/slider2/slider1.jpg" alt="" />
-              <div class="producto-oculto1">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider1product.jpg" alt="" />
-                  </a>
-              </div>
-              <div class="producto-oculto2">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider1product2.jpg" alt="" />
-                  </a>
-              </div>
-              <div class="producto-oculto3">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider1product3.jpg" alt="" />
-                  </a>
-              </div>
-              <div class="producto-oculto4">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider1product4.jpg" alt="" />
-                  </a>
-              </div>
+
+  <div class="home-stripe">
+    <h1>NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 </h1>
+  </div>
+
+{{-- productos destacados --}}
+  <section class="productos-top">
+      @foreach ($topProducts as $product)
+        @foreach ($productPhotos as $productPhoto)
+            @if ($product->id == $productPhoto->product_id)
+                @php
+                  $photos[] = $productPhoto->filename;
+                @endphp
+            @endif
+        @endforeach
+
+
+        <article class="producto-top">
+          <div class="producto-top-photo">
+            <img src="uploads/product_photos/image-test.jpg" alt="">
           </div>
-          <div class="imagen-interactiva slider2 carousel-item">
-              <img src="images/slider2/slider2.jpg" alt="" />
-              <div class="producto-oculto1">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider2product1.jpg" alt="" />
-                  </a>
-              </div>
-              <div class="producto-oculto2">
-                  <a href="">
-                      <img class="icon" src="images/slider2/imageicon.png" alt="" />
-                      <img class="producto-interactivo" src="images/slider2/slider2product2.jpg" alt="" />
-                  </a>
-              </div>
-          </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-      </a>
-</section>
+          <h2>{{ $product->name }}</h2>
+          <h3>${{ $product->price }}</h3>
+
+          <a href="/producto/{{ $product->id }}">Ver más</a>
+        </article>
+      @endforeach
+
+  </section>
 @endsection

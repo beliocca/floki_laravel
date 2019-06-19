@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 6, 2);
             $table->text('description');
             $table->integer('stock');
+            $table->integer('units_sold')->default(0);
             $table->decimal('discount', 2, 2)->nullable();
             $table->timestamps();
         });

@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::post('login', 'MainController@validateLogin');
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/inspiracion', function () {
+    return view('inspiracion');
+});

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\ProductPhoto;
 
 class HomeController extends Controller
 {
@@ -13,16 +15,23 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+
     public function index()
     {
-        return view('home');
+
+        $topProducts = Product::orderBy('units_sold')->take(6)->get();
+
+        foreach ($topProducts as $topProduct) {
+          $idTopProductos[] = $topProduct->id;
+        }
+
+        $productPhotos = ProductPhoto::whereIn('product_id', $idTopProductos)->get();
+
+
+        return view('home')->with('topProducts', $topProducts)
+                           ->with('productPhotos', $productPhotos);
     }
 }
