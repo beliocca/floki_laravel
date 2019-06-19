@@ -38,44 +38,57 @@
   <!-- CATEGORIAS -->
   <section class=" home-categorias">
           <article class=" categoria">
-              <a href="#">
-                  <img class="" src="images/home/link-living.jpg" alt="" />
-                  <h2>living</h2>
-              </a>
+            <img class="img-fluid" src="images/home/link-living.jpg" alt="" />
+          <a href="/shop/living">
+              <div class="texto-categoria">
+              <h1>Living</h1>
+            </div>
+        </a>
           </article>
 
           <article class=" categoria">
-              <a href="#">
-                  <img class="img-fluid" src="images/home/link-comedor.jpg" alt="" />
-                  <h2>comedor</h2>
-              </a>
+            <img class="img-fluid" src="images/home/link-comedor.jpg" alt="" />
+          <a href="/shop/comedor">
+              <div  class="texto-categoria">
+              <h1>Comedor</h1>
+            </div>
+        </a>
           </article>
 
           <article class=" categoria">
-              <a href="#">
-                  <img class="img-fluid" src="images/home/link-cocina.jpg" alt="" />
-                  <h2>cocina</h2>
-              </a>
+            <img class="img-fluid" src="images/home/link-cocina.jpg" alt="" />
+          <a href="/shop/cocina">
+              <div class="texto-categoria">
+              <h1>Cocina</h1>
+            </div>
+        </a>
           </article>
 
           <article class=" categoria">
-              <a href="#">
-                  <img class="img-fluid" src="images/home/link-habitacion.jpg" alt="" />
-                  <h2>habitacion</h2>
-              </a>
+            <img class="img-fluid" src="images/home/link-habitacion.jpg" alt="" />
+          <a href="/shop/dormitorio">
+              <div class="texto-categoria">
+              <h1>Dormitorio</h1>
+            </div>
+        </a>
           </article>
 
           <article class="categoria">
-              <a href="#">
-                  <img class="img-fluid" src="images/home/link-bath.jpg" alt="" />
-                  <h2>baño</h2>
-              </a>
+            <img class="img-fluid" src="images/home/link-bath.jpg" alt="" />
+          <a href="/shop/bath">
+              <div class="texto-categoria">
+              <h1>Baño</h1>
+            </div>
+        </a>
           </article>
 
           <article class="categoria">
-              <a href="#">
+
                   <img class="img-fluid" src="images/home/link-oficina.jpg" alt="" />
-                  <h2>home office</h2>
+                <a href="/shop/office">
+                    <div class="texto-categoria">
+                    <h1>home office</h1>
+                  </div>
               </a>
           </article>
 
