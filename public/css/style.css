@@ -460,7 +460,7 @@ marquee {
 .texto-categoria h1{
   font-family: "Roboto", sans-serif;
   font-size: 3vw;
-  color: #0d4659;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.3em;
     text-align: center;
@@ -472,7 +472,7 @@ marquee {
 }
 
 .texto-categoria h1:hover{
-  color: white;
+  color: #0d4659;
   transition: color 0.3s;
 
 }
@@ -657,6 +657,18 @@ marquee {
     font-size: 4vw;
   }
 
+  .texto-categoria{
+    background-color: rgba(207, 227, 227, 0.5);
+    opacity: 1;
+    transition: opacity 2s;
+  }
+  .texto-categoria:active{
+    background-color: rgba(207, 227, 227, 0);
+    opacity: 1;
+    transition: opacity 2s;
+      transition: backgroubd-color 2s;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -665,7 +677,7 @@ marquee {
   .home-stripe{
     background-color: #CFE3E3;
     padding: 5px 0;
-    margin: 30px 0 ;
+    margin: 10px 0 30px ;
   }
 
   .home-stripe h1 {
@@ -686,6 +698,19 @@ marquee {
 
   .texto-categoria h1{
     font-size: 9vw;
+    opacity: 1;
+  }
+
+  .texto-categoria{
+    background-color: rgba(207, 227, 227, 0.5);
+    opacity: 1;
+    transition: opacity 2s;
+  }
+  .texto-categoria:active{
+    background-color: rgba(207, 227, 227, 0);
+    opacity: 1;
+    transition: opacity 2s;
+    transition: backgroubd-color 2s;
   }
 }
 
