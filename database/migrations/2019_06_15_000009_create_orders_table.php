@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateOrdersTable extends Migration
 {
@@ -27,6 +28,7 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('shipping_id')->unsigned();
             $table->foreign('shipping_id')->references('id')->on('shippings')->nullable()->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

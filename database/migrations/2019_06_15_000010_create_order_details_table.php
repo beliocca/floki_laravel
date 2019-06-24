@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateOrderDetailsTable extends Migration
 {
@@ -23,6 +24,7 @@ class CreateOrderDetailsTable extends Migration
             $table->decimal('price', 6, 2);
             $table->decimal('discount', 6, 2)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

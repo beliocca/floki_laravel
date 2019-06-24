@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class CreateAddressesTable extends Migration
 {
@@ -26,6 +28,7 @@ class CreateAddressesTable extends Migration
             $table->boolean('is_billing')->nullable();
             $table->boolean('is_shipping')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

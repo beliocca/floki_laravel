@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateShippingsTable extends Migration
 {
@@ -19,6 +20,7 @@ class CreateShippingsTable extends Migration
             $table->string('courier_company');
             $table->boolean('is_delivered')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
