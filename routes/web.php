@@ -20,3 +20,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inspiracion', function () {
     return view('inspiracion');
 });
+
+Route::get('/shop', 'ProductController@index');

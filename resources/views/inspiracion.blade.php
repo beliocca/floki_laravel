@@ -1,6 +1,6 @@
 @extends('layouts/floki-template')
 
-@section('title', 'FLOKI Deco & Design')
+@section('title', 'Inspiráte! FLOKI Deco & Design')
 
 
 @section('content')
