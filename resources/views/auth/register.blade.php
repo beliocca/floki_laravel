@@ -69,7 +69,8 @@
                   </p>
 
                   <p>
-                    <input id="password" type="password" class="userform" name="password"  autocomplete="new-password"
+                    <input id="password" type="password" class="userform" name="password"  data-toggle="tooltip" data-placement="top"
+                    title="La contraseña debe tener al menos 8 caracteres" autocomplete="new-password"
                             @error('password')
                               @if (isset($message))
                                placeholder="{{ $message }}"

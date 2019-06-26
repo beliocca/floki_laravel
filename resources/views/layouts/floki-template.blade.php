@@ -317,13 +317,15 @@
   </header>
   <hr class="hr-header">
 
+<body>
+
 
     <main class="main-content">
         @yield('content')
     </main>
 
 
-
+ </body>
     <footer class="main-footer">
 
 
@@ -396,10 +398,14 @@
       </script>
 
       <!--  scripts de Javascript-->
+      <script type="text/javascript">
+        $(document).ready(function() {
+        $("#lefttip").tooltip({
+            placement: "left"
+        });
+    });
+    </script>
 
-        <script>
-      
-        </script>
 
   </body>
 </html>

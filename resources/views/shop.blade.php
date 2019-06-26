@@ -38,7 +38,11 @@
       <section class="section-productos">
         @foreach ($products as $product)
             <article class="producto">
-              <img src="uploads/product_photos/image-test.jpg"  alt="">
+
+                @foreach($product->productPhotos as $photo)
+                
+              <img src="uploads/product_photos/{{$photo->filename}}"  alt="">
+              @endforeach
               <h2>{{ $product->name }}</h2>
               <h3>${{ $product->price }}</h3>
               <a href="/producto/{{ $product->id }}">Ver más!</a>
