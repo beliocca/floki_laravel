@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::get('/inspiracion', function () {
 });
 
 Route::get('/shop', 'ProductController@index');
+
+Route::get('/profile', 'UserController@show')->middleware('auth');
+
+// Route::post('/profile', 'UserController@edit');
+
+Route::post('/admin/addproduct', 'ProductController@create');

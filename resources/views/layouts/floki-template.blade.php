@@ -88,7 +88,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <ul class="navbar-nav">
                                   <li class="dropdown-item">
-                                    <a class="nav-link" href="/perfil">Mi perfil</a>
+                                  <a class="nav-link" href="/profile">Mi perfil</a>
                                   </li>
                                   <li class="dropdown-item">
                                     <form class="" action="{{ route('logout') }}" method="post">
@@ -136,7 +136,7 @@
                             @auth
                                 <ul class="navbar-nav">
                                     <li class="">
-                                      <a class="nav-link" href="/perfil">Mi perfil</a>
+                                      <a class="nav-link" href="/profile">Mi perfil</a>
                                     </li>
                                     <li class="">
                                       <form class="" action="{{ route('logout') }}" method="post">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Category;
+use App\ProductPhoto;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,13 +16,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-      //  $products = Product::all();
+        //  $products = Product::all();
 
         $products = Product::paginate(20);
+
         $categories = Category::all();
 
         return view('shop')->with('products', $products)
-        ->with('categories', $categories);
+            ->with('categories', $categories);
     }
 
     /**
@@ -29,9 +31,22 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $data)
     {
-        //
+
+        $product = Product::create([
+            'name' => $data['name'],
+            'price' => $data['price'],
+            'stock' => $data['stock'],
+            'description' => $data['description']
+        ]);
+
+        $route = $data['filename']->store('public/uploads/product_photos');
+        $filename = basename($route);
+        ProductPhoto::create([
+            'filename' => $filename,
+            'product_id' => $product->id
+        ]);
     }
 
     /**

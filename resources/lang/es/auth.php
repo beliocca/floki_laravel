@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'No se encontró el usuario en nuestro sistema.',
+    // 'failed' => 'No se encontró el usuario en nuestro sistema.',
     'throttle' => 'Demasiados intentos fallidos. Por favor intente de nuevo en :seconds segundos.',
 
 ];
