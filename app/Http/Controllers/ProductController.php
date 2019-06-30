@@ -99,11 +99,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show( $id)
+    public function show($id)
     {
         $product = Product::find($id);
-        dd($product);
-        return view('product')->with('product', $product);
+        $productsRecomendados = Product::orderBy('units_sold')->take(4)->get();
+      
+
+        return view('product')->with('product', $product)
+                              ->with('productsRecomendados', $productsRecomendados);
     }
 
     /**

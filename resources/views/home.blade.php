@@ -99,17 +99,24 @@
   </div>
 
 {{-- productos destacados --}}
+
+<div class="productos-top-title">
+  <hr>
+  <h1>Los más vendidos</h1>
+  <hr>
+</div>
+
   <section class="productos-top">
     @foreach ($topProducts as $product)
 
       <article class="producto-top">
         <div class="producto-top-photo">
-        <img src="uploads/product_photos/{{$product->productPhotos->first()}}" alt="">
+        <img src="uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt="">
         </div>
         <h2>{{ $product->name }}</h2>
         <h3>${{ $product->price }}</h3>
 
-        <a href="/producto/{{ $product->id }}">Ver más</a>
+        <a href="/product/{{ $product->id }}">Ver más</a>
       </article>
     @endforeach
   </section>

@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $topProducts = Product::orderBy('units_sold')->take(6)->get();
+        $topProducts = Product::orderBy('units_sold')->take(4)->get();
         $idTopProductos =[] ;
         foreach ($topProducts as $topProduct) {
           $idTopProductos[] = $topProduct->id;
