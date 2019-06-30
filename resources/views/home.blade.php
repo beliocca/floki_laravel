@@ -100,26 +100,17 @@
 
 {{-- productos destacados --}}
   <section class="productos-top">
-      @foreach ($topProducts as $product)
-        @foreach ($productPhotos as $productPhoto)
-            @if ($product->id == $productPhoto->product_id)
-                @php
-                  $photos[] = $productPhoto->filename;
-                @endphp
-            @endif
-        @endforeach
+    @foreach ($topProducts as $product)
 
+      <article class="producto-top">
+        <div class="producto-top-photo">
+        <img src="uploads/product_photos/{{$product->productPhotos->first()}}" alt="">
+        </div>
+        <h2>{{ $product->name }}</h2>
+        <h3>${{ $product->price }}</h3>
 
-        <article class="producto-top">
-          <div class="producto-top-photo">
-            <img src="uploads/product_photos/image-test.jpg" alt="">
-          </div>
-          <h2>{{ $product->name }}</h2>
-          <h3>${{ $product->price }}</h3>
-
-          <a href="/producto/{{ $product->id }}">Ver más</a>
-        </article>
-      @endforeach
-
+        <a href="/producto/{{ $product->id }}">Ver más</a>
+      </article>
+    @endforeach
   </section>
 @endsection

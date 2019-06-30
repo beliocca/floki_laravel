@@ -34,10 +34,10 @@
           />
 
           <!-- Favicon -->
-          <link rel="shortcut icon" href="images/favicon_floki" />
+          <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
 
           <!--Floki's Stylesheets-->
-          <link rel="stylesheet" href="css/style.css"/>
+          <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
 
 </head>
 
@@ -169,7 +169,7 @@
 
         {{-- logo header --}}
           <div class="header-logo">
-              <a href="/"><img src="images/logo2.png" alt=""/></a>
+            <a href="/"><img src="{{ asset('images/logo2.png') }}" alt="Logo Floki"/></a>
             </div>
 
         {{-- main menu large screen + search --}}
@@ -190,12 +190,13 @@
                         Shop
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/shop/5">living</a>
-                        <a class="dropdown-item" href="/shop/6">comedor</a>
-                        <a class="dropdown-item" href="/shop/1">cocina</a>
-                        <a class="dropdown-item" href="/shop/3">dormitorio</a>
-                        <a class="dropdown-item" href="/shop/2">baño</a>
-                        <a class="dropdown-item" href="/shop/4">home office</a>
+
+                        @foreach ($categories as $category)
+                          @if ($category->is_main)
+                            <a class="dropdown-item" href="/shop/{{ $category->name }}">{{ $category->name }}</a>
+                          @endif
+                        @endforeach
+
                         <a class="dropdown-item" href="/shop">Todas las categorias</a>
                       </div>
                     </li>
@@ -262,24 +263,14 @@
                         SHOP
                       </a>
                           <ul class="collapse nav-item" id="shop">
-                            <li>
-                              <a  href="/shop/living">living</a>
-                            </li>
-                            <li>
-                              <a href="/shop/comedor">comedor</a>
-                            </li>
-                            <li>
-                              <a  href="/shop/cocina">cocina</a>
-                            </li>
-                            <li>
-                              <a  href="/shop/dormitorio">dormitorio</a>
-                            </li>
-                            <li>
-                              <a  href="/shop/bath">baño</a>
-                            </li>
-                            <li>
-                              <a href="/shop/oficina">home office</a>
-                            </li>
+                            @foreach ($categories as $category)
+                              @if ($category->is_main)
+                                <li>
+                                    <a href="/shop/{{ $category->name }}">{{ $category->name }}</a>
+                                </li>
+                              @endif
+                            @endforeach
+
                             <li>
                               <a  href="/shop">Todas las categorias</a>
                             </li>
@@ -344,12 +335,13 @@
                 shop
               </a>
               <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/shop/living">living</a>
-                <a class="dropdown-item" href="/shop/comedor">comedor</a>
-                <a class="dropdown-item" href="/shop/cocina">cocina</a>
-                <a class="dropdown-item" href="/shop/dormitorio">dormitorio</a>
-                <a class="dropdown-item" href="/shop/bath">baño</a>
-                <a class="dropdown-item" href="/shop/office">home office</a>
+                @foreach ($categories as $category)
+                  @if ($category->is_main)
+                    <a  class="dropdown-item" href="/shop/{{ $category->name }}">{{ $category->name }}</a>
+
+                  @endif
+                @endforeach
+            
                 <a  class="dropdown-item" href="/shop">Todas las categorias</a>
               </div>
             </li>
@@ -381,30 +373,9 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-      <script type="text/javascript">
-      // Collapse every time dropdown is shown
-      $('.dropdown-collapse').on('show.bs.dropdown', function (event) {
-        var collapse = $(this).find($(this).data('accordion'));
-        collapse.find('.panel-collapse.in').collapse('hide');
-      });
-
-      // Prevent dropdown to be closed when we click on an collapse link
-      $('.dropdown-collapse').on('click', 'a[data-toggle="collapse"]', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        $($(this).data('parent')).find('.panel-collapse.in').collapse('hide');
-        $($(this).attr('href')).collapse('show');
-      })
-      </script>
 
       <!--  scripts de Javascript-->
-      <script type="text/javascript">
-        $(document).ready(function() {
-        $("#lefttip").tooltip({
-            placement: "left"
-        });
-    });
-    </script>
+      <script type="text/javascript" src=href="{{ asset('js/floki.js') }}">  </script>
 
 
   </body>

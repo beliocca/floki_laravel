@@ -30,7 +30,10 @@ Route::post('/profile', 'UserController@update');
 
 Route::post('/admin/addproduct', 'ProductController@create');
 
-Route::get('/shop/{id}', 'ProductController@categories');
+Route::get('/shop/{category}', 'ProductController@categories');
 
 Route::get('/product/{id}', 'ProductController@show');
 
+Route::get('/search', 'ProductController@search');
+
+Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');

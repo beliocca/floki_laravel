@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+
         DB::table('roles')->insert([
           'role' => 'admin'
         ]);
@@ -21,27 +24,44 @@ class DatabaseSeeder extends Seeder
           'role' => 'client'
         ]);
 
-        DB::table('categories')->insert([
-          'name' => 'kitchen'
+        DB::table('users')->insert([
+          'name' => 'admin',
+          'last_name' => 'admin',
+          'email' => 'admin@admin.com',
+          'password' => bcrypt('admin'),
+          'newsletter' => 0,
+          'role_id' => '1'
         ]);
 
         DB::table('categories')->insert([
-          'name' => 'bath'
+          'name' => 'Living',
+          'is_main' => 1
+        ]);
+        DB::table('categories')->insert([
+          'name' => 'Comedor',
+          'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
-          'name' => 'bedroom'
+          'name' => 'Dormitorio',
+          'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
-          'name' => 'office'
+          'name' => 'Cocina',
+          'is_main' => 1
         ]);
+
         DB::table('categories')->insert([
-          'name' => 'living'
+          'name' => 'Baño',
+          'is_main' => 1
         ]);
+
         DB::table('categories')->insert([
-          'name' => 'dining'
+          'name' => 'Home office',
+          'is_main' => 1
         ]);
+
 
         DB::table('order_statuses')->insert([
           'status' => 'ESPERANDO PAGO'
@@ -62,18 +82,38 @@ class DatabaseSeeder extends Seeder
           'status' => 'COMPRA RECLAMADA'
         ]);
 
-        $products = factory(Product::class)->times(60)->create();
-        factory(ProductPhoto::class)->times(60)->create();
-
+        $products = factory(Product::class)->times(100)->create();
 
         foreach ($products as $product) {
           DB::table('product_category')->insert(
           [
           'product_id' => $product['id'],
           'category_id' => rand(1, 6)
-          ]
-          );
+          ]);
         }
+
+// Cada "for" crea un filename para cada uno de los id de producto - con 3 "for" se crean 3 foto por producto
+        for ($i=1; $i < 101 ; $i++) {
+          DB::table('product_photos')->insert([
+            'filename' => 'image-test (' . rand(1, 20) . ').jpg',
+            'product_id' => $i
+          ]);
+        }
+        for ($i=1; $i < 101 ; $i++) {
+          DB::table('product_photos')->insert([
+            'filename' => 'image-test (' . rand(1, 20) . ').jpg',
+            'product_id' => $i
+          ]);
+        }
+        for ($i=1; $i < 101 ; $i++) {
+          DB::table('product_photos')->insert([
+            'filename' => 'image-test (' . rand(1, 20) . ').jpg',
+            'product_id' => $i
+          ]);
+        }
+
+
+
 
 
 

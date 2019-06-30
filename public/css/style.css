@@ -181,7 +181,7 @@ marquee {
   letter-spacing: 1.5px;
 }
 
-.search-menu{
+.search-menu-large-screen{
   position: relative;
   z-index: 20;
   font-size: 13px;
@@ -521,22 +521,22 @@ marquee {
 }
 .producto-top h2 {
   font-family: "Roboto", sans-serif;
-  font-size: 17px;
-  background-color: #cfe3e3;
+  font-size: 15px;
+  /* background-color: #cfe3e3; */
   color: #0d4659;
   text-transform: uppercase;
   text-align: center;
-  padding: 15px;
+  /* padding: 15px; */
   margin: 0;
 }
 
 .producto-top h3 {
   font-family: "Roboto", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
   text-align: center;
-  padding: 15px;
+  padding: 3px;
   margin: 0;
 }
 
@@ -802,7 +802,7 @@ padding: 3% 5%;
       background: white;
       border: none;
       font-size: 13px;
-      padding: 10px 20px;
+     padding: 10px 20px;
       margin: 5px;
   }
 
@@ -843,22 +843,22 @@ padding: 3% 5%;
 }
 .producto h2 {
   font-family: "Roboto", sans-serif;
-  font-size: 17px;
-  background-color: #cfe3e3;
+  font-size: 15px;
+  /* background-color: #cfe3e3; */
   color: #0d4659;
   text-transform: uppercase;
   text-align: center;
-  padding: 5px;
+  padding: 5px 0 0 0;
   margin: 0;
 }
 
 .producto h3 {
   font-family: "Roboto", sans-serif;
-  font-size: 17px;
+  font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
   text-align: center;
-  padding: 10px 0 0 0;
+  padding: 5px 0 0 0;
   margin: 0;
 }
 .producto a {
@@ -1275,37 +1275,7 @@ padding: 3% 5%;
   }
 }
 
-/* SHOP */
 
-/* banner */
-.banner-shop{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.banner{
-  justify-content: center;
-  width: 80%;
-  object-fit: scale-down;
-}
-
-
-.shop-articulo{
-padding: 20px;
-}
-.shop-articulo img {
-  width: 100%;
-  object-fit: scale-down;
-  padding: 10px 10px;
-}
-
-.shop-articulo p {
-  text-align: center;
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
-  color: #0D4659;
-  text-transform: uppercase;
-}
 
 /* PERFIL */
 

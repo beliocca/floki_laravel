@@ -53,6 +53,35 @@ class ProductController extends Controller
         // return view('/productList')->with('products', $product);
     }
 
+    public function search()
+    {
+
+      $products = Product::where("name", "LIKE", "%".$_GET["search"]."%")
+      ->orwhere("description", "LIKE", "%".$_GET["search"]."%")
+      ->paginate(20);
+
+      $categories = Category::all();
+
+      return view('shop')->with('products', $products)
+          ->with('categories', $categories);
+    }
+
+    public function orderByPrice($parametro)
+    {
+        if ($parametro == 'asc') {
+          $products = Product::orderBy('price')->paginate(20);
+        } elseif ($parametro == 'desc') {
+          $products = Product::orderBy('price', 'DESC')->paginate(20);
+        } elseif (is_numeric($parametro)) {
+          $products = Product::where('price', '<', $parametro)->orderBy('price', 'DESC')->paginate(20);
+        } else {$products = Product::paginate(20);}
+
+        $categories = Category::all();
+
+        return view('shop')->with('products', $products)
+            ->with('categories', $categories);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
