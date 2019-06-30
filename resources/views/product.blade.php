@@ -35,6 +35,10 @@
               <button type="submit" name="button">COMPRAR</button>
              </form>
 
+             {{-- @foreach ($product->categories as $category)
+                 <p>{{ $category->name }}</p>
+             @endforeach --}}
+
          </div>
 
 </div>
@@ -56,6 +60,9 @@
         <h3>${{ $product->price }}</h3>
 
         <a href="/product/{{ $product->id }}">Ver más</a>
+        {{-- @foreach ($product->categories as $category)
+            <p>{{ $category->name }}</p>
+        @endforeach --}}
       </article>
     @endforeach
   </section>

@@ -48,6 +48,10 @@
                   <h2>{{ $product->name }}</h2>
 
                   <h3>${{ $product->price }}</h3>
+{{-- @foreach ($product->categories as $category)
+    <p>{{ $category->name }}</p>
+@endforeach --}}
+
                   <a href="/product/{{ $product->id }}">Ver más!</a>
 
                   <form class="" action="index.html" method="post">

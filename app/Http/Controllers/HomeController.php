@@ -23,10 +23,7 @@ class HomeController extends Controller
     {
 
         $topProducts = Product::orderBy('units_sold')->take(4)->get();
-        $idTopProductos =[] ;
-        foreach ($topProducts as $topProduct) {
-          $idTopProductos[] = $topProduct->id;
-        }
+        
 
         return view('home')->with('topProducts', $topProducts);
 

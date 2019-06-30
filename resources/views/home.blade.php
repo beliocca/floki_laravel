@@ -85,7 +85,7 @@
           <article class="categoria">
 
                   <img class="img-fluid" src="images/home/link-oficina.jpg" alt="" />
-                <a href="/shop/office">
+                <a href="/shop/homeoffice">
                     <div class="texto-categoria">
                     <h1>home office</h1>
                   </div>

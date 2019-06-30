@@ -102,8 +102,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        $productsRecomendados = Product::orderBy('units_sold')->take(4)->get();
-      
+        $category = $product->categories->first()->url;
+        $productsRecomendados = Product::whereHas('categories', function ($query) use ($category){
+            $query->where('url', $category);
+        })->orderBy('units_sold')->take(4)->get();
 
         return view('product')->with('product', $product)
                               ->with('productsRecomendados', $productsRecomendados);
@@ -143,16 +145,16 @@ class ProductController extends Controller
         //
     }
 
-    public function categories($id){
-        $categories = Category::all();
+    public function categories($url){
 
-        $products = Product::whereHas('categories', function ($q) use ($id){
-            $q->where('category_id', $id);
+
+        $products = Product::whereHas('categories', function ($query) use ($url){
+            $query->where('url', $url);
         })->paginate(20);
 
-        dd($categories, $products);
 
-        return view('shop')->with('products', $products)->with('categories', $categories);
+
+        return view('shop')->with('products', $products);
 
     }
 
