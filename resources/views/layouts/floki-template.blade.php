@@ -190,23 +190,23 @@
                         Shop
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/shop/living">living</a>
-                        <a class="dropdown-item" href="/shop/comedor">comedor</a>
-                        <a class="dropdown-item" href="/shop/cocina">cocina</a>
-                        <a class="dropdown-item" href="/shop/dormitorio">dormitorio</a>
-                        <a class="dropdown-item" href="/shop/bath">baño</a>
-                        <a class="dropdown-item" href="/shop/oficina">home office</a>
+                        <a class="dropdown-item" href="/shop/5">living</a>
+                        <a class="dropdown-item" href="/shop/6">comedor</a>
+                        <a class="dropdown-item" href="/shop/1">cocina</a>
+                        <a class="dropdown-item" href="/shop/3">dormitorio</a>
+                        <a class="dropdown-item" href="/shop/2">baño</a>
+                        <a class="dropdown-item" href="/shop/4">home office</a>
                         <a class="dropdown-item" href="/shop">Todas las categorias</a>
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/inspiracion">Inspiración</a>
+                      <a class="nav-link" href="/inspiration">Inspiración</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                      <a class="nav-link" href="/aboutus">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/contacto">Contacto</a>
+                      <a class="nav-link" href="/contact">Contacto</a>
                     </li>
                 </ul>
 

@@ -38,6 +38,14 @@
                     <input class="form-control" type="number" name="price" value="{{ old('price') }}">
                 </div>
                 <div>
+                    <label for="category">Categoria</label>
+                    <select class="form-control" type="select" name="category" value="{{ old('category') }}">
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
                     <label for="stock">Unidades</label>
                     <input class="form-control" type="number" name="stock" value="{{ old('stock') }}">
                 </div>

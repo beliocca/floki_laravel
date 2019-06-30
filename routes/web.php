@@ -18,14 +18,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/inspiracion', function () {
-    return view('inspiracion');
+Route::get('/inspiration', function () {
+    return view('inspiration');
 });
 
 Route::get('/shop', 'ProductController@index');
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
 
-// Route::post('/profile', 'UserController@edit');
+Route::post('/profile', 'UserController@update');
 
 Route::post('/admin/addproduct', 'ProductController@create');
+
+Route::get('/shop/{id}', 'ProductController@categories');
+
+Route::get('/product/{id}', 'ProductController@show');
+

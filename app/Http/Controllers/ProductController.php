@@ -22,6 +22,7 @@ class ProductController extends Controller
 
         $categories = Category::all();
 
+
         return view('shop')->with('products', $products)
             ->with('categories', $categories);
     }
@@ -40,13 +41,16 @@ class ProductController extends Controller
             'stock' => $data['stock'],
             'description' => $data['description']
         ]);
-
+        $product->categories()->attach($data->category);
         $route = $data['filename']->store('public/uploads/product_photos');
         $filename = basename($route);
         ProductPhoto::create([
             'filename' => $filename,
             'product_id' => $product->id
         ]);
+
+        // $products = Product::all();
+        // return view('/productList')->with('products', $product);
     }
 
     /**
@@ -66,9 +70,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show( $id)
     {
-        //
+        $product = Product::find($id);
+        dd($product);
+        return view('product')->with('product', $product);
     }
 
     /**
@@ -104,4 +110,21 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function categories($id){
+        $categories = Category::all();
+
+        $products = Product::whereHas('categories', function ($q) use ($id){
+            $q->where('category_id', $id);
+        })->paginate(20);
+
+        dd($categories, $products);
+
+        return view('shop')->with('products', $products)->with('categories', $categories);
+
+    }
+
+
+
+
 }

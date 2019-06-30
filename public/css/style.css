@@ -1032,6 +1032,13 @@ padding: 3% 5%;
   width: 100vw;
 }
 
+.tyc {
+    color: #0D4659;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+
+}
+
 /*Imagen*/
 .register .art1 {
   width: 50vw;

@@ -102,4 +102,5 @@ class RegisterController extends Controller
             'newsletter' => $data['newsletter']
         ]);
     }
+
 }
