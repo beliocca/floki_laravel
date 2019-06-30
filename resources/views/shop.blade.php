@@ -13,7 +13,7 @@
                 @foreach ($categories as $category)
                   @if ($category->is_main)
                     <li>
-                        <a href="/shop/{{ $category->name }}">{{ $category->name }}</a>
+                        <a href="/shop/{{ $category->url }}">{{ $category->name }}</a>
                     </li>
                   @endif
                 @endforeach

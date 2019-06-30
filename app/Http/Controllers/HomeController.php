@@ -28,10 +28,7 @@ class HomeController extends Controller
           $idTopProductos[] = $topProduct->id;
         }
 
-        $productPhotos = ProductPhoto::whereIn('product_id', $idTopProductos)->get();
+        return view('home')->with('topProducts', $topProducts);
 
-
-        return view('home')->with('topProducts', $topProducts)
-                           ->with('productPhotos', $productPhotos);
     }
 }

@@ -35,30 +35,36 @@ class DatabaseSeeder extends Seeder
 
         DB::table('categories')->insert([
           'name' => 'Living',
+          'url' => 'living',
           'is_main' => 1
         ]);
         DB::table('categories')->insert([
           'name' => 'Comedor',
+          'url' => 'comedor',
           'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
           'name' => 'Dormitorio',
+          'url' => 'dormitorio',
           'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
           'name' => 'Cocina',
+          'url' => 'cocina',
           'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
           'name' => 'Baño',
+          'url' => 'bath',
           'is_main' => 1
         ]);
 
         DB::table('categories')->insert([
-          'name' => 'Home office',
+          'name' => 'home office',
+          'url' => 'homeoffice',
           'is_main' => 1
         ]);
 
