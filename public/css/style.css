@@ -10,6 +10,12 @@ body{
   background-color: #F8F8F8;
 }
 
+input:focus, button:focus,
+.search-menu-large-screen input:focus{
+  outline: none;
+
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -59,6 +65,7 @@ marquee {
   background-color: transparent!important;
   outline: none;
   box-shadow: none!important;
+
 }
 
 .user-navbar button {
@@ -763,7 +770,7 @@ marquee {
 .sticky-menu-shop{
   position: sticky;
   top: 25vh;
-  z-index: 999;
+  z-index: 9;
   text-decoration: none;
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -908,12 +915,24 @@ padding: 3% 5%;
 
 /* PÁGINA PRODUCTO */
 .contenedor-producto{
-display: flex;
-flex-direction: row;
-justify-content: center;
+display: grid;
+grid-template-columns: repite(8, 1fr);
+grid-row: 1fr;
 margin: 40px auto;
 width: 80vw;
 }
+
+.fotos-producto {
+  grid-area: 1 / 1 / 1 / 5;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.datos-producto {
+  grid-area: 1 / 5 / 1 / 8;
+  margin: 0 0 0 50px ;
+}
+
 
 .section-productos{
 display: grid;
@@ -931,10 +950,16 @@ padding: 3% 5%;
   padding: 5px 5px;
 
 }
+
 .fotos-producto img {
   width: 100%;
   object-fit: cover;
   padding: 2px;
+  resize: vertical;
+  height: 70%;
+  border-width: medium;
+  border-style: dotted;
+  border-color: #cfe3e3;
 }
 .datos-producto form {
   display: flex;
@@ -995,7 +1020,7 @@ padding: 3% 5%;
   text-align: left;
   padding: 5px 0 0 0;
   margin: 0 0 10px;
-  width: 50%;
+  width: 70%;
 }
 .datos-producto a {
   font-family: "Roboto", sans-serif;
@@ -1073,6 +1098,11 @@ padding: 3% 5%;
   padding: 10px 20px;
 
 }
+
+.producto-recomendado-photo{
+  display: flex;
+  justify-content: center;
+}
 .producto-recomendado-photo img {
   width: 80%;
   object-fit: cover;
@@ -1100,7 +1130,7 @@ padding: 3% 5%;
   text-transform: uppercase;
   text-align: center;
   /* padding: 15px; */
-  margin: 0;
+  margin: 20px 0 5px;
 }
 
 .producto-recomendado h3 {
@@ -1110,10 +1140,8 @@ padding: 3% 5%;
   text-transform: uppercase;
   text-align: center;
   padding: 3px;
-  margin: 0;
+  margin: 0 0 5px;
 }
-
-
 
 
 /* LOGIN */
