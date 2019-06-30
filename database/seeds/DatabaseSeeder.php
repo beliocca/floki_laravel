@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-          'name' => 'home office',
+          'name' => 'Home office',
           'url' => 'homeoffice',
           'is_main' => 1
         ]);
