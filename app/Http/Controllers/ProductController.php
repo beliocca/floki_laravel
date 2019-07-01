@@ -105,7 +105,7 @@ class ProductController extends Controller
         $category = $product->categories->first()->url;
         $productsRecomendados = Product::whereHas('categories', function ($query) use ($category){
             $query->where('url', $category);
-        })->orderBy('units_sold')->take(4)->get();
+        })->inRandomOrder()->take(4)->get();
 
         return view('product')->with('product', $product)
                               ->with('productsRecomendados', $productsRecomendados);
