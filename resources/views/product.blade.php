@@ -10,9 +10,11 @@
 
         <div class="fotos-producto">
 
-             <div id="photo-product-main" >
+             <div class="photo-product-main" >
+               <i class="fas fa-chevron-left"></i>
                      <img class="" src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}"
                                  alt="">
+              <i class="fas fa-chevron-right"></i>
              </div>
 
         </div>
@@ -29,7 +31,32 @@
 
              <form class="form-producto" action="index.html" method="post">
 
-               <input type="text" name="cantidad" value="" placeholder="Cantidad">
+               <div class="cantidad">
+                 <h3>Cantidad: </h3>
+                 <select name="cantidad">
+                   @if ($product->stock > 10)
+                     <option value="1" selected>1</option>
+                     @for ($i=2; $i < 11; $i++)
+                       <option value="{{$i}}">{{$i}}</option>
+                     @endfor
+
+                  @elseif ($product->stock > 0 && $product->stock <= 10) {
+                    <option value="1" selected>1</option>
+                     @for ($i=2; $i < $product->stock ; $i++)
+                       <option value="{{$i}}">{{$i}}</option>
+                     @endfor
+                   }
+
+                 @else{
+                   <option value="0" selected>Sin stock</option>
+                 }
+                   @endif
+
+
+
+                 </select>
+
+               </div>
 
               <input type="hidden" name="id-producto" value="{{ $product->id }}">
               <button type="submit" name="button">COMPRAR</button>

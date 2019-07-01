@@ -24,6 +24,7 @@
           href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
           rel="stylesheet"
           />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
           <!--FontAwesome-->
           <link
@@ -320,32 +321,34 @@
     <footer class="main-footer">
 
 
+      <div class="footer-menu">
+        <ul class="footer-shop ">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              shop
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+              @foreach ($categories as $category)
+                @if ($category->is_main)
+                  <a  class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
 
-          <ul class="footer-shop ">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                shop
-              </a>
-              <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                @foreach ($categories as $category)
-                  @if ($category->is_main)
-                    <a  class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
+                @endif
+              @endforeach
 
-                  @endif
-                @endforeach
+              <a  class="dropdown-item" href="/shop">Todas las categorias</a>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-                <a  class="dropdown-item" href="/shop">Todas las categorias</a>
-              </div>
-            </li>
-          </ul>
 
           <div class="footer-social">
             <h3>follow us!</h3>

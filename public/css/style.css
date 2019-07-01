@@ -1,13 +1,13 @@
 /* Colores: Turquesa #98DAE0 #CFE3E3
             Azul oscuro #0D4659*/
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   box-sizing: border-box;
 }
 
 body{
   overflow-x: hidden;
-  background-color: #F8F8F8;
+  background-color: #FBFBFB;
 }
 
 input:focus, button:focus,
@@ -44,11 +44,11 @@ header {
   z-index: 999;
 }
 marquee {
-  background-color: #CFE3E3;
-  font-family: "Roboto";
-  color: #0D4659;
+  background-color: #F2F1F1;
+  font-family: "Work Sans", sans-serif;
+  color: #0d4659;
   font-size: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 .header-container{
@@ -74,7 +74,7 @@ marquee {
   outline: none;
   color: #0d4659;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Work Sans", sans-serif;
   padding: 8px 8px 0;
 }
 .user-navbar button:hover {
@@ -148,7 +148,7 @@ marquee {
 .navbar .btn-menu {
   border: none;
   text-transform: uppercase;
-  font-family: "Roboto";
+  font-family: "Work Sans", sans-serif;
   color: #ffffff;
   background-color: #0d4659;
   padding: 13px;
@@ -308,19 +308,19 @@ marquee {
 
 
 .main-footer {
-  background-color: #0d4659;
-  color: #ffffff;
+  background-color: #F7F5F5;
+  color: #0d4659;
   text-align: center;
   /* margin-top: 30px; */
-  padding: 15px 0 0 ;
+  padding: 15px 0 0 0 ;
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: 400;
   font-size: 15px;
   letter-spacing: 1.5px;
-  display: flex;
-  /* align-items: center; */
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 }
 .main-footer a {
   text-decoration: none;
@@ -424,7 +424,7 @@ marquee {
   text-decoration: none;
 }
 .home-categorias h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1.3em;
   background-color: #cfe3e3;
   color: #0d4659;
@@ -465,7 +465,7 @@ marquee {
 }
 
 .texto-categoria h1{
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 3vw;
   color: #ffffff;
   text-transform: uppercase;
@@ -495,7 +495,7 @@ marquee {
 }
 
 .productos-top-title h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1.5em;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -543,7 +543,7 @@ marquee {
 .producto-top a {
   text-decoration: none;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 10px;
   background-color: #cfe3e3;
   color: #0d4659;
@@ -555,7 +555,7 @@ marquee {
 
 }
 .producto-top h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 15px;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -566,8 +566,8 @@ marquee {
 }
 
 .producto-top h3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
+  font-family: "Work Sans", sans-serif;
+    font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
   text-align: center;
@@ -773,7 +773,7 @@ marquee {
   z-index: 9;
   text-decoration: none;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 13px;
 
   color: #0d4659;
@@ -843,8 +843,10 @@ padding: 3% 5%;
       background: white;
       border: none;
       font-size: 13px;
-     padding: 10px 20px;
+      padding: 10px 20px;
       margin: 5px;
+      font-family: "Work Sans", sans-serif;
+
   }
 
   .page-link:hover {
@@ -871,7 +873,7 @@ padding: 3% 5%;
 .producto button {
   text-decoration: none;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 13px;
   background-color: #cfe3e3;
   color: #0d4659;
@@ -883,7 +885,7 @@ padding: 3% 5%;
   margin: auto;
 }
 .producto h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 15px;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -894,7 +896,7 @@ padding: 3% 5%;
 }
 
 .producto h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
@@ -903,7 +905,7 @@ padding: 3% 5%;
   margin: 0;
 }
 .producto a {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 11px;
   color: #0d4659;
   text-transform: uppercase;
@@ -930,7 +932,7 @@ width: 80vw;
 
 .datos-producto {
   grid-area: 1 / 5 / 1 / 8;
-  margin: 0 0 0 50px ;
+  margin: 30px 0 0 70px ;
 }
 
 
@@ -951,15 +953,28 @@ padding: 3% 5%;
 
 }
 
+.photo-product-main{
+  text-align: center;
+  margin: 0 0 0 50px;
+}
+
+.photo-product-main i{
+  font-size: 30px;
+  color: #0d4659;
+}
+
+.photo-product-main i:hover{
+  color: #cfe3e3;
+}
+
 .fotos-producto img {
-  width: 100%;
+  /* width: 90%; */
   object-fit: cover;
   padding: 2px;
-  resize: vertical;
-  height: 70%;
-  border-width: medium;
-  border-style: dotted;
-  border-color: #cfe3e3;
+  resize: 50%;
+  width: 30vw;
+  margin: 0 10px ;
+
 }
 .datos-producto form {
   display: flex;
@@ -969,8 +984,8 @@ padding: 3% 5%;
 .datos-producto button {
   text-decoration: none;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 15px;
   background-color: #cfe3e3;
   color: #0d4659;
   text-transform: uppercase;
@@ -980,8 +995,31 @@ padding: 3% 5%;
   margin: 10px 0;
 }
 
+.cantidad {
+  margin: 20px 0;
+}
+.cantidad h3{
+  display: inline;
+}
+
+.cantidad select{
+  display: inline;
+  outline: none;
+  font-family: "Work Sans", sans-serif;
+  font-size: 13px;
+  background-color: #FBFBFB;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #0d4659;
+  color: #0d4659;
+
+}
+
+
+
 .datos-producto h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 20px;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -989,10 +1027,10 @@ padding: 3% 5%;
   text-transform: uppercase;
   text-align: left;
   padding: 5px 0 0 0;
-  margin: 0 0 10px;
+  margin: 20px 0 10px;
 }
 .datos-producto h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 17px;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -1003,7 +1041,7 @@ padding: 3% 5%;
 }
 
 .datos-producto h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
@@ -1013,7 +1051,7 @@ padding: 3% 5%;
 }
 
 .datos-producto p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 10px;
   color: #0d4659;
   text-transform: uppercase;
@@ -1023,7 +1061,7 @@ padding: 3% 5%;
   width: 70%;
 }
 .datos-producto a {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 11px;
   color: #0d4659;
   text-transform: uppercase;
@@ -1051,7 +1089,7 @@ padding: 3% 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 20px auto;
+  margin: 30px auto;
   width: 80vw;
 }
 
@@ -1059,10 +1097,11 @@ padding: 3% 5%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 40px;
 }
 
 .te-puede-gustar h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 1.5em;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -1111,7 +1150,7 @@ padding: 3% 5%;
 .producto-recomendado a {
   text-decoration: none;
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 10px;
   background-color: #cfe3e3;
   color: #0d4659;
@@ -1123,7 +1162,7 @@ padding: 3% 5%;
 
 }
 .producto-recomendado h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 15px;
   /* background-color: #cfe3e3; */
   color: #0d4659;
@@ -1134,7 +1173,7 @@ padding: 3% 5%;
 }
 
 .producto-recomendado h3 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 13px;
   color: #0d4659;
   text-transform: uppercase;
