@@ -117,9 +117,15 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function list(Product $product)
     {
-        //
+        $products = Product::paginate(20);
+
+        $categories = Category::all();
+
+
+        return view('productlist')->with('products', $products)
+            ->with('categories', $categories);
     }
 
     /**
@@ -129,9 +135,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function edit(Request $data)
     {
-        //
+       $product = Product::find($data->id);
+       return view('editproduct')->with('product', $product);
     }
 
     /**

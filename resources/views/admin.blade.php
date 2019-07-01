@@ -12,22 +12,22 @@
             <h2 class="h2perfil">admin</h2>
             <ul>
                 <li>
-                    <a class="listperfil" href="/admin/productlist"> productos</a>
+                    <a class="listperfil" href="/admin/listproducts"> productos</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="">categorias</a>
+                    <a class="listperfil" href="/admin/listcategories">categorias</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="">ordenes</a>
+                    <a class="listperfil" href="/admin/listorders">ordenes</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="">usuarios</a>
+                    <a class="listperfil" href="/admin/listusers">usuarios</a>
                 </li>
             </ul>
         </div>
         <div class="col-12 col-sm-8">
             <h2 class="h2perfil">Agregar Productos</h2>
-            <form action="/admin/addproduct" method="post" enctype="multipart/form-data">
+            <form action="/admin/addproducts" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="name">Nombre</label>

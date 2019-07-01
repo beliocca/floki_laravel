@@ -28,12 +28,18 @@ Route::get('/profile', 'UserController@show')->middleware('auth');
 
 Route::post('/profile', 'UserController@update');
 
-Route::post('/admin/addproduct', 'ProductController@create');
+Route::get('/search', 'ProductController@search');
+
+Route::post('/admin/addproducts', 'ProductController@create');
+
+Route::get('/admin/listproducts', 'ProductController@list');
+
+Route::post('/admin/showproduct', 'ProductController@edit');
+
+Route::post('/admin/updateproduct', 'ProductController@update');
 
 Route::get('/shop/{category}', 'ProductController@categories');
 
 Route::get('/product/{id}', 'ProductController@show');
-
-Route::get('/search', 'ProductController@search');
 
 Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');

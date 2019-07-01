@@ -1586,3 +1586,10 @@ padding: 3% 5%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* /ADMIN */
+
+.img-grid-admin{
+    max-height: 80px;
+    border: solid 1px #0D4659;
+}
