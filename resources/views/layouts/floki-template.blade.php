@@ -205,10 +205,10 @@
                       <a class="nav-link" href="/inspiration">Inspiración</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/aboutus">Sobre nosotros</a>
+                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/contact">Contacto</a>
+                      <a class="nav-link" href="/contacto">Contacto</a>
                     </li>
                 </ul>
 

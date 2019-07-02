@@ -22,6 +22,10 @@ Route::get('/inspiration', function () {
     return view('inspiration');
 });
 
+Route::get('/nosotros', function () {
+    return view('nosotros');
+});
+
 Route::get('/shop', 'ProductController@index');
 
 Route::get('/profile', 'UserController@show')->middleware('auth');
@@ -37,3 +41,7 @@ Route::get('/product/{id}', 'ProductController@show');
 Route::get('/search', 'ProductController@search');
 
 Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');
+
+Route::get('/contacto', 'ContactoController@index');
+
+Route::post('/contacto', 'ContactoController@validator');

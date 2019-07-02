@@ -42,9 +42,11 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+
 }
 marquee {
-  background-color: #F2F1F1;
+  background-color: #CFE3E3;
   font-family: "Work Sans", sans-serif;
   color: #0d4659;
   font-size: 13px;
@@ -302,14 +304,16 @@ marquee {
 
 /* Dropdown menu */
 
+/* Colores: Turquesa #98DAE0 #CFE3E3
+            Azul oscuro #0D4659*/
 
 
 /* FOOTER */
 
 
 .main-footer {
-  background-color: #F7F5F5;
-  color: #0d4659;
+  background-color: #CFE3E3;
+  color: #0D4659;
   text-align: center;
   /* margin-top: 30px; */
   padding: 15px 0 0 0 ;
