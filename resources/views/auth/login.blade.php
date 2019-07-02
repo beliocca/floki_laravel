@@ -52,7 +52,7 @@
 
                   <p>
                     <input id="password" type="password" class="userform" name="password"
-                      autocomplete="current-password"
+
 
                       @error('password')
                          @if (isset($message))
@@ -63,15 +63,16 @@
                      @endif
                      >
                   </p>
-                  <p>
+
                     @error('email')
                        @if (isset($message))
+                       <p class="tyc">
                     {{ $message }}
+                </p>
                        @enderror
                      {{-- @else
                        no hay errores de email --}}
                    @endif
-                  </p>
 
                   <p>
                     <input class="tyc" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />

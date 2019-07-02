@@ -4,21 +4,21 @@
 
 @section('content')
 
-<h2 class="h2perfil">Editar Productos</h2>
-<form action="/admin/updateproduct" method="post" enctype="multipart/form-data">
+<h2 class="titleperfil">Editar Productos</h2>
+<form class="form-group form-edit" action="/admin/updateproduct" method="post" enctype="multipart/form-data">
     @csrf
     <div>
-        <label for="name">Nombre</label>
-        <input class="form-control" type="text" name="name" value="{{ old('name') }}" placeholder="{{$product->name}}">
+        <label class=""for="name">Nombre</label>
+        <input class="form-control  " type="text" name="name" value="{{ old('name') }}" placeholder="{{$product->name}}">
     </div>
     <div>
-        <label for="price">Precio</label>
-        <input class="form-control" type="number" name="price" value="{{ old('price') }}"
+        <label class="" for="price">Precio</label>
+        <input class="form-control " type="number" name="price" value="{{ old('price') }}"
             placeholder="{{$product->price}}">
     </div>
     <div>
-        <label for="category">Categoria</label>
-        <select class="form-control" type="select" name="category" value="{{ old('category') }}"
+        <label class="" for="category">Categoria</label>
+        <select class="form-control select " type="select" name="category" value="{{ old('category') }}"
             placeholder="{{$product->category}}">
             @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -26,18 +26,21 @@
         </select>
     </div>
     <div>
-        <label for="stock">Unidades</label>
-        <input class="form-control" type="number" name="stock" value="{{ old('stock') }}"
+        <label class="" for="stock">Unidades</label>
+        <input class="form-control " type="number" name="stock" value="{{ old('stock') }}"
             placeholder="{{$product->stock}}">
     </div>
     <div>
-        <label for="description">Descripcion</label>
-        <input class="form-control" type="textarea" name="description" value="{{ old('description') }}"
+        <label class="" for="description">Descripcion</label>
+        <input class="form-control " type="textarea" name="description" value="{{ old('description') }}"
             placeholder="{{$product->description}}">
     </div>
-
     <div>
-        <p>Imagenes</p>
+        <label class="" for="filename">Subir imagenes</label>
+        <input class="form-control " type="file" name="filename" value="{{ old('filename') }}">
+    </div>
+    <div>
+        <p>Imagenes cargadas</p>
         @foreach ($product->productPhotos as $photo)
         <form action="/productPhoto/{id}" method="post">
             @csrf
@@ -45,12 +48,7 @@
             <input type="hidden" type="text" value={{$photo->id}}>
             <button class="btn btn-default" type="submit">Borrar</button>
         </form>
-
         @endforeach
-    </div>
-    <div>
-        <label for="filename">Subir mas imagenes</label>
-        <input class="form-control" type="file" name="filename" value="{{ old('filename') }}">
     </div>
     <button type="submit">EDITAR</button>
 </form>

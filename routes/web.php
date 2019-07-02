@@ -24,19 +24,19 @@ Route::get('/inspiration', function () {
 
 Route::get('/shop', 'ProductController@index');
 
-Route::get('/profile', 'UserController@show')->middleware('auth');
-
-Route::post('/profile', 'UserController@update');
-
 Route::get('/search', 'ProductController@search');
 
-Route::post('/admin/addproducts', 'ProductController@create');
+Route::get('/profile', 'UserController@show')->middleware('auth');
 
-Route::get('/admin/listproducts', 'ProductController@list');
+Route::post('/profile', 'UserController@update')->middleware('auth');
 
-Route::post('/admin/showproduct', 'ProductController@edit');
+Route::post('/admin/addproducts', 'ProductController@create')->middleware('auth');
 
-Route::post('/admin/updateproduct', 'ProductController@update');
+Route::get('/admin/listproducts', 'ProductController@list')->middleware('auth');
+
+Route::post('/admin/showproduct', 'ProductController@edit')->middleware('auth');
+
+Route::post('/admin/updateproduct', 'ProductController@update')->middleware('auth');
 
 Route::get('/shop/{category}', 'ProductController@categories');
 

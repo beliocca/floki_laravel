@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1 class="">Listado Productos</h1>
+<h1 class="titleperfil">Listado Productos</h1>
 
 <table class="table table-hover table-responsive-lg">
     <thead class="thead-light">
@@ -17,7 +17,7 @@
             <th scope="col"></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="thead-light">
         @foreach ($products as $product)
         <tr>
             <th scope="row">{{$product->id}}</th>
@@ -44,9 +44,10 @@
     </tbody>
 </table>
 
-
+<div class="contenedor-productos">
 <div class="pagination-productos">
     {{$products->appends($_GET)->links()}}
+</div>
 </div>
 
 </div>

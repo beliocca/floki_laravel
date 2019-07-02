@@ -1545,14 +1545,21 @@ padding: 3% 5%;
   }
 }
 
-
-
 /* PERFIL */
 
+.h2perfil{
+    font-size: 25px;
+}
 
+.titleperfil{
+    text-align: center;
+    font-size: 25px;
+}
 
-.h2perfil, .listperfil{
+.h2perfil, .listperfil, .titleperfil{
   text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: #0D4659;
 }
 
@@ -1565,7 +1572,7 @@ padding: 3% 5%;
   color:  #98DAE0;
 }
 
-.perfil button{
+.perfil button {
   box-sizing: border-box;
   height: 40px;
   color: #0d4659;
@@ -1579,11 +1586,11 @@ padding: 3% 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
-.perfil button:hover {
+.perfil button:hover, .thead-light button:hover {
   color: white;
   background-color: #0d4659;
 }
-.perfil button:focus {
+.perfil button:focus, .thead-light button:hover {
   box-shadow: none;
 }
 
@@ -1614,6 +1621,12 @@ padding: 3% 5%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.select {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Roboto",  sans-serif;
+    color: #0D4659;
+}
 
 /* /ADMIN */
 
@@ -1621,3 +1634,60 @@ padding: 3% 5%;
     max-height: 80px;
     border: solid 1px #0D4659;
 }
+
+.thead-light th, .thead-light td, .thead-light input {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Roboto",  sans-serif;
+    color: #0D4659;
+    text-align: center;
+}
+
+.thead-light button{
+  box-sizing: border-box;
+  height: 30px;
+  color: #0d4659;
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: white;
+  border: none;
+  border-radius: 0px;
+  margin-top:20px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.form-edit label {
+    padding: 10px 0 0;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #0D4659;
+    text-transform: uppercase;
+  }
+
+  .form-edit{
+    width: 80%;
+  }
+
+  .form-edit input{
+    box-sizing: border-box;
+    height: 5vh;
+    color: #0d4659;
+    font-size: 0.75em;
+    background-color: white;
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+
+
+  .select {
+      text-transform: uppercase;
+      font-size: 13px;
+      font-family: "Roboto",  sans-serif;
+      color: #0D4659;
+  }
+
+
+

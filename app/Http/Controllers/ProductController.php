@@ -49,8 +49,8 @@ class ProductController extends Controller
             'product_id' => $product->id
         ]);
 
-        // $products = Product::all();
-        // return view('/productList')->with('products', $product);
+        $products = Product::all();
+        return view('/productList')->with('products', $product);
     }
 
     public function search()
