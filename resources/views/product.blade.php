@@ -29,7 +29,8 @@
 
              <p>STOCK: {{ $product->stock }} unidades.</p>
 
-             <form class="form-producto" action="index.html" method="post">
+             <form class="form-producto" action="/addtocart" method="post">
+               @csrf
 
                <div class="cantidad">
                  <h3>Cantidad: </h3>
@@ -58,9 +59,14 @@
 
                </div>
 
-              <input type="hidden" name="id-producto" value="{{ $product->id }}">
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <input type="hidden" name="name" value="{{ $product->name }}">
+              <input type="hidden" name="price" value="{{ $product->price }}">
+              <input type="hidden" name="photo" value="{{$product->productPhotos->first()->filename }}">
+
               <button type="submit" name="button">COMPRAR</button>
              </form>
+
 
              {{-- @foreach ($product->categories as $category)
                  <p>{{ $category->name }}</p>

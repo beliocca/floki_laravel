@@ -45,3 +45,11 @@ Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');
 Route::get('/contacto', 'ContactoController@index');
 
 Route::post('/contacto', 'ContactoController@validator');
+
+Route::post('/addtocart', 'ProductController@addToCart');
+
+Route::post('/editcart', 'ProductController@editCart');
+
+Route::get('/checkout', 'ProductController@checkout');
+
+Route::post('/borrarCartItem', 'ProductController@editCart');
