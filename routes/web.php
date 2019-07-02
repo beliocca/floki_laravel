@@ -22,6 +22,10 @@ Route::get('/inspiration', function () {
     return view('inspiration');
 });
 
+Route::get('/nosotros', function () {
+    return view('nosotros');
+});
+
 Route::get('/shop', 'ProductController@index');
 
 Route::get('/search', 'ProductController@search');
@@ -43,3 +47,15 @@ Route::get('/shop/{category}', 'ProductController@categories');
 Route::get('/product/{id}', 'ProductController@show');
 
 Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');
+
+Route::get('/contacto', 'ContactoController@index');
+
+Route::post('/contacto', 'ContactoController@validator');
+
+Route::post('/addtocart', 'ProductController@addToCart');
+
+Route::post('/editcart', 'ProductController@editCart');
+
+Route::get('/checkout', 'ProductController@checkout');
+
+Route::post('/borrarCartItem', 'ProductController@editCart');

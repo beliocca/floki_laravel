@@ -24,6 +24,7 @@
           href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
           rel="stylesheet"
           />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
           <!--FontAwesome-->
           <link
@@ -60,10 +61,78 @@
         <div class="user-navbar">
             <nav class="navbar navbar-expand-lg">
 
-                <div class="nav-item shopping-cart">
-                      <a class="nav-link" href="#cart">
-                        <i class="fas fa-shopping-cart"></i>
+              {{-- @if (Session::has('cart'))
+                {{dd(Session::get('cart'))  }}
+              @endif --}}
+
+                <div class="nav-item shopping-cart dropdown" >
+                  @if (Session::has('cart'))
+                    <a class=" dropdown"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+
+                      @php
+                          $cantidadProductos = 0;
+                          $precioTotal = 0;
+
+                          foreach (Session::get('cart') as $cartId => $product) {
+                            $cantidadProductos += $product['cantidad'];
+                            $precioTotal += $product['price'] * $product['cantidad'];
+                          }
+
+                      @endphp
+
+
+                      <p>{{ $cantidadProductos }} Productos</p>
+                    </a>
+                  @endif
+                      <a class="nav-link dropdown"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                      >
+                        <i class="fas fa-shopping-cart "></i>
                       </a>
+
+
+                      <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+                        @if (Session::has('cart'))
+                          <ul class="cart-menu dropdown-item">
+                            @foreach (Session::get('cart') as $cartId => $product)
+                              <li>
+                        {{ $product["cantidad"] }}x  {{  $product["name"]}} ${{ $product["price"] * $product["cantidad"] }}
+                                </li>
+                            @endforeach
+
+                            <li class="li-cart-total">
+                              Total: ${{ $precioTotal }}
+                            </li>
+
+                            <li class="li-cart">
+                              <button>
+                                <a href="/checkout">Ir al checkout</a>
+                              </button>
+                            </li>
+
+                          </ul>
+                          @else
+                            <ul class="navbar-nav">
+                              <li class="dropdown-item">
+                            No hay productos en el carrito
+                              </li>
+
+                            </ul>
+                        @endif
+
+                      </div>
                 </div>
 
             @if (Route::has('login'))
@@ -204,10 +273,10 @@
                       <a class="nav-link" href="/inspiration">Inspiración</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/aboutus">Sobre nosotros</a>
+                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/contact">Contacto</a>
+                      <a class="nav-link" href="/contacto">Contacto</a>
                     </li>
                 </ul>
 
@@ -320,32 +389,34 @@
     <footer class="main-footer">
 
 
+      <div class="footer-menu">
+        <ul class="footer-shop ">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              shop
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+              @foreach ($categories as $category)
+                @if ($category->is_main)
+                  <a  class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
 
-          <ul class="footer-shop ">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                shop
-              </a>
-              <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                @foreach ($categories as $category)
-                  @if ($category->is_main)
-                    <a  class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
+                @endif
+              @endforeach
 
-                  @endif
-                @endforeach
+              <a  class="dropdown-item" href="/shop">Todas las categorias</a>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-                <a  class="dropdown-item" href="/shop">Todas las categorias</a>
-              </div>
-            </li>
-          </ul>
 
           <div class="footer-social">
             <h3>follow us!</h3>

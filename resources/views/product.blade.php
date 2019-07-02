@@ -10,9 +10,11 @@
 
         <div class="fotos-producto">
 
-             <div id="photo-product-main" >
+             <div class="photo-product-main" >
+               <i class="fas fa-chevron-left"></i>
                      <img class="" src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}"
                                  alt="">
+              <i class="fas fa-chevron-right"></i>
              </div>
 
         </div>
@@ -27,13 +29,44 @@
 
              <p>STOCK: {{ $product->stock }} unidades.</p>
 
-             <form class="form-producto" action="index.html" method="post">
+             <form class="form-producto" action="/addtocart" method="post">
+               @csrf
 
-               <input type="text" name="cantidad" value="" placeholder="Cantidad">
+               <div class="cantidad">
+                 <h3>Cantidad: </h3>
+                 <select name="cantidad">
+                   @if ($product->stock > 10)
+                     <option value="1" selected>1</option>
+                     @for ($i=2; $i < 11; $i++)
+                       <option value="{{$i}}">{{$i}}</option>
+                     @endfor
 
-              <input type="hidden" name="id-producto" value="{{ $product->id }}">
+                  @elseif ($product->stock > 0 && $product->stock <= 10) {
+                    <option value="1" selected>1</option>
+                     @for ($i=2; $i < $product->stock ; $i++)
+                       <option value="{{$i}}">{{$i}}</option>
+                     @endfor
+                   }
+
+                 @else{
+                   <option value="0" selected>Sin stock</option>
+                 }
+                   @endif
+
+
+
+                 </select>
+
+               </div>
+
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <input type="hidden" name="name" value="{{ $product->name }}">
+              <input type="hidden" name="price" value="{{ $product->price }}">
+              <input type="hidden" name="photo" value="{{$product->productPhotos->first()->filename }}">
+
               <button type="submit" name="button">COMPRAR</button>
              </form>
+
 
              {{-- @foreach ($product->categories as $category)
                  <p>{{ $category->name }}</p>

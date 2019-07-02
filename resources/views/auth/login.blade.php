@@ -101,4 +101,5 @@
           </article>
       </div>
   </section>
+  <br>
 @endsection

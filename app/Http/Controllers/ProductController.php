@@ -6,6 +6,7 @@ use App\Product;
 use App\Category;
 use App\ProductPhoto;
 use Illuminate\Http\Request;
+use Session;
 
 class ProductController extends Controller
 {
@@ -166,6 +167,74 @@ class ProductController extends Controller
     }
 
 
+    public function addToCart(Request $request){
+       $product = $request->all();
+
+       // BORRA ARRAY EN SESSION
+       // Session::forget('cart');
+
+       if (Session::has('cart')) {
+          $cart = Session::get('cart');
+       }
+
+       if(isset($cart[$product['id']])):
+           $cart[$product['id']]['cantidad'] += $product['cantidad'];
+       else:
+           $cart[$product['id']] = $product;
+       endif;
+
+       Session::put('cart', $cart);
+       $cartsInSession = Session::get('cart');
+       $cartItems = count($cartsInSession);
+
+       return redirect()->back()->with('message', 'Hay nuevos productos en el carrito.')
+                                  // ->with('cart_items', $cartItems)
+                                    ->with('success', true);
+
+
+   }
+
+   public function editCart(Request $request){
+      $cartCambios = $request->all();
+
+      // BORRA ARRAY EN SESSION
+      // Session::forget('cart');
+
+      $cart = Session::get('cart');
+
+      if (count(Session::get('cart')) == 1) {
+        Session::forget('cart');
+
+        return redirect('home');
+
+      } else {
+        $cartIdABorrar = $cartCambios['cart-id'];
+
+        unset($cart[$cartIdABorrar]);
+
+
+        Session::put('cart', $cart);
+
+
+        return redirect()->back();
+      }
+
+
+
+
+
+  }
+
+   public function checkout(){
+
+
+       $products = Product::all();
+
+
+
+       return view('checkout')->with('products', $products);
+
+   }
 
 
 }

@@ -54,10 +54,17 @@
 
                   <a href="/product/{{ $product->id }}">Ver más!</a>
 
-                  <form class="" action="index.html" method="post">
+                  <form class="" action="/addtocart" method="post">
+                    @csrf
 
-                      <input type="hidden" name="id-producto" value="{{ $product->id }}">
-                      <button type="submit" name="button">COMPRAR</button>
+
+                   <input type="hidden" name="id" value="{{ $product->id }}">
+                    <input type="hidden" name="cantidad" value=1>
+                   <input type="hidden" name="name" value="{{ $product->name }}">
+                   <input type="hidden" name="price" value="{{ $product->price }}">
+                   <input type="hidden" name="photo" value="{{$product->productPhotos->first()->filename }}">
+
+                   <button type="submit" name="button">COMPRAR</button>
                   </form>
               </article>
               @endforeach
