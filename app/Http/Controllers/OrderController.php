@@ -12,10 +12,13 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Order $order)
     {
-        //
+        $orders = Order::all();
+
+        return view('orderslist')->with('orders', $orders);
     }
+
 
     /**
      * Show the form for creating a new resource.

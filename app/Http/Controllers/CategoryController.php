@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use App\Product
+use App\Product;
+
 class CategoryController extends Controller
 {
     /**
@@ -12,10 +13,6 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +41,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function index(Category $category)
     {
+        $categories = Category::all();
 
+        return view('categorieslist')->with('categories', $categories);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -55,9 +55,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id, $param)
     {
-        //
+        $category = Category::find($id);
+        $category->name = $param;
     }
 
     /**

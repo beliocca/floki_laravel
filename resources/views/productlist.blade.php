@@ -26,18 +26,10 @@
             <td> <img class="img-grid-admin"
                     src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt=""></td>
             <td>
-                <form class="" action="/admin/showproduct" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$product->id}}">
-                    <button type="submit">Editar</button>
-                </form>
+                    <a href="/admin/showproduct/{{$product->id}}"><button>Editar</button> </a>
             </td>
             <td>
-                <form class="" action="/admin/deleteproduct" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $product->id }}">
-                    <button type="submit" name="button">Eliminar</button>
-                </form>
+                <a href="/admin/deleteproduct/{{$product->id}}"><button name="button">Eliminar</button></a>
             </td>
         </tr>
         @endforeach

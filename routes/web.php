@@ -36,11 +36,25 @@ Route::post('/profile', 'UserController@update')->middleware('auth');
 
 Route::post('/admin/addproducts', 'ProductController@create')->middleware('auth');
 
-Route::get('/admin/listproducts', 'ProductController@list')->middleware('auth');
-
-Route::post('/admin/showproduct', 'ProductController@edit')->middleware('auth');
-
 Route::post('/admin/updateproduct', 'ProductController@update')->middleware('auth');
+
+Route::get('/admin/productslist', 'ProductController@list')->middleware('auth');
+
+Route::get('/admin/showproduct/{id}', 'ProductController@edit')->middleware('auth');;
+
+Route::get('/admin/deletephoto/{id}','ProductPhotoController@destroy')->middleware('auth');
+
+Route::get('/admin/deleteproduct/{id}', 'ProductController@destroy')->middleware('auth');
+
+Route::get('/admin/categorieslist', 'CategoryController@index')->middleware('auth');
+
+// Route::get('/admin/editcategory/{id}/{param}', 'CategoryController@edit')->middleware('auth');
+
+Route::get('/admin/orderslist', 'OrderController@index')->middleware('auth');
+
+Route::get('/admin/userslist', 'UserController@index')->middleware('auth');
+
+Route::get('/admin/edituser/{id}', 'UserController@edit')->middleware('auth');
 
 Route::get('/shop/{category}', 'ProductController@categories');
 

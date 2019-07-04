@@ -53,4 +53,15 @@ class UserController extends Controller
         return redirect("/profile");
     }
 
+    protected function index(){
+        $users = User::all();
+        return view('userslist')->with('users', $users);
+    }
+
+    protected function edit($id){
+        $user =User::find($id);
+        return view('edituser')->with('user', $user);
+        // falta hacer vista
+    }
+
 }

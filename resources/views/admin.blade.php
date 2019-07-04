@@ -12,16 +12,16 @@
             <h2 class="h2perfil">admin</h2>
             <ul>
                 <li>
-                    <a class="listperfil" href="/admin/listproducts"> productos</a>
+                    <a class="listperfil" href="/admin/productslist">productos</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="/admin/listcategories">categorias</a>
+                    <a class="listperfil" href="/admin/categorieslist">categorias</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="/admin/listorders">ordenes</a>
+                    <a class="listperfil" href="/admin/orderslist">ordenes</a>
                 </li>
                 <li>
-                    <a class="listperfil" href="/admin/listusers">usuarios</a>
+                    <a class="listperfil" href="/admin/userslist">usuarios</a>
                 </li>
             </ul>
         </div>

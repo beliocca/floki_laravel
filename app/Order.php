@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
   protected $guarded = [];
-
+  use SoftDeletes;
   public function user(){
       return $this->belongsTo(User::class, "user_id");
   }
@@ -26,5 +27,9 @@ class Order extends Model
 
   public function products(){
     return $this->belongsToMany(Product::class, "order_details", "order_id", "product_id");
+}
+
+public function orderDetail(){
+    return $this->belongsTo(OrderDetail::class, "order_id");
 }
 }

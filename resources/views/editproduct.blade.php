@@ -7,19 +7,20 @@
 <h2 class="titleperfil">Editar Productos</h2>
 <form class="form-group form-edit" action="/admin/updateproduct" method="post" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="id" value="{{$product->id}}">
     <div>
         <label class=""for="name">Nombre</label>
-        <input class="form-control  " type="text" name="name" value="{{ old('name') }}" placeholder="{{$product->name}}">
+        <input class="form-control" type="text" name="name" value="{{$product->name}}" >
     </div>
     <div>
         <label class="" for="price">Precio</label>
-        <input class="form-control " type="number" name="price" value="{{ old('price') }}"
-            placeholder="{{$product->price}}">
+        <input class="form-control " type="number" name="price"
+            value="{{$product->price}}">
     </div>
     <div>
         <label class="" for="category">Categoria</label>
-        <select class="form-control select " type="select" name="category" value="{{ old('category') }}"
-            placeholder="{{$product->category}}">
+        <select class="form-control select " type="select" name="category"
+            value="{{$product->category}}">
             @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
@@ -27,29 +28,33 @@
     </div>
     <div>
         <label class="" for="stock">Unidades</label>
-        <input class="form-control " type="number" name="stock" value="{{ old('stock') }}"
-            placeholder="{{$product->stock}}">
+        <input class="form-control " type="number" name="stock"
+            value="{{$product->stock}}">
     </div>
     <div>
         <label class="" for="description">Descripcion</label>
-        <input class="form-control " type="textarea" name="description" value="{{ old('description') }}"
-            placeholder="{{$product->description}}">
+        <textarea class="form-control " name="description" rows="4"
+            value="{{$product->description}}" placeholder="{{$product->description}}">{{$product->description}}</textarea>
     </div>
     <div>
         <label class="" for="filename">Subir imagenes</label>
         <input class="form-control " type="file" name="filename" value="{{ old('filename') }}">
+        @if(isset($error))
+            <small>{{$error}}</small>
+        @endif
     </div>
     <div>
         <p>Imagenes cargadas</p>
-        @foreach ($product->productPhotos as $photo)
-        <form action="/productPhoto/{id}" method="post">
-            @csrf
+        <div class="deleteimg">
+                @foreach ($product->productPhotos as $photo)
+                <div>
             <img class="img-grid-admin" src="/uploads/product_photos/{{$photo->filename}}" alt="">
-            <input type="hidden" type="text" value={{$photo->id}}>
-            <button class="btn btn-default" type="submit">Borrar</button>
-        </form>
-        @endforeach
+            <a href="/admin/deletephoto/{{$photo->id}}"><i class="far fa-trash-alt"></i></a>
+        </div>
+            @endforeach
+        </div>
     </div>
-    <button type="submit">EDITAR</button>
+    <button class="button" type="submit">EDITAR</button>
 </form>
+
 @endsection

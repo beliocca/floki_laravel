@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProductPhoto;
 use Illuminate\Http\Request;
+USE App\Product;
 
 class ProductPhotoController extends Controller
 {
@@ -78,8 +79,12 @@ class ProductPhotoController extends Controller
      * @param  \App\ProductPhoto  $productPhoto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductPhoto $productPhoto)
+    public function destroy($id)
     {
-        //
+
+        $photo = ProductPhoto::find($id);
+        $productid=$photo->product_id;
+        $photo->delete();
+        return redirect('/admin/showproduct/'.$productid);
     }
 }
