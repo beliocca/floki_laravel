@@ -155,23 +155,25 @@ class ProductController extends Controller
         $product->price = $data->price;
         $product->description = $data->description;
         $product->stock = $data->stock;
-
         $product->save();
         $product->categories()->attach($data->category);
 
-        if (isset($data->filename)) {
-            $route = $data['filename']->store('public/uploads/product_photos');
-            $filename = basename($route);
+        $filename = null;
+        if($data->hasfile('filename')){
+            $destinationPath = public_path('uploads/product_photos');
+            $filename = $product->id . $data->file('filename')->getClientOriginalName();
+            $data->file('filename')->move($destinationPath, $filename);
             ProductPhoto::create([
                 'filename' => $filename,
                 'product_id' => $product->id
             ]);
-        }
+
+        };
 
         $products = Product::orderBy('id', 'DESC')->paginate(20);
         $categories = Category::all();
 
-        return redirect('/admin/productslist');
+        return view('productlist')->with('products', $products);
     }
 
 

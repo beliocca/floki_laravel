@@ -446,7 +446,7 @@
 
 
       <!--  scripts de Javascript-->
-      <script type="text/javascript" src=href="{{ asset('js/floki.js') }}">  </script>
+      <script type="text/javascript" src="{{ asset('js/floki.js') }}">  </script>
 
 
   </body>

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1 class="titleperfil">Listado Categorías</h1>
+<h1 class="titleperfil">Listado Categorias</h1>
 
 <table class="table table-hover table-responsive-sm">
     <thead class="thead-light">
@@ -21,7 +21,7 @@
         <tr>
             <th scope="row">{{$category->id}}</th>
             <td><input value={{$category->name}}><a href="/admin/editcategory/{{$category->id}}/{{$category->name}}"><i class="far fa-edit"></i></a>
-                {{-- Como hago para mandar el input adentro de la A? o lo hago directamente con js?? --}}
+                {{-- Como hago para mandar el input adentro de la A? o lo hago directamente con js?? HACER CON JS --}}
             </td>
             <td><input value={{$category->url}}><a href="/admin/editcategory/{{$category->id}}"><i class="far fa-edit"></i></a>
             </td>

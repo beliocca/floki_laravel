@@ -30,13 +30,13 @@
                 <input type="hidden" name="id" value="{{$user->id}}">
                 <div>
                     <label for="name">Nombre</label>
-                    <input id="name" class="userform form-control" type="text" name="name" value="" autofocus
+                <input id="name" class="userform form-control" type="text" name="name" value="" autofocus
                         @error('name') @if (isset($message)) placeholder="{{ $message }}" @enderror @else
                         placeholder="{{$user->name}}" @endif>
                 </div>
                 <div>
                     <label for="last_name">Apellido</label>
-                    <input id="last_name" class="userform form-control" type="text" name="last_name" value="" autofocus
+                <input id="last_name" class="userform form-control" type="text" name="last_name" value="" autofocus
                         @error('last_name') @if (isset($message)) placeholder="{{ $message }}" @enderror @else
                         placeholder="{{$user->last_name}}" @endif>
                 </div>
