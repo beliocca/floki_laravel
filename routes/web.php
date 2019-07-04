@@ -48,8 +48,6 @@ Route::get('/admin/deleteproduct/{id}', 'ProductController@destroy')->middleware
 
 Route::get('/admin/categorieslist', 'CategoryController@index')->middleware('auth');
 
-// Route::get('/admin/editcategory/{id}/{param}', 'CategoryController@edit')->middleware('auth');
-
 Route::get('/admin/orderslist', 'OrderController@index')->middleware('auth');
 
 Route::get('/admin/userslist', 'UserController@index')->middleware('auth');
