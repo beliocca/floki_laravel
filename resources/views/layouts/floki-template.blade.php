@@ -39,6 +39,7 @@
 
           <!--Floki's Stylesheets-->
           <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
 
 </head>
 
@@ -446,7 +447,7 @@
 
 
       <!--  scripts de Javascript-->
-      <script type="text/javascript" src=href="{{ asset('js/floki.js') }}">  </script>
+      <script type="text/javascript" src="{{ asset('js/floki.js') }}">  </script>
 
 
   </body>
