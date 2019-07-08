@@ -111,7 +111,7 @@
 
       <article class="producto-top">
         <div class="producto-top-photo">
-        <img src="uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt="">
+        <img class="img-fluid"  src="uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt="">
         </div>
         <h2>{{ $product->name }}</h2>
         <h3>${{ $product->price }}</h3>
