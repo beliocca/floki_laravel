@@ -30,7 +30,7 @@ class ContactoController extends Controller
 
     }
 
-    protected function validator(Request $request)
+    protected function enviarMensaje (Request $request)
     {
 
       $rules = [
@@ -54,12 +54,18 @@ class ContactoController extends Controller
       );
 
 
+      $validator = Validator::make($request->all(), $rules, $messages);
+      $validator->setAttributeNames($niceNames);
 
-      $validator = $this->validate($request, $rules, $messages);
-       
+      if ($validator->fails())
+      {
+          return redirect('contacto')->withErrors($validator->messages())->withInput();
+      }
 
+      $mensajeEnviado = "Su mensaje ha sido enviado!";
 
-        return redirect('/home');
+      return view('contacto')->with('mensajeEnviado', $mensajeEnviado);
+
 
     }
 

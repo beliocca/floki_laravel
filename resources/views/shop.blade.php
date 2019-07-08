@@ -17,6 +17,9 @@
                     </li>
                   @endif
                 @endforeach
+                    <li >
+                      <a  href="/shop">Todas las categorias</a>
+                    </li>
             </ul>
 
             <p>Ordenar por precio</p>
@@ -33,6 +36,60 @@
             </ul>
 
         </ul>
+
+    </div>
+
+    <div class="menu-shop-mobile">
+
+          <hr>
+          <span class="">
+              <a class="dropdown"
+                  href="#"
+                  id="shopCategorias"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+              >Categorias</a>
+                <ul class="dropdown-menu " aria-labelledby="shopCategorias">
+                    @foreach ($categories as $category)
+                      @if ($category->is_main)
+                        <li class="dropdown-item">
+                            <a href="/shop/{{ $category->url }}">{{ $category->name }}</a>
+                        </li>
+                      @endif
+                    @endforeach
+                        <li  class="dropdown-item">
+                          <a  href="/shop">Todas las categorias</a>
+                        </li>
+                </ul>
+          </span>
+          <span class="">
+              <a class=" dropdown"
+                href="#"
+                id="ordenarPorPrecio"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+            Ordenar por precio</a>
+            <ul class="dropdown-menu " aria-labelledby="ordenarPorPrecio">
+                <li class="dropdown-item">
+                    <a href="/shop/order/asc">Menor a mayor</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="/shop/order/desc">Mayor a menor</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="/shop/order/5000">Hasta $5.000</a>
+                </li>
+            </ul>
+
+
+        </span>
+
+
 
     </div>
 

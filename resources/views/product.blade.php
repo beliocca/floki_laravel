@@ -76,12 +76,14 @@
 
 </div>
 
+
+{{-- productos recomendados dentro de la categoria --}}
 <div class="producto-recomendaciones">
   <div class="te-puede-gustar">
     <hr>
     <h1>También te puede gustar</h1>
-    <hr>
   </div>
+  
   <section class="productos-recomendados">
     @foreach ($productsRecomendados as $product)
 

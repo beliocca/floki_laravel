@@ -41,12 +41,15 @@
                         placeholder="{{ $message }}" @enderror @else placeholder="Email" @endif>
                   </p>
                   <p>
-                    <textarea id="mensaje"  class="userform mensaje-contacto" name="mensaje" value="{{ old('mensaje') }}"
+                    <textarea id="mensaje"  class="mensaje-contacto" name="mensaje" value="{{ old('mensaje') }}"
                         rows="8" cols="60"
-                         @error('mensaje') @if (isset($message))
-                        placeholder="{{ $message }}" @enderror
-                        @else placeholder="Escriba su mensaje aquí..." @endif>
-                    </textarea>
+                         @error('mensaje')
+                           @if (isset($message))
+                             placeholder="{{ $message }}"
+                        @enderror
+                          @else
+                            placeholder="Escriba su mensaje aquí..."
+                          @endif></textarea>
                   </p>
 
                   <p>
@@ -54,7 +57,19 @@
                           <i class="far fa-paper-plane"></i> Enviar
                       </button>
                   </p>
+
+                  <div class="contacto-mensaje-enviado">
+                    @if (isset($mensajeEnviado))
+
+                    <h3>{{ $mensajeEnviado }}</h3>
+
+                    @endif
+
+                  </div>
+
               </form>
+
+
           </article>
       </div>
   </section>

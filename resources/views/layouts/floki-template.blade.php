@@ -37,21 +37,36 @@
           <!-- Favicon -->
           <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
 
+          <!--AOS animate on scroll-->
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
           <!--Floki's Stylesheets-->
-          <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/producto.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+
           <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
 
 </head>
 
 <body>
-    <marquee
-      class="promocion d- d-none d-sm-flex"
-      behavior="scroll"
-      direction="left"
-      >Registrate y obtené 15% off en tu primera compra // Envíos gratis en
+  <p class="marquee">
+    <span>
+      Registrate y obtené 15% off en tu primera compra // Envíos gratis en
       compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
-      con 20% off //
-    </marquee>
+      con 20% off
+    </span>
+  </p>
 
   <header>
 
@@ -238,7 +253,7 @@
 
 
         {{-- logo header --}}
-          <div class="header-logo">
+          <div class="header-logo" >
             <a href="/"><img src="{{ asset('images/logo2.png') }}" alt="Logo Floki"/></a>
             </div>
 
@@ -445,6 +460,11 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+      <!--  scripts de AOS-->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+  AOS.init();
+</script>
 
       <!--  scripts de Javascript-->
       <script type="text/javascript" src="{{ asset('js/floki.js') }}">  </script>
