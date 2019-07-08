@@ -27,8 +27,13 @@
         </tr>
         @endforeach
     </tbody>
+
 </table>
 
-
+<div class="contenedor-productos">
+    <div class="pagination-productos">
+        {{$users->appends($_GET)->links()}}
+    </div>
+    </div>
 
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Category;
+use App\Role;
 
 
 class UserController extends Controller
@@ -24,16 +25,16 @@ class UserController extends Controller
     }
 
     protected function update(Request $data){
+
         $rules = [
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
+            'name' => ['string', 'max:255'],
+            'last_name' => ['string', 'max:255'],
             'phone' => ['numeric'],
             'birthday'=>['date']
 
           ];
 
           $messages = [
-            'required' => 'El campo :attribute es obligatorio',
             'string' => 'El campo :attribute debe contener solo letras',
             'max' => 'El campo :attribute debe tener como máximo :max caracteres',
             'numeric'=> 'Ingrese solo números',
@@ -41,10 +42,13 @@ class UserController extends Controller
           ];
 
          $this->validate($data, $rules, $messages);
-
         $user = User::find($data->id);
-        $user->name = $data->name;
-        $user->last_name = $data->last_name;
+         if($data->name != null){
+            $user->name = $data->name;
+         }
+         if($data->last_name != null){
+            $user->last_name = $data->last_name;
+         }
         $user->phone = $data->phone;
         $user->birthday = $data->birthday;
 
@@ -54,14 +58,35 @@ class UserController extends Controller
     }
 
     protected function index(){
-        $users = User::all();
+        $users = User::paginate(20);
+
         return view('userslist')->with('users', $users);
     }
 
     protected function edit($id){
         $user =User::find($id);
-        return view('edituser')->with('user', $user);
-        // falta hacer vista
+        $roles = Role::all();
+        return view('edituser')->with('user', $user)->with('roles', $roles);
+
+    }
+
+    protected function adminupdate(Request $data){
+        $user = User::find($data->id);
+        if($data->name != null){
+            $user->name = $data->name;
+         }
+         if($data->last_name != null){
+            $user->last_name = $data->last_name;
+         }
+         if($data->role_id != null){
+            $user->role_id = $data->role_id;
+         }
+        $user->phone = $data->phone;
+        $user->birthday = $data->birthday;
+        $user->save();
+
+        return redirect('/admin/userslist');
+
     }
 
 }

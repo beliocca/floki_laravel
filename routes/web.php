@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\UserController;
-
+use App\Http\Middleware\Admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,25 +34,40 @@ Route::get('/profile', 'UserController@show')->middleware('auth');
 
 Route::post('/profile', 'UserController@update')->middleware('auth');
 
-Route::post('/admin/addproducts', 'ProductController@create')->middleware('auth');
+Route::group(['middleware' => 'admin'], function () {
 
-Route::post('/admin/updateproduct', 'ProductController@update')->middleware('auth');
+    Route::post('/admin/addproducts', 'ProductController@create');
 
-Route::get('/admin/productslist', 'ProductController@list')->middleware('auth');
+    Route::post('/admin/updateproduct', 'ProductController@update');
 
-Route::get('/admin/showproduct/{id}', 'ProductController@edit')->middleware('auth');;
+    Route::get('/admin/productslist', 'ProductController@list');
 
-Route::get('/admin/deletephoto/{id}','ProductPhotoController@destroy')->middleware('auth');
+    Route::get('/admin/showproduct/{id}', 'ProductController@edit');;
 
-Route::get('/admin/deleteproduct/{id}', 'ProductController@destroy')->middleware('auth');
+    Route::get('/admin/deletephoto/{id}','ProductPhotoController@destroy');
 
-Route::get('/admin/categorieslist', 'CategoryController@index')->middleware('auth');
+    Route::get('/admin/deleteproduct/{id}', 'ProductController@destroy');
 
-Route::get('/admin/orderslist', 'OrderController@index')->middleware('auth');
+    Route::get('/admin/categorieslist', 'CategoryController@index');
 
-Route::get('/admin/userslist', 'UserController@index')->middleware('auth');
+    Route::get('/admin/editcategory/{id}', 'CategoryController@show');
 
-Route::get('/admin/edituser/{id}', 'UserController@edit')->middleware('auth');
+    Route::post('/admin/updatecategory', 'CategoryController@edit');
+
+    Route::get('/admin/deletecategory/{id}', 'CategoryController@destroy');
+
+    Route::post('/admin/addcategory', 'CategoryController@create');
+
+    Route::get('/admin/orderslist', 'OrderController@index');
+
+    Route::get('/admin/userslist', 'UserController@index');
+
+    Route::get('/admin/edituser/{id}', 'UserController@edit');
+
+    Route::post('/admin/updateuser', 'UserController@adminupdate');
+
+});
+
 
 Route::get('/shop/{category}', 'ProductController@categories');
 
@@ -68,6 +83,13 @@ Route::post('/addtocart', 'ProductController@addToCart');
 
 Route::post('/editcart', 'ProductController@editCart');
 
-Route::get('/checkout', 'ProductController@checkout');
-
 Route::post('/borrarCartItem', 'ProductController@editCart');
+
+// update & delete from ajax
+Route::post('/updatecart', 'ProductController@updateCart');
+
+Route::post('/deletefromcart', 'ProductController@deleteFromCart');
+
+Route::get('/cart', 'ProductController@cart');
+
+Route::get('/checkout', 'ProductController@');

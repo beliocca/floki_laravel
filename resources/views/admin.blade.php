@@ -8,7 +8,7 @@
 
 <div class="container perfil">
     <div class="row">
-        <div class="col-12 col-sm-4 ">
+        <div class="col-12 col-sm-3 ">
             <h2 class="h2perfil">admin</h2>
             <ul>
                 <li>
@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-sm-8">
+        <div class="col-12 col-sm-9">
             <h2 class="h2perfil">Agregar Productos</h2>
             <form action="/admin/addproducts" method="post" enctype="multipart/form-data">
                 @csrf

@@ -207,10 +207,10 @@ class ProductController extends Controller
 
     public function addToCart(Request $request)
     {
+        
         $product = $request->all();
 
-        // BORRA ARRAY EN SESSION
-        // Session::forget('cart');
+
 
         if (Session::has('cart')) {
             $cart = Session::get('cart');
@@ -224,6 +224,7 @@ class ProductController extends Controller
 
         Session::put('cart', $cart);
         $cartsInSession = Session::get('cart');
+
         $cartItems = count($cartsInSession);
 
         return redirect()->back()->with('message', 'Hay nuevos productos en el carrito.')
@@ -249,15 +250,53 @@ class ProductController extends Controller
 
             unset($cart[$cartIdABorrar]);
 
-
             Session::put('cart', $cart);
-
 
             return redirect()->back();
         }
+
     }
 
-    public function checkout()
+    public function updateCart(Request $request){
+
+        // dd($request);
+        $product = $request->all();
+        // dd($product);
+
+        if (Session::has('cart')) {
+            $cart = Session::get('cart');
+        }
+
+        if (isset($cart[$product['id']])) :
+            $cart[$product['id']]['cantidad'] = $product['cantidad'];
+        else :
+            $cart[$product['id']] = $product;
+        endif;
+
+        Session::put('cart', $cart);
+        $cartsInSession = Session::get('cart');
+        // dd($cartsInSession);
+        $cartItems = count($cartsInSession);
+
+    }
+
+    public function deleteFromCart(Request $request){
+
+        $cartCambios = $request->all();
+
+        $cart = Session::get('cart');
+
+            $cartIdABorrar = $cartCambios['id'];
+
+            unset($cart[$cartIdABorrar]);
+
+            Session::put('cart', $cart);
+
+        }
+
+
+
+    public function cart()
     {
 
 
@@ -265,6 +304,6 @@ class ProductController extends Controller
 
 
 
-        return view('checkout')->with('products', $products);
+        return view('cart')->with('products', $products);
     }
 }

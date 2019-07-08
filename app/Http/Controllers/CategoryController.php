@@ -19,9 +19,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $data)
     {
-        //
+        $category = Category::create([
+            'name' => $data["name"],
+            'url' => $data["url"],
+            'is_main' => $data["is_main"]
+        ]);
+
+        $categories = Category::all();
+        return view('categorieslist')->with('categories', $categories);
     }
 
     /**
@@ -55,12 +62,26 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $param)
+    public function show($id)
     {
         $category = Category::find($id);
-        $category->name = $param;
+
+        return view('editcategory')->with('category', $category);
     }
 
+    public function edit(Request $data)
+    {
+
+        $category = Category::find($data->id);
+        $category->name = $data->name;
+        $category->url = $data->url;
+        $category->is_main = $data->is_main;
+        $category->save();
+
+        $categories = Category::all();
+
+        return view('categorieslist')->with('categories', $categories);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -79,8 +100,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+            $category->delete();
+
+
+        $categories = Category::all();
+
+        return view('categorieslist')->with('categories', $categories);
     }
 }
