@@ -25,7 +25,7 @@
         </div>
         <div class="col-12 col-sm-8">
             <h2 class="h2perfil">perfil</h2>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="/profile" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{$user->id}}">
                 <div>

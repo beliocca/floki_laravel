@@ -2,6 +2,10 @@
 
 @section('title', 'FLOKI Deco & Design')
 
+@section('scripts')
+  <script src="{{ asset('js/changePhotoOnHover.js') }}"></script>
+@endsection
+
 
 @section('content')
 
@@ -96,9 +100,15 @@
   <section class="productos-top">
     @foreach ($topProducts as $product)
 
-      <article class="producto-top">
+      <article class="producto-top js-img-hover">
         <div class="producto-top-photo">
-        <img class="img-fluid"  src="uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt="">
+
+          @foreach ($product->productPhotos as $productPhoto)
+            <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                        alt="">
+          @endforeach
+
+
         </div>
         <h2>{{ $product->name }}</h2>
         <h3>${{ $product->price }}</h3>

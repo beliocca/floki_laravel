@@ -2,6 +2,10 @@
 
 @section('title', 'Shop - FLOKI Deco & Design')
 
+@section('scripts')
+<script src="{{ asset('js/producto.js') }}"></script>
+@endsection
+
 
 @section('content')
 
@@ -11,10 +15,13 @@
         <div class="fotos-producto">
 
              <div class="photo-product-main" >
-               <i class="fas fa-chevron-left"></i>
-                     <img class="" src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}"
-                                 alt="">
-              <i class="fas fa-chevron-right"></i>
+               <i id="previousPhoto" class="fas fa-chevron-left"></i>
+               @foreach ($product->productPhotos as $productPhoto)
+                 <img  class="productPhotos" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                             alt="">
+               @endforeach
+
+              <i id="nextPhoto" class="fas fa-chevron-right"></i>
              </div>
 
         </div>
@@ -83,13 +90,18 @@
     <hr>
     <h1>También te puede gustar</h1>
   </div>
-  
+
   <section class="productos-recomendados">
     @foreach ($productsRecomendados as $product)
 
       <article class="producto-recomendado">
         <div class="producto-recomendado-photo">
-        <img src="{{ asset('uploads/product_photos/' . $product->productPhotos->first()->filename) }}" alt="">
+
+          @foreach ($product->productPhotos as $productPhoto)
+            <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                        alt="">
+          @endforeach
+
         </div>
         <h2>{{ $product->name }}</h2>
         <h3>${{ $product->price }}</h3>

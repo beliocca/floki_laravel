@@ -37,7 +37,7 @@
           <!-- Favicon -->
           <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
 
-          <!--AOS animate on scroll-->
+          <!--AOS Stylesheets-->
           <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
           <!--Floki's Stylesheets-->
@@ -54,421 +54,373 @@
           <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
-
+          <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
+
 
 </head>
 
 <body>
-  <p class="marquee">
-    <span>
-      Registrate y obtené 15% off en tu primera compra // Envíos gratis en
-      compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
-      con 20% off
-    </span>
-  </p>
+    <p class="marquee">
+      <span>
+        Registrate y obtené 15% off en tu primera compra // Envíos gratis en
+        compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
+        con 20% off
+      </span>
+    </p>
 
-  <header>
+    <header>
 
-    <div class="header-container">
+        <div class="header-container">
 
 
-        {{-- menu login - register - cart --}}
-        <div class="user-navbar">
-            <nav class="navbar navbar-expand-lg">
+            {{-- menu login - register - cart --}}
+            <div class="user-navbar">
+                <nav class="navbar navbar-expand-lg">
 
-              {{-- @if (Session::has('cart'))
+                    {{-- @if (Session::has('cart'))
                 {{dd(Session::get('cart'))  }}
-              @endif --}}
+                    @endif --}}
 
-                <div class="nav-item shopping-cart dropdown" >
-                  @if (Session::has('cart'))
-                    <a class=" dropdown"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                    >
+                    <div class="nav-item shopping-cart dropdown">
+                        @if (Session::has('cart'))
+                        <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
 
-                      @php
-                          $cantidadProductos = 0;
-                          $precioTotal = 0;
+                            @php
+                            $cantidadProductos = 0;
+                            $precioTotal = 0;
 
-                          foreach (Session::get('cart') as $cartId => $product) {
+                            foreach (Session::get('cart') as $cartId => $product) {
                             $cantidadProductos += $product['cantidad'];
                             $precioTotal += $product['price'] * $product['cantidad'];
-                          }
+                            }
 
-                      @endphp
-
-
-                      <p>{{ $cantidadProductos }} Productos</p>
-                    </a>
-                  @endif
-                      <a class="nav-link dropdown"
-                          href="#"
-                          id="navbarDropdown"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                      >
-                        <i class="fas fa-shopping-cart "></i>
-                      </a>
+                            @endphp
 
 
-                      <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-                        @if (Session::has('cart'))
-                          <ul class="cart-menu dropdown-item">
-                            @foreach (Session::get('cart') as $cartId => $product)
-                              <li>
-                        {{ $product["cantidad"] }}x  {{  $product["name"]}} ${{ $product["price"] * $product["cantidad"] }}
+                            <p>{{ $cantidadProductos }} Productos</p>
+                        </a>
+                        @endif
+                        <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-shopping-cart "></i>
+                        </a>
+
+
+                        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+                            @if (Session::has('cart'))
+                            <ul class="cart-menu dropdown-item">
+                                @foreach (Session::get('cart') as $cartId => $product)
+                                <li>
+                                    {{ $product["cantidad"] }}x {{  $product["name"]}}
+                                    ${{ $product["price"] * $product["cantidad"] }}
                                 </li>
-                            @endforeach
+                                @endforeach
 
-                            <li class="li-cart-total">
-                              Total: ${{ $precioTotal }}
-                            </li>
+                                <li class="li-cart-total">
+                                    Total: ${{ $precioTotal }}
+                                </li>
 
-                            <li class="li-cart">
-                              <button>
-                                <a href="/checkout">Ir al checkout</a>
-                              </button>
-                            </li>
-
-                          </ul>
-                          @else
-                            <ul class="navbar-nav">
-                              <li class="dropdown-item">
-                            No hay productos en el carrito
-                              </li>
+                                <li class="li-cart">
+                                    <button>
+                                        <a href="/cart">Ver carrito</a>
+                                    </button>
+                                </li>
 
                             </ul>
-                        @endif
+                            @else
+                            <ul class="navbar-nav">
+                                <li class="dropdown-item">
+                                    No hay productos en el carrito
+                                </li>
 
-                      </div>
-                </div>
+                            </ul>
+                            @endif
 
-            @if (Route::has('login'))
+                        </div>
+                    </div>
 
-                <div class="dropdown dropdown-user-menu">
-                      @auth
-                        <button
-                          class="btn "
-                          type="button"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          data-target="#navbarSupportedContent"
-                          aria-controls="navbarSupportedContent"
-                          aria-label="Toggle navigation"
-                        >
-                              <i class="fas fa-user-circle"></i>
+                    @if (Route::has('login'))
+
+                    <div class="dropdown dropdown-user-menu">
+                        @auth
+                        <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+                            <i class="fas fa-user-circle"></i>
 
                         </button>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <ul class="navbar-nav">
-                                  <li class="dropdown-item">
-                                  <a class="nav-link" href="/profile">Mi perfil</a>
-                                  </li>
-                                  <li class="dropdown-item">
+                            <ul class="navbar-nav">
+                                <li class="dropdown-item">
+                                    <a class="nav-link" href="/profile">Mi perfil</a>
+                                </li>
+                                <li class="dropdown-item">
                                     <form class="" action="{{ route('logout') }}" method="post">
-                                      @csrf
+                                        @csrf
                                         <button type="submit" name="" class="nav-link">Log out</button>
                                     </form>
-                                  </li>
-                                </ul>
-                       </div>
+                                </li>
+                            </ul>
+                        </div>
 
-                     @else
+                        @else
 
-                          <button
-                            class="btn "
-                            type="button"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-label="Toggle navigation"
-                          >
-                              <i class="far fa-user-circle"></i>
-                                </button>
+                        <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+                            <i class="far fa-user-circle"></i>
+                        </button>
 
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                              <ul class="navbar-nav">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <ul class="navbar-nav">
                                 <li class="dropdown-item">
-                                  <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                                    <a class="nav-link" href="{{ route('login') }}">Log in</a>
                                 </li>
                                 <li class="dropdown-item">
-                                  @if (Route::has('register'))
+                                    @if (Route::has('register'))
                                     <a class="nav-link" href="{{ route('register') }}">Sign in</a>
-                                  @endif
+                                    @endif
                                 </li>
-                              </ul>
-                          </div>
+                            </ul>
+                        </div>
 
 
                         @endauth
-                        </div>
+                    </div>
 
-                  <div class="no-dropdown-user-menu">
-                            @auth
-                                <ul class="navbar-nav">
-                                    <li class="">
-                                      <a class="nav-link" href="/profile">Mi perfil</a>
-                                    </li>
-                                    <li class="">
-                                      <form class="" action="{{ route('logout') }}" method="post">
-                                        @csrf
-                                          <button type="submit" name="" class="nav-link">Log out</button>
-                                      </form>
+                    <div class="no-dropdown-user-menu">
+                        @auth
+                        <ul class="navbar-nav">
+                            <li class="">
+                                <a class="nav-link" href="/profile">Mi perfil</a>
+                            </li>
+                            <li class="">
+                                <form class="" action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" name="" class="nav-link">Log out</button>
+                                </form>
 
-                                    </li>
-                                </ul>
-                            @else
+                            </li>
+                        </ul>
+                        @else
 
-                                <ul class="navbar-nav">
-                                  <li class="">
-                                    <a class="nav-link" href="{{ route('login') }}">Log in</a>
-                                  </li>
-                                  <li class="">
-                                    @if (Route::has('register'))
-                                      <a class="nav-link" href="{{ route('register') }}">Sign in</a>
-                                    @endif
-                                  </li>
-                                </ul>
+                        <ul class="navbar-nav">
+                            <li class="">
+                                <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                            </li>
+                            <li class="">
+                                @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">Sign in</a>
+                                @endif
+                            </li>
+                        </ul>
 
-                              @endauth
-                  </div>
-              @endif
+                        @endauth
+                    </div>
+                    @endif
 
-          </nav>
-        </div>
-
-
-        {{-- logo header --}}
-          <div class="header-logo" >
-            <a href="/"><img src="{{ asset('images/logo2.png') }}" alt="Logo Floki"/></a>
+                </nav>
             </div>
 
-        {{-- main menu large screen + search --}}
-        <div class="main-navbar main-menu-large-screen" >
-            <nav class="navbar navbar-expand-lg menu-floki">
 
-                <ul class="navbar-nav mr-auto menu-floki-links">
-                    <li class="nav-item dropdown">
-                      <a
-                        class="nav-link dropdown-toggle dropdown"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Shop
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                        @foreach ($categories as $category)
-                          @if ($category->is_main)
-                            <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
-                          @endif
-                        @endforeach
-
-                        <a class="dropdown-item" href="/shop">Todas las categorias</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/inspiration">Inspiración</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/contacto">Contacto</a>
-                    </li>
-                </ul>
-
-                <ul class="search-menu-large-screen">
-                    <li>
-                      <form class="search formu-inline" action="/search" method="get">
-                          <input class="form-control" type="text" name="search" placeholder="Search"
-                           />
-                          <button class="btn" type="submit">
-                            <i class="fas fa-search"></i>
-                          </button>
-
-                      </form>
-                    </li>
-                </ul>
-
-              </nav>
+            {{-- logo header --}}
+            <div class="header-logo">
+                <a href="/"><img src="{{ asset('images/logo2.png') }}" alt="Logo Floki" /></a>
             </div>
 
-        {{-- main menu mobile + search --}}
-      <div class="main-navbar dropdown dropdown-collapse main-menu-small-screen"  >
-            <nav class="navbar navbar-expand-lg ">
-                <button
-                  class="navbar-toggler btn btn-menu"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  data-target="#navbarSupportedContent1"
-                  aria-controls="navbarSupportedContent1"
-                  aria-label="Toggle navigation"
+            {{-- main menu large screen + search --}}
+            <div class="main-navbar main-menu-large-screen">
+                <nav class="navbar navbar-expand-lg menu-floki">
 
-                >
+                    <ul class="navbar-nav mr-auto menu-floki-links">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropdown" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                <i class="fas fa-bars"></i>
-                </button>
+                                @foreach ($categories as $category)
+                                @if ($category->is_main)
+                                <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
+                                @endif
+                                @endforeach
+
+                                <a class="dropdown-item" href="/shop">Todas las categorias</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/inspiration">Inspiración</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contacto">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <ul class="search-menu-large-screen">
+                        <li>
+                            <form class="search formu-inline" action="/search" method="get">
+                                <input class="form-control" type="text" name="search" placeholder="Search" />
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+
+                            </form>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+
+            {{-- main menu mobile + search --}}
+            <div class="main-navbar dropdown dropdown-collapse main-menu-small-screen">
+                <nav class="navbar navbar-expand-lg ">
+                    <button class="navbar-toggler btn btn-menu" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+                        aria-label="Toggle navigation">
+
+                        <i class="fas fa-bars"></i>
+                    </button>
 
 
-                <ul class="dropdown-menu menu-floki-dropdown
+                    <ul class="dropdown-menu menu-floki-dropdown
                  menu-floki-links-small-screen" id="dropdownMenuButton">
-                    <li class="dropdown-item ">
-                      <a
-                        class="nav-link"
-                        href="#shop"
-                        data-toggle="collapse"
-                        data-target="#shop"
-                        role="button"
-                        aria-controls="shop"
-                        aria-expanded="false"
-
-                      >
-                        SHOP
-                      </a>
-                          <ul class="collapse nav-item" id="shop">
-                            @foreach ($categories as $category)
-                              @if ($category->is_main)
+                        <li class="dropdown-item ">
+                            <a class="nav-link" href="#shop" data-toggle="collapse" data-target="#shop" role="button"
+                                aria-controls="shop" aria-expanded="false">
+                                SHOP
+                            </a>
+                            <ul class="collapse nav-item" id="shop">
+                                @foreach ($categories as $category)
+                                @if ($category->is_main)
                                 <li>
                                     <a href="/shop/{{ $category->url }}">{{ $category->name }}</a>
                                 </li>
-                              @endif
-                            @endforeach
+                                @endif
+                                @endforeach
 
-                            <li>
-                              <a  href="/shop">Todas las categorias</a>
-                            </li>
-                          </ul>
-                    </li>
-                    <li class="dropdown-item nav-item">
-                      <a class="nav-link" href="/inspiracion">Inspiración</a>
-                    </li>
-                    <li class="dropdown-item nav-item">
-                      <a class="nav-link" href="/nosotros">Sobre nosotros</a>
-                    </li>
-                    <li class="dropdown-item nav-item">
-                      <a class="nav-link" href="/contacto">Contacto</a>
-                    </li>
+                                <li>
+                                    <a href="/shop">Todas las categorias</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-item nav-item">
+                            <a class="nav-link" href="/inspiracion">Inspiración</a>
+                        </li>
+                        <li class="dropdown-item nav-item">
+                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                        </li>
+                        <li class="dropdown-item nav-item">
+                            <a class="nav-link" href="/contacto">Contacto</a>
+                        </li>
 
-                    <li>
-                      <form class="dropdown-item search formu-inline" action="/search" method="get">
-                        <input class="form-control" type="text" name="search" placeholder="Search"
-                         />
-                        <button class="btn" type="submit">
-                          <i class="fas fa-search"></i>
-                        </button>
+                        <li>
+                            <form class="dropdown-item search formu-inline" action="/search" method="get">
+                                <input class="form-control" type="text" name="search" placeholder="Search" />
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
 
-                      </form>
-                    </li>
-                </ul>
+                            </form>
+                        </li>
+                    </ul>
 
-            </nav>
-          </div>
-
+                </nav>
+            </div>
 
 
-  </div>
 
-  </header>
-  <hr class="hr-header">
+        </div>
 
-<body>
+    </header>
+    <hr class="hr-header">
 
-
-    <main class="main-content">
-        @yield('content')
-    </main>
+    <body>
 
 
- </body>
+        <main class="main-content">
+            @yield('content')
+        </main>
+
+
+    </body>
     <footer class="main-footer">
 
 
-      <div class="footer-menu">
-        <ul class="footer-shop ">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              shop
-            </a>
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-              @foreach ($categories as $category)
-                @if ($category->is_main)
-                  <a  class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
+        <div class="footer-menu">
+            <ul class="footer-shop ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        shop
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                        @foreach ($categories as $category)
+                        @if ($category->is_main)
+                        <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
 
-                @endif
-              @endforeach
+                        @endif
+                        @endforeach
 
-              <a  class="dropdown-item" href="/shop">Todas las categorias</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+                        <a class="dropdown-item" href="/shop">Todas las categorias</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
 
-          <div class="footer-social">
+        <div class="footer-social">
             <h3>follow us!</h3>
             <div>
-              <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook"></i> </a>
-              <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram"></i> </a>
-              <a href="http://plus.google.com" target="_blank"><i class="fab fa-google-plus"></i></a>
-              <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter"></i> </a>
+                <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook"></i> </a>
+                <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram"></i> </a>
+                <a href="http://plus.google.com" target="_blank"><i class="fab fa-google-plus"></i></a>
+                <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter"></i> </a>
             </div>
-          </div>
+        </div>
 
-          <div class="footer-list">
+        <div class="footer-list">
             <ul>
-              <li><a href="#">órdenes</a></li>
-              <li><a href="#">envíos y devoluciones</a></li>
-              <li><a href="#">f.a.q</a></li>
-              <li><a href="#">politica de privacidad</a></li>
+                <li><a href="#">órdenes</a></li>
+                <li><a href="#">envíos y devoluciones</a></li>
+                <li><a href="#">f.a.q</a></li>
+                <li><a href="#">politica de privacidad</a></li>
             </ul>
-          </div>
+        </div>
 
-      </footer>
+    </footer>
 
-      <!--  scripts de Bootstrap-->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--  scripts de Bootstrap-->
 
-      <!--  scripts de AOS-->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script>
-  AOS.init();
-</script>
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> --}}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 
-      <!--  scripts de Javascript-->
-      <script type="text/javascript" src="{{ asset('js/floki.js') }}">  </script>
+    <!--  scripts de AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init();  </script>
 
 
-  </body>
+    <!--  scripts de Javascript-->
+    <script type="text/javascript" src="{{ asset('js/floki.js') }}"> </script>
+    @yield('scripts')
+
+
+</body>
+
 </html>

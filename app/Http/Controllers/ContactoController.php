@@ -30,7 +30,7 @@ class ContactoController extends Controller
 
     }
 
-    protected function enviarMensaje (Request $request)
+    protected function enviarMensaje(Request $request)
     {
 
       $rules = [
@@ -52,6 +52,7 @@ class ContactoController extends Controller
           'email' => 'email',
           'mensaje' => 'mensaje',
       );
+
 
 
       $validator = Validator::make($request->all(), $rules, $messages);

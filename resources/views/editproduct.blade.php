@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h2 class="titleperfil">Editar Productos</h2>
+<h2 class="titleperfil">Editar Producto</h2>
 <form class="form-group form-edit" action="/admin/updateproduct" method="post" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="id" value="{{$product->id}}">
@@ -34,7 +34,7 @@
     <div>
         <label class="" for="description">Descripcion</label>
         <textarea class="form-control " name="description" rows="4"
-            value="{{$product->description}}" placeholder="{{$product->description}}">{{$product->description}}</textarea>
+            value="">{{$product->description}}</textarea>
     </div>
     <div>
         <label class="" for="filename">Subir imagenes</label>

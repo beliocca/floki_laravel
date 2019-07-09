@@ -26,10 +26,10 @@
             <td> <img class="img-grid-admin"
                     src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt=""></td>
             <td>
-                    <a href="/admin/showproduct/{{$product->id}}"><button>Editar</button> </a>
+                    <a href="/admin/showproduct/{{$product->id}}"><button class="button">Editar</button> </a>
             </td>
             <td>
-                <a href="/admin/deleteproduct/{{$product->id}}"><button name="button">Eliminar</button></a>
+                <a href="/admin/deleteproduct/{{$product->id}}"><button class="button" name="button">Eliminar</button></a>
             </td>
         </tr>
         @endforeach
