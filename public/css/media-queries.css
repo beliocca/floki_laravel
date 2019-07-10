@@ -1106,7 +1106,7 @@ a.page-link {
     border-radius: 0px;
     margin: auto;
     padding: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     text-align: center;
 }
 
@@ -1187,10 +1187,10 @@ a.page-link {
     outline: none;
 }
 
-.btn-delete-out{
+.thead-light td .btn-delete-out{
 background-color: rgba(255, 0, 0, 0);
 border: none;
-outline: none;
+outline: none !important;
 color: #0d4659;
 font-size: 16px;
 font-family: "Work Sans", sans-serif;

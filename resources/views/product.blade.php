@@ -9,7 +9,6 @@
 <div class="contenedor-producto">
 
         <div class="fotos-producto">
-
              <div class="photo-product-main" >
                <i class="fas fa-chevron-left"></i>
                      <img class="" src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}"
@@ -58,7 +57,9 @@
                  </select>
 
                </div>
-
+               @if (isset($currentUser))
+               <input type="hidden" name="user_id" value={{$currentUser->id}}>
+               @endif
               <input type="hidden" name="id" value="{{ $product->id }}">
               <input type="hidden" name="name" value="{{ $product->name }}">
               <input type="hidden" name="price" value="{{ $product->price }}">

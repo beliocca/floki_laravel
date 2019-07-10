@@ -18,13 +18,14 @@
     </thead>
     <tbody class="thead-light">
         @foreach ($categories as $category)
+
         <tr class="category-row">
             <th scope="row">{{$category->id}}</th>
             <td>{{$category->name}} </td>
             <td>{{$category->url}}</td>
             <td><a href="/admin/editcategory/{{$category->id}}"><button class="button" name="button">Editar</button></a>
             </td>
-            @if ($category->products==[])
+            @if (count($category->products)>0)
             <td><button name="button" class="button delete btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Eliminar</button>
             </td>
                 <div id="myModal" class="modal fade" role="dialog">

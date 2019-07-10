@@ -1871,10 +1871,10 @@ border: none;
     outline: none;
 }
 
-.btn-delete-out{
+.thead-light td .btn-delete-out{
 background-color: rgba(255, 0, 0, 0);
 border: none;
-outline: none;
+outline: none !important;
 color: #0d4659;
 font-size: 16px;
 font-family: "Work Sans", sans-serif;

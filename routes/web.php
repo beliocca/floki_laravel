@@ -79,17 +79,17 @@ Route::get('/contacto', 'ContactoController@index');
 
 Route::post('/contacto', 'ContactoController@validator');
 
-Route::post('/addtocart', 'ProductController@addToCart');
-
-Route::post('/editcart', 'ProductController@editCart');
-
-Route::post('/borrarCartItem', 'ProductController@editCart');
+Route::post('/addtocart', 'CartController@addToCart');
 
 // update & delete from ajax
-Route::post('/updatecart', 'ProductController@updateCart');
+Route::post('/updatecart', 'CartController@updateCart');
 
-Route::post('/deletefromcart', 'ProductController@deleteFromCart');
+Route::post('/deletefromcart', 'CartController@deleteFromCart');
 
-Route::get('/cart', 'ProductController@cart');
+Route::get('/cart', 'CartController@show')->name('cart');
 
-Route::get('/checkout', 'ProductController@');
+Route::get('/checkoutguest', 'CartController@checkoutSession');
+
+Route::get('/checkoutuser', 'CartController@checkoutUser')->middleware('auth');
+
+Route::post('/order', 'OrderController@create');

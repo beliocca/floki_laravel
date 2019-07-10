@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use App\Address;
+use App\OrderDetail;
+use Illuminate\Support\Facades\Auth;
+use App\Cart;
 
 class OrderController extends Controller
 {
@@ -25,9 +29,65 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        if(isset($request["user_id"])){
+            $user_id = $request["user_id"];
+        }else{
+            $user_id = null;
+        }
+
+        $address = Address::create([
+            "user_id" => $user_id,
+            "address_line1" => $request["address_line1"],
+            "address_line2" => $request["address_line2"],
+            "city" => $request["city"],
+            "state" => $request["state"],
+            "country" => $request["country"],
+            "zipcode" => $request["zipcode"]
+        ]);
+
+
+        $json = $request["carts"];
+        $carts = json_decode($json, true);
+
+        $items = 0;
+        $amount = 0;
+        foreach($carts as $cart){
+            $items += $cart["quantity"];
+            $amount += $cart["product"]["price"];
+        }
+
+
+        $order = Order::create([
+            "name" => $request["name"],
+            "last_name" => $request["last_name"],
+            "email" => $request["email"],
+            "user_id" => $user_id,
+            "items" => $items,
+            "amount" => $amount,
+            "order_status_id" => 1,
+            "address_id" => $address->id,
+        ]);
+
+        foreach($carts as $cart){
+            $orderDetail = OrderDetail::create([
+                "order_id" => $order->id,
+                "product_id" => $cart["product_id"],
+                "amount" => $cart["quantity"],
+                "price" => $cart["product"]["price"],
+                ]);
+        }
+
+        if(Auth::user()){
+            $carts = Cart::where('user_id', $user_id)->get();
+            foreach($carts as $cart){
+                $cart->delete();
+            }
+        };
+
+        return view('success')->with("order", $order);
     }
 
     /**

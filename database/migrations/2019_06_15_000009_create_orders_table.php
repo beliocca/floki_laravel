@@ -16,7 +16,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->string('name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('items');
             $table->decimal('amount', 6, 2);
@@ -29,7 +32,9 @@ class CreateOrdersTable extends Migration
             $table->foreign('shipping_id')->references('id')->on('shippings')->nullable()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
+
         });
+
     }
 
     /**

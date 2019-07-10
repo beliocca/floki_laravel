@@ -8,6 +8,7 @@ use App\ProductPhoto;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Cart;
 
 class ProductController extends Controller
 {
@@ -205,105 +206,4 @@ class ProductController extends Controller
     }
 
 
-    public function addToCart(Request $request)
-    {
-        
-        $product = $request->all();
-
-
-
-        if (Session::has('cart')) {
-            $cart = Session::get('cart');
-        }
-
-        if (isset($cart[$product['id']])) :
-            $cart[$product['id']]['cantidad'] += $product['cantidad'];
-        else :
-            $cart[$product['id']] = $product;
-        endif;
-
-        Session::put('cart', $cart);
-        $cartsInSession = Session::get('cart');
-
-        $cartItems = count($cartsInSession);
-
-        return redirect()->back()->with('message', 'Hay nuevos productos en el carrito.')
-            // ->with('cart_items', $cartItems)
-            ->with('success', true);
-    }
-
-    public function editCart(Request $request)
-    {
-        $cartCambios = $request->all();
-
-        // BORRA ARRAY EN SESSION
-        // Session::forget('cart');
-
-        $cart = Session::get('cart');
-
-        if (count(Session::get('cart')) == 1) {
-            Session::forget('cart');
-
-            return redirect('home');
-        } else {
-            $cartIdABorrar = $cartCambios['cart-id'];
-
-            unset($cart[$cartIdABorrar]);
-
-            Session::put('cart', $cart);
-
-            return redirect()->back();
-        }
-
-    }
-
-    public function updateCart(Request $request){
-
-        // dd($request);
-        $product = $request->all();
-        // dd($product);
-
-        if (Session::has('cart')) {
-            $cart = Session::get('cart');
-        }
-
-        if (isset($cart[$product['id']])) :
-            $cart[$product['id']]['cantidad'] = $product['cantidad'];
-        else :
-            $cart[$product['id']] = $product;
-        endif;
-
-        Session::put('cart', $cart);
-        $cartsInSession = Session::get('cart');
-        // dd($cartsInSession);
-        $cartItems = count($cartsInSession);
-
-    }
-
-    public function deleteFromCart(Request $request){
-
-        $cartCambios = $request->all();
-
-        $cart = Session::get('cart');
-
-            $cartIdABorrar = $cartCambios['id'];
-
-            unset($cart[$cartIdABorrar]);
-
-            Session::put('cart', $cart);
-
-        }
-
-
-
-    public function cart()
-    {
-
-
-        $products = Product::all();
-
-
-
-        return view('cart')->with('products', $products);
-    }
 }

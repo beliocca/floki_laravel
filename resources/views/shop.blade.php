@@ -63,7 +63,9 @@
                    <input type="hidden" name="name" value="{{ $product->name }}">
                    <input type="hidden" name="price" value="{{ $product->price }}">
                    <input type="hidden" name="photo" value="{{$product->productPhotos->first()->filename }}">
-
+                   @if (isset($currentUser))
+                   <input type="hidden" name="user_id" value={{$currentUser->id}}>
+                   @endif
                    <button type="submit" name="button">COMPRAR</button>
                   </form>
               </article>
