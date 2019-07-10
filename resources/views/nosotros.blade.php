@@ -42,7 +42,7 @@
             <h3>Desarrolladora web Full stack</h3>
             <p><a href=https://www.linkedin.com/in/mbiocca/" target="_blank"">linkedin.com/in/mbiocca</a></p>
             <p><a href="https://github.com/beliocca" target="_blank">github.com/beliocca</a></p>
-            <p>beluiocca@gmail.com</p>          
+            <p>mariabeleniocca@gmail.com</p>          
           </div>
 
         </article>

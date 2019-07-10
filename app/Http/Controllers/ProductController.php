@@ -21,7 +21,24 @@ class ProductController extends Controller
     {
         //  $products = Product::all();
 
-        $products = Product::paginate(20);
+        if (isset($_GET["order"])) {
+
+          if ($_GET["order"] == 'asc') {
+              $products = Product::orderBy('price')->paginate(20);
+          }
+          elseif ($_GET["order"] == 'desc') {
+              $products = Product::orderBy('price', 'DESC')->paginate(20);
+          }
+          elseif (is_numeric($_GET["order"])) {
+              $products = Product::where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
+          }
+          else {
+              $products = Product::paginate(20);
+          };
+
+        } else {
+          $products = Product::paginate(20);
+        };
 
         $categories = Category::all();
 
@@ -69,23 +86,46 @@ class ProductController extends Controller
             ->with('categories', $categories);
     }
 
-    public function orderByPrice($parametro)
+
+    public function categories($categoria)
     {
-        if ($parametro == 'asc') {
-            $products = Product::orderBy('price')->paginate(20);
-        } elseif ($parametro == 'desc') {
-            $products = Product::orderBy('price', 'DESC')->paginate(20);
-        } elseif (is_numeric($parametro)) {
-            $products = Product::where('price', '<', $parametro)->orderBy('price', 'DESC')->paginate(20);
-        } else {
-            $products = Product::paginate(20);
+
+
+      if (isset($_GET["order"])) {
+
+        if ($_GET["order"] == 'asc') {
+          $products = Product::whereHas('categories', function ($query) use ($categoria) {
+              $query->where('url', $categoria);
+          })->orderBy('price')->paginate(20);
         }
+        elseif ($_GET["order"] == 'desc') {
+          $products = Product::whereHas('categories', function ($query) use ($categoria) {
+              $query->where('url', $categoria);
+          })->orderBy('price', 'DESC')->paginate(20);
+        }
+        elseif (is_numeric($_GET["order"])) {
+          $products = Product::whereHas('categories', function ($query) use ($categoria) {
+              $query->where('url', $categoria);
+          })->where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
+        }
+        else {
+          $products = Product::whereHas('categories', function ($query) use ($categoria) {
+              $query->where('url', $categoria);
+          })->paginate(20);
 
-        $categories = Category::all();
+        };
 
-        return view('shop')->with('products', $products)
-            ->with('categories', $categories);
+      } else {
+        $products = Product::whereHas('categories', function ($query) use ($categoria) {
+            $query->where('url', $categoria);
+        })->paginate(20);
+
+      };
+
+
+        return view('shop')->with('products', $products);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -192,18 +232,7 @@ class ProductController extends Controller
         return redirect('/admin/productlist');
     }
 
-    public function categories($url)
-    {
 
-
-        $products = Product::whereHas('categories', function ($query) use ($url) {
-            $query->where('url', $url);
-        })->paginate(20);
-
-
-
-        return view('shop')->with('products', $products);
-    }
 
 
 }
