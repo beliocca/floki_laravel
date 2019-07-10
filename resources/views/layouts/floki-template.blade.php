@@ -2,42 +2,72 @@
 <html>
 {{-- lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 
-<head>
+  <head>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+            <!-- CSRF Token -->
+          <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>@yield('title')</title>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+          <!--Bootstrap-->
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+          />
 
-    <!--Google-->
-    <link href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+          <!--Google-->
+          <link
+          href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
+          rel="stylesheet"
+          />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <!--FontAwesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+          <!--FontAwesome-->
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
+          />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}" />
+          <!-- Favicon -->
+          <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
 
-    <!--Floki's Stylesheets-->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}" />
+          <!--AOS Stylesheets-->
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+          <!--Floki's Stylesheets-->
+          <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/producto.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
+
 
 </head>
 
 <body>
-    <marquee class="promocion d- d-none d-sm-flex" behavior="scroll" direction="left">Registrate y obtené 15% off en tu
-        primera compra // Envíos gratis en
+    <p class="marquee">
+      <span>
+        Registrate y obtené 15% off en tu primera compra // Envíos gratis en
         compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
-        con 20% off //
-    </marquee>
+        con 20% off
+      </span>
+    </p>
 
     <header>
 
@@ -127,7 +157,7 @@
                         </div>
                     </div>
                     @endif
-                    
+
                     @if (Route::has('login'))
                     <div class="dropdown dropdown-user-menu">
                         @auth
@@ -238,7 +268,7 @@
                             <a class="nav-link" href="/inspiration">Inspiración</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                            <a class="nav-link" href="/nosotros">Sobre Flöki</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contacto">Contacto</a>
@@ -297,7 +327,7 @@
                             <a class="nav-link" href="/inspiracion">Inspiración</a>
                         </li>
                         <li class="dropdown-item nav-item">
-                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                            <a class="nav-link" href="/nosotros">Sobre Flöki</a>
                         </li>
                         <li class="dropdown-item nav-item">
                             <a class="nav-link" href="/contacto">Contacto</a>
@@ -380,6 +410,7 @@
     </footer>
 
     <!--  scripts de Bootstrap-->
+
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script> --}}
@@ -391,6 +422,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+    <!--  scripts de AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init();  </script>
+
 
     <!--  scripts de Javascript-->
     <script type="text/javascript" src="{{ asset('js/floki.js') }}"> </script>

@@ -9,7 +9,33 @@
   <div class="home-stripe">
     <h1>NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 // NEW COLLECTION FALL-WINTER '19 </h1>
   </div>
+  <!-- carrusel 1 -->
+  <section id="carouselExampleFade" class="carousel slide carousel-fade d-none d-sm-block" data-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="images/slider1/mainslider1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+              <img src="images/slider1/mainslider2.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+              <img src="images/slider1/mainslider3.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+              <img src="images/slider1/mainslider4.jpg" class="d-block w-100" alt="..." />
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+  </section>
 
+  
   <!--carrusel con imagenes interactivas -->
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">

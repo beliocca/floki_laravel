@@ -77,7 +77,7 @@ Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');
 
 Route::get('/contacto', 'ContactoController@index');
 
-Route::post('/contacto', 'ContactoController@validator');
+Route::post('/contacto', 'ContactoController@enviarMensaje');
 
 Route::post('/addtocart', 'CartController@addToCart');
 

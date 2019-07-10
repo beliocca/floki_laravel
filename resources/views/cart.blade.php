@@ -2,9 +2,14 @@
 
 @section('title', 'Checkout - FLOKI Deco & Design')
 
+@section('scripts')
+<script src="{{ asset('js/cart.js') }}"></script>
+@endsection
+
 @section('content')
 
 <h1 class="titleperfil">Carrito</h1>
+
 
 @if(isset($currentUser))
 
@@ -113,9 +118,4 @@ $precioTotal += $product['price'] * $product['cantidad'];
 <h1>No tiene productos en su carrito</h1>
 @endif
 
-@endsection
-
-
-@section('scripts')
-<script src="{{ asset('js/cart.js') }}"></script>
 @endsection
