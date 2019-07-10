@@ -37,19 +37,26 @@
         <article class="team-member">
           <img src="{{ asset('images/team/belen.jpg')}}" alt="">
           <h2>María Belén Iocca</h2>
-          <h3>Desarrolladora web Full stack</h3>
-          <p><a href=https://www.linkedin.com/in/mbiocca/" target="_blank"">linkedin.com/in/mbiocca</a></p>
-          <p><a href="https://github.com/beliocca" target="_blank">github.com/beliocca</a></p>
-          <p>beluiocca@gmail.com</p>
+
+          <div class="team-member-datos">
+            <h3>Desarrolladora web Full stack</h3>
+            <p><a href=https://www.linkedin.com/in/mbiocca/" target="_blank"">linkedin.com/in/mbiocca</a></p>
+            <p><a href="https://github.com/beliocca" target="_blank">github.com/beliocca</a></p>
+            <p>beluiocca@gmail.com</p>          
+          </div>
+
         </article>
 
         <article class="team-member">
           <img src="{{ asset('images/team/sol.jpg') }}" alt="">
           <h2>Sol Latorre Beorlegui</h2>
-          <h3>Desarrolladora web Full stack</h3>
-          <p><a href="https://www.linkedin.com/in/solb/" target="_blank">linkedin.com/in/solb</a></p>
-          <p><a href="https://github.com/solblack" target="_blank">github.com/solblack</a></p>
-          <p>solbeor@gmail.com</p>
+
+          <div class="team-member-datos">
+            <h3>Desarrolladora web Full stack</h3>
+            <p><a href="https://www.linkedin.com/in/solb/" target="_blank">linkedin.com/in/solb</a></p>
+            <p><a href="https://github.com/solblack" target="_blank">github.com/solblack</a></p>
+            <p>solbeor@gmail.com</p>
+          </div>
         </article>
 
       </section>

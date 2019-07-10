@@ -42,7 +42,6 @@
 
           <!--Floki's Stylesheets-->
           <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
@@ -55,6 +54,7 @@
           <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
 
 
@@ -256,7 +256,7 @@
                             <a class="nav-link" href="/inspiration">Inspiración</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                            <a class="nav-link" href="/nosotros">Sobre Flöki</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contacto">Contacto</a>
@@ -315,7 +315,7 @@
                             <a class="nav-link" href="/inspiracion">Inspiración</a>
                         </li>
                         <li class="dropdown-item nav-item">
-                            <a class="nav-link" href="/nosotros">Sobre nosotros</a>
+                            <a class="nav-link" href="/nosotros">Sobre Flöki</a>
                         </li>
                         <li class="dropdown-item nav-item">
                             <a class="nav-link" href="/contacto">Contacto</a>
