@@ -29,16 +29,11 @@ class UserController extends Controller
         $rules = [
             'name' => ['string', 'max:255'],
             'last_name' => ['string', 'max:255'],
-            'phone' => ['numeric'],
-            'birthday'=>['date']
-
           ];
 
           $messages = [
             'string' => 'El campo :attribute debe contener solo letras',
             'max' => 'El campo :attribute debe tener como máximo :max caracteres',
-            'numeric'=> 'Ingrese solo números',
-            'date'=>'Ingrese una fecha válida'
           ];
 
          $this->validate($data, $rules, $messages);

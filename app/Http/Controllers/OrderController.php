@@ -8,6 +8,7 @@ use App\Address;
 use App\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -32,12 +33,11 @@ class OrderController extends Controller
     public function create(Request $request)
     {
 
-        if(isset($request["user_id"])){
+        if (isset($request["user_id"])) {
             $user_id = $request["user_id"];
-        }else{
+        } else {
             $user_id = null;
         }
-
         $address = Address::create([
             "user_id" => $user_id,
             "address_line1" => $request["address_line1"],
@@ -49,43 +49,73 @@ class OrderController extends Controller
         ]);
 
 
-        $json = $request["carts"];
-        $carts = json_decode($json, true);
+        if (Auth::user()) {
+            $json = $request["carts"];
+            $carts = json_decode($json, true);
 
-        $items = 0;
-        $amount = 0;
-        foreach($carts as $cart){
-            $items += $cart["quantity"];
-            $amount += $cart["product"]["price"];
-        }
+            $items = 0;
+            $amount = 0;
+            foreach ($carts as $cart) {
+                $items += $cart["quantity"];
+                $amount += $cart["product"]["price"]*$cart["quantity"];
+            }
+            $order = Order::create([
+                "name" => $request["name"],
+                "last_name" => $request["last_name"],
+                "email" => $request["email"],
+                "user_id" => $user_id,
+                "items" => $items,
+                "amount" => $amount,
+                "order_status_id" => 1,
+                "address_id" => $address->id,
+            ]);
 
-
-        $order = Order::create([
-            "name" => $request["name"],
-            "last_name" => $request["last_name"],
-            "email" => $request["email"],
-            "user_id" => $user_id,
-            "items" => $items,
-            "amount" => $amount,
-            "order_status_id" => 1,
-            "address_id" => $address->id,
-        ]);
-
-        foreach($carts as $cart){
-            $orderDetail = OrderDetail::create([
-                "order_id" => $order->id,
-                "product_id" => $cart["product_id"],
-                "amount" => $cart["quantity"],
-                "price" => $cart["product"]["price"],
+            foreach ($carts as $cart) {
+                $orderDetail = OrderDetail::create([
+                    "order_id" => $order->id,
+                    "product_id" => $cart["product_id"],
+                    "amount" => $cart["quantity"],
+                    "price" => $cart["product"]["price"],
                 ]);
-        }
-
-        if(Auth::user()){
+            }
             $carts = Cart::where('user_id', $user_id)->get();
-            foreach($carts as $cart){
+            foreach ($carts as $cart) {
                 $cart->delete();
             }
-        };
+
+            // guest
+        }else {
+
+            $carts = Session::pull('cart');
+
+
+            $items = 0;
+            $amount = 0;
+            foreach ($carts as $cart) {
+                $items += $cart["cantidad"];
+                $amount += $cart["cantidad"]*$cart["price"];
+            }
+          
+            $order = Order::create([
+                "name" => $request["name"],
+                "last_name" => $request["last_name"],
+                "email" => $request["email"],
+                "items" => $items,
+                "amount" => $amount,
+                "order_status_id" => 1,
+                "address_id" => $address->id,
+            ]);
+
+            foreach ($carts as $cart) {
+                $orderDetail = OrderDetail::create([
+                    "order_id" => $order->id,
+                    "product_id" => $cart["id"],
+                    "amount" => $cart["cantidad"],
+                    "price" => $cart["price"],
+                ]);
+            }
+
+        }
 
         return view('success')->with("order", $order);
     }

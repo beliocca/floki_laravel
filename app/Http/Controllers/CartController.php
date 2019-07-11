@@ -65,6 +65,7 @@ class CartController extends Controller
     public function updateCart(Request $request)
     {
         $product = $request->all();
+
         if (isset($request->user_id)) {
             $carts = Cart::where('product_id', $request->id)->get();
             $cart = $carts[0];
@@ -105,7 +106,11 @@ class CartController extends Controller
     public function checkoutSession()
     {
         $carts = Session::get('cart');
-        return view('checkout')->with('carts', $carts);
+        $total = 0;
+        foreach($carts as $cart){
+            $total += $cart["cantidad"]* $cart["price"];
+        }
+        return view('checkoutguest')->with('carts', $carts)->with('total', $total);
     }
 
     public function checkoutUser()
@@ -136,8 +141,14 @@ class CartController extends Controller
             }
         }
         $carts = Cart::where('user_id', $user->id)->get();
+        $total = 0;
 
-        return view('checkout')->with('carts', $carts)->with('user', $user);
+
+        foreach($carts as $cart){
+            $total += $cart->quantity* $cart->product->price;
+        }
+
+        return view('checkoutuser')->with('carts', $carts)->with('user', $user)->with('total', $total);
     }
 }
 

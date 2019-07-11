@@ -88,8 +88,8 @@ Route::post('/deletefromcart', 'CartController@deleteFromCart');
 
 Route::get('/cart', 'CartController@show')->name('cart');
 
-Route::get('/checkoutguest', 'CartController@checkoutSession');
+Route::get('/checkoutguest', 'CartController@checkoutSession')->name('checkoutGuest');
 
-Route::get('/checkoutuser', 'CartController@checkoutUser')->middleware('auth');
+Route::get('/checkoutuser', 'CartController@checkoutUser')->middleware('auth')->name('checkoutUser');
 
 Route::post('/order', 'OrderController@create');

@@ -76,7 +76,7 @@
             <div class="user-navbar">
                 <nav class="navbar navbar-expand-lg">
 
-                    @if(Request::path()!=="cart")
+                    @if(Request::path()!=="cart" )
                     <div class="nav-item shopping-cart dropdown">
                         @if(isset($currentUser))
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -90,7 +90,9 @@
                             $precioTotal += $cart->product->price * $cart->quantity;
                             }
                             @endphp
+                            @if(!$carts->isEmpty())
                             <p>{{ $cantidadProductos }} Productos</p>
+                            @endif
                         </a>
                         @elseif (Session::has('cart'))
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -111,7 +113,8 @@
                             <i class="fas fa-shopping-cart "></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-                            @if(isset($currentUser))
+                            @if(isset($currentUser) && !$carts->isEmpty())
+
                             <ul class="cart-menu dropdown-item">
                                 @foreach($carts as $cart)
                                 <li>
@@ -127,7 +130,6 @@
                                         <a href="/cart">Ver carrito</a>
                                     </button>
                                 </li>
-
                                 @elseif (Session::has('cart'))
                                 <ul class="cart-menu dropdown-item">
                                     @foreach (Session::get('cart') as $cartId => $product)
@@ -145,7 +147,6 @@
                                         </button>
                                     </li>
                                 </ul>
-
                                 @else
                                 <ul class="navbar-nav">
                                     <li class="dropdown-item">

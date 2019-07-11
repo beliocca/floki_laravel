@@ -45,15 +45,23 @@ class ProductController extends Controller
             'description' => $data['description']
         ]);
         $product->categories()->attach($data->category);
-        $route = $data['filename']->store('public/uploads/product_photos');
-        $filename = basename($route);
-        ProductPhoto::create([
-            'filename' => $filename,
-            'product_id' => $product->id
-        ]);
+        // $route = $data['filename']->store('public/uploads/product_photos');
+        // $filename = basename($route);
+        // ProductPhoto::create([
+        //     'filename' => $filename,
+        //     'product_id' => $product->id
+        // ]);
 
-        $products = Product::all();
-        return view('/productList')->with('products', $product);
+        $destinationPath = public_path('uploads/product_photos');
+            $filename = $product->id . $data->file('filename')->getClientOriginalName();
+            $data->file('filename')->move($destinationPath, $filename);
+            ProductPhoto::create([
+                'filename' => $filename,
+                'product_id' => $product->id
+            ]);
+
+        $products = Product::orderBy('id', 'DESC')->paginate(20);
+        return view('/productList')->with('products', $products);
     }
 
     public function search()
@@ -174,7 +182,7 @@ class ProductController extends Controller
         $products = Product::orderBy('id', 'DESC')->paginate(20);
         $categories = Category::all();
 
-        return view('productlist')->with('products', $products);
+        return redirect ('/admin/productslist')->with('products', $products);
     }
 
 
@@ -187,9 +195,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+
         $product = Product::find($id);
         $product->delete();
-        return redirect('/admin/productlist');
+
+        $products = Product::orderBy('id', 'DESC')->paginate(20);
+        $categories = Category::all();
+
+        return redirect ('/admin/productslist')->with('products', $products);
     }
 
     public function categories($url)

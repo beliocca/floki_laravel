@@ -10,9 +10,7 @@
 
 <h1 class="titleperfil">Carrito</h1>
 
-
 @if(isset($currentUser))
-
 @php
 $carts = \App\Cart::where('user_id', $currentUser->id)->get();
 $precioTotal = 0;
@@ -24,6 +22,7 @@ $precioTotal += $cart->product->price * $cart->quantity;
 }
 @endphp
 
+<div class="cart">
 <table class="table table-hover table-responsive-sm">
     <thead class="thead-light">
         <tr>
@@ -55,7 +54,7 @@ $precioTotal += $cart->product->price * $cart->quantity;
 <form action="/checkoutuser">
     <input type="hidden" class="currentuser" name="user_id" value={{$cart->user_id}}>
     <div class="buttonssubmit">
-    <button type="submit">Comprar</button></a>
+    <button class="button delete" type="submit">Comprar</button></a>
 </div>
 </form>
 
@@ -109,13 +108,13 @@ $precioTotal += $product['price'] * $product['cantidad'];
 </div>
 
 <div class="buttonssubmit">
-    <a href="/checkoutguest"><button type="submit">Comprá como invitado</button></a>
+    <a href="/checkoutguest"><button class="button delete"  type="submit">Comprá como invitado</button></a>
 
-     <a href="/checkoutuser">  <button type="submit">Comprá con tu cuenta</button></a>
+     <a href="/checkoutuser">  <button class="button delete"  type="submit">Comprá con tu cuenta</button></a>
 
 </div>
 @else
 <h1>No tiene productos en su carrito</h1>
 @endif
-
+</div>
 @endsection

@@ -557,7 +557,7 @@
 .img-grid-admin {
     max-height: 100px;
     border: solid 1px rgb(155, 155, 155);
-    border-radius: 8px;
+    border-radius: 2px;
 }
 
 .thead-light th,

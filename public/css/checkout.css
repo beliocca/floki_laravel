@@ -28,3 +28,36 @@ font-size: 16px;
 font-family: "Work Sans", sans-serif;
 /* padding: 8px 8px 0; */
 }
+
+/* checkout */
+
+.order-list, .order-form{
+    text-transform: uppercase;
+    width:60%;
+    margin: 10px auto;
+    color: #0d4659;
+}
+
+.order-list h2, .order-form h2{
+    font-size: 20px;
+    margin-top:20px;    
+}
+
+.order-form label {
+    margin-top:10px;
+}
+
+#addressline2{
+    margin-top: 10px;
+}
+
+.titleperfil{
+    margin-top: 20px;
+}
+
+.order-form .button{
+    display: inline-block;
+    margin: 20px auto;
+}
+
+

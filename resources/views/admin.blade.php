@@ -61,5 +61,13 @@
             </form>
         </div>
     </div>
+
+    <form action="/file-upload"
+      class="dropzone"
+      id="my-awesome-dropzone"></form>
 </div>
+@endsection
+
+@section('scripts')
+<script src="./path/to/dropzone.js"></script>
 @endsection
