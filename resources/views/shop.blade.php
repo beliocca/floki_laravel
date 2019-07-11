@@ -2,6 +2,10 @@
 
 @section('title', 'Shop - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
+@endsection
+
 @section('scripts')
 <script src="{{ asset('js/changePhotoOnHover.js') }}"></script>
 @endsection

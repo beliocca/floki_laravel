@@ -42,19 +42,8 @@
 
           <!--Floki's Stylesheets-->
           <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/producto.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
           <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
+          @yield('css')
           <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
 
 

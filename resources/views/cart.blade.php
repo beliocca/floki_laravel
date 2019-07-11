@@ -2,6 +2,10 @@
 
 @section('title', 'Checkout - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
+@endsection
+
 @section('scripts')
 <script src="{{ asset('js/cart.js') }}"></script>
 @endsection

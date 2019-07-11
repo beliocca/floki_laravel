@@ -2,6 +2,10 @@
 
 @section('title', 'Checkout - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
+@endsection
+
 @section('content')
 
 <h1 class="titleperfil">Checkout</h1>

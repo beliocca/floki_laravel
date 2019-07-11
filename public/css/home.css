@@ -26,7 +26,8 @@
 
 .home-parallax {
   /* The image used */
-  background-image: url("../images/parallax/living1.jpg");
+  background-image: url("../images/parallax/home/1.jpg");
+
 
   /* Full height */
   height: 80vh;
@@ -37,24 +38,62 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  transition: background-image 2s;
+  transition-timing-function: ease-in-out 2s;
+
+
+  /* animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-name: slider;
+animation-timing-function: linear;
+
+animation-duration: 20s; */
+/* animation-direction: alternate; */
+
 
 }
+
+/* @keyframes slider{
+0%{background-image:url("../images/parallax/home/1.jpg");}
+15%{background-image:url("../images/parallax/home/1.jpg");}
+20%{background-image:url("../images/parallax/home/2.jpg");}
+35%{background-image:url("../images/parallax/home/2.jpg");}
+40%{background-image:url("../images/parallax/home/5.jpg");}
+55%{background-image:url("../images/parallax/home/5.jpg");}
+60%{background-image:url("../images/parallax/home/8.jpg");}
+75%{background-image:url("../images/parallax/home/8.jpg");}
+80%{background-image:url("../images/parallax/home/4.jpg");}
+95%{background-image:url("../images/parallax/home/4.jpg");}
+100%{background-image:url("../images/parallax/home/1.jpg");}
+} */
+
+
 
 .div-inside-home-parallax{
   padding-top: 30vh;
 
 }
 
-.home-parallax h1{
+.home-parallax-title{
+  border-color:  rgba(207, 227, 227, 0.9);
+  border-width: 5px;
+  border-style: solid;
+  margin: 5px auto;
+  padding: 10px;
+  width: 50%;
+}
+
+.home-parallax-title h1{
   font-family: 'Work Sans', sans-serif;
   font-size: 4em;
   font-weight: 400;
   color: white;
-  background-color: rgba(207, 227, 227, 0.9);
-  width: 10em;
   text-align: center;
-  margin: auto;
+  margin: 10px auto;
+  width: 93%;
+
   padding: 10px;
+  background-color: rgba(207, 227, 227, 0.9);
 }
 
 /* stripe */

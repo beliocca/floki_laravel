@@ -2,6 +2,10 @@
 
 @section('title', 'FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
+@endsection
+
 @section('scripts')
   <script src="{{ asset('js/changePhotoOnHover.js') }}"></script>
 @endsection
@@ -10,14 +14,16 @@
 @section('content')
 
 
+
   <div class="home-parallax">
     <div class="div-inside-home-parallax">
-      <h1 data-aos="fade-in" data-aos-duration="2000">
-      GET INSPIRED!
-    </h1>
+      <div class="home-parallax-title" data-aos="fade-in" data-aos-duration="2000">
+          <h1 data-aos="fade-in" data-aos-duration="2000">GET INSPIRED!</h1>
+      </div>
     </div>
+  </div>
 
-</div>
+
 
 
 

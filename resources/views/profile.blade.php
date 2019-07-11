@@ -2,6 +2,10 @@
 
 @section('title', 'Mi Perfil - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
+@endsection
+
 
 @section('content')
 
