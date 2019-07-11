@@ -73,7 +73,8 @@ Route::get('/shop/{category}', 'ProductController@categories');
 
 Route::get('/product/{id}', 'ProductController@show');
 
-Route::get('/shop/order/{parametro}', 'ProductController@orderByPrice');
+Route::get('/shop?order={parametro}', 'ProductController@orderByPrice');
+Route::get('/shop/{categoria}?order={parametro}', 'ProductController@orderCategoryByPrice');
 
 Route::get('/contacto', 'ContactoController@index');
 

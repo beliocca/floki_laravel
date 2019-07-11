@@ -76,7 +76,7 @@
             <div class="user-navbar">
                 <nav class="navbar navbar-expand-lg">
 
-                    @if(Request::path()!=="cart" )
+                @if(Request::path()!=="cart")
                     <div class="nav-item shopping-cart dropdown">
                         @if(isset($currentUser))
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -155,8 +155,8 @@
                                 </ul>
                                 @endif
 
+                            </div>
                         </div>
-                    </div>
                     @endif
 
                     @if (Route::has('login'))
