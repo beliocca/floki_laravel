@@ -40,7 +40,7 @@ font-family: "Work Sans", sans-serif;
 
 .order-list h2, .order-form h2{
     font-size: 20px;
-    margin-top:20px;    
+    margin-top:20px;
 }
 
 .order-form label {
@@ -60,4 +60,15 @@ font-family: "Work Sans", sans-serif;
     margin: 20px auto;
 }
 
+.payment{
+    display: flex;
+    justify-content: space-around;
+    max-height: 20vh;
+}
+
+.payment img{
+    max-height: 12vh;
+    border: 1px solid #ced4da;
+
+}
 

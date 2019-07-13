@@ -8,10 +8,6 @@
     font-size: 25px;
 }
 
-.titleperfil {
-    text-align: center;
-    font-size: 25px;
-}
 
 .h2perfil,
 .listperfil,
@@ -20,6 +16,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     color: #0d4659;
+
 }
 
 .perfil ul {
@@ -58,7 +55,6 @@
 .perfil label {
     padding: 10px 0 0;
     text-align: center;
-
     font-size: 14px;
     color: #0d4659;
     text-transform: uppercase;
@@ -76,15 +72,56 @@
     background-color: white;
     margin-top: 3px;
     text-transform: uppercase;
+    border: 1px solid #cfe3e3;
 }
 
 .perfil {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .select {
     text-transform: uppercase;
     font-size: 13px;
     font-family: "Roboto", sans-serif;
     color: #0d4659;
+}
+
+.userorders {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    color: #0d4659;
+  
+}
+
+.ordercontainer{
+    border: 1px solid #cfe3e3;
+    display: flex;
+    margin: 20px auto;
+
+}
+
+.ordercol{
+    margin: 5px 10px;
+}
+
+.ordercol.col1{
+ width: 20%;
+}
+
+.ordercol.col2{
+    width: 35%;
+   }
+
+.ordercol.col3{
+ width: 45%;
+   }
+
+.addresscontainer{
+    max-width: 70%;
+    border: 1px solid #cfe3e3;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

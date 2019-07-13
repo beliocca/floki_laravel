@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <h2>Gracias por su compra!</h2>
+    <h2>Gracias por su compra, {{$order->name}}!</h2>
     <p>Su orden ha sido recibida</p>
     <p>Aqui estan los datos de su orden:</p>
     <ul>
@@ -14,7 +14,7 @@
         <li>Productos:
             <ul>
                 @foreach ($order->products as $product)
-                @foreach($order->orderDetail as $detail)
+                @foreach($order->orderDetails as $detail)
                 @if($detail->product_id == $product->id)
                     <li>{{$detail->amount}} {{$product->name}} : ${{$detail->amount*$product->price}}</li>
                     @endif

@@ -33,8 +33,9 @@ class OrderController extends Controller
     public function create(Request $request)
     {
 
-        if (isset($request["user_id"])) {
-            $user_id = $request["user_id"];
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            
         } else {
             $user_id = null;
         }
@@ -49,10 +50,9 @@ class OrderController extends Controller
         ]);
 
 
-        if (Auth::user()) {
+        if (Auth::check()) {
             $json = $request["carts"];
             $carts = json_decode($json, true);
-
             $items = 0;
             $amount = 0;
             foreach ($carts as $cart) {
@@ -85,17 +85,14 @@ class OrderController extends Controller
 
             // guest
         }else {
-
             $carts = Session::pull('cart');
-
-
             $items = 0;
             $amount = 0;
             foreach ($carts as $cart) {
                 $items += $cart["cantidad"];
                 $amount += $cart["cantidad"]*$cart["price"];
             }
-          
+
             $order = Order::create([
                 "name" => $request["name"],
                 "last_name" => $request["last_name"],
@@ -114,7 +111,6 @@ class OrderController extends Controller
                     "price" => $cart["price"],
                 ]);
             }
-
         }
 
         return view('success')->with("order", $order);

@@ -10,6 +10,7 @@ use Session;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Cart;
 
+
 class ProductController extends Controller
 {
     /**
@@ -23,21 +24,17 @@ class ProductController extends Controller
 
         if (isset($_GET["order"])) {
 
-          if ($_GET["order"] == 'asc') {
-              $products = Product::orderBy('price')->paginate(20);
-          }
-          elseif ($_GET["order"] == 'desc') {
-              $products = Product::orderBy('price', 'DESC')->paginate(20);
-          }
-          elseif (is_numeric($_GET["order"])) {
-              $products = Product::where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
-          }
-          else {
-              $products = Product::paginate(20);
-          };
-
+            if ($_GET["order"] == 'asc') {
+                $products = Product::orderBy('price')->paginate(20);
+            } elseif ($_GET["order"] == 'desc') {
+                $products = Product::orderBy('price', 'DESC')->paginate(20);
+            } elseif (is_numeric($_GET["order"])) {
+                $products = Product::where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
+            } else {
+                $products = Product::paginate(20);
+            };
         } else {
-          $products = Product::paginate(20);
+            $products = Product::paginate(20);
         };
 
         $categories = Category::all();
@@ -55,6 +52,7 @@ class ProductController extends Controller
     public function create(Request $data)
     {
 
+
         $product = Product::create([
             'name' => $data['name'],
             'price' => $data['price'],
@@ -62,23 +60,19 @@ class ProductController extends Controller
             'description' => $data['description']
         ]);
         $product->categories()->attach($data->category);
-        // $route = $data['filename']->store('public/uploads/product_photos');
-        // $filename = basename($route);
-        // ProductPhoto::create([
-        //     'filename' => $filename,
-        //     'product_id' => $product->id
-        // ]);
 
         $destinationPath = public_path('uploads/product_photos');
-            $filename = $product->id . $data->file('filename')->getClientOriginalName();
-            $data->file('filename')->move($destinationPath, $filename);
-            ProductPhoto::create([
-                'filename' => $filename,
-                'product_id' => $product->id
-            ]);
+        $filename = $product->id . $data->file('filename')->getClientOriginalName();
+        $data->file('filename')->move($destinationPath, $filename);
+        ProductPhoto::create([
+            'filename' => $filename,
+            'product_id' => $product->id
+        ]);
+
+        $photos = $product->ProductPhotos;
 
         $products = Product::orderBy('id', 'DESC')->paginate(20);
-        return view('/productList')->with('products', $products);
+        return redirect('/admin/productslist')->with('products', $products);
     }
 
     public function search()
@@ -99,36 +93,30 @@ class ProductController extends Controller
     {
 
 
-      if (isset($_GET["order"])) {
+        if (isset($_GET["order"])) {
 
-        if ($_GET["order"] == 'asc') {
-          $products = Product::whereHas('categories', function ($query) use ($categoria) {
-              $query->where('url', $categoria);
-          })->orderBy('price')->paginate(20);
-        }
-        elseif ($_GET["order"] == 'desc') {
-          $products = Product::whereHas('categories', function ($query) use ($categoria) {
-              $query->where('url', $categoria);
-          })->orderBy('price', 'DESC')->paginate(20);
-        }
-        elseif (is_numeric($_GET["order"])) {
-          $products = Product::whereHas('categories', function ($query) use ($categoria) {
-              $query->where('url', $categoria);
-          })->where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
-        }
-        else {
-          $products = Product::whereHas('categories', function ($query) use ($categoria) {
-              $query->where('url', $categoria);
-          })->paginate(20);
-
+            if ($_GET["order"] == 'asc') {
+                $products = Product::whereHas('categories', function ($query) use ($categoria) {
+                    $query->where('url', $categoria);
+                })->orderBy('price')->paginate(20);
+            } elseif ($_GET["order"] == 'desc') {
+                $products = Product::whereHas('categories', function ($query) use ($categoria) {
+                    $query->where('url', $categoria);
+                })->orderBy('price', 'DESC')->paginate(20);
+            } elseif (is_numeric($_GET["order"])) {
+                $products = Product::whereHas('categories', function ($query) use ($categoria) {
+                    $query->where('url', $categoria);
+                })->where('price', '<', $_GET["order"])->orderBy('price', 'DESC')->paginate(20);
+            } else {
+                $products = Product::whereHas('categories', function ($query) use ($categoria) {
+                    $query->where('url', $categoria);
+                })->paginate(20);
+            };
+        } else {
+            $products = Product::whereHas('categories', function ($query) use ($categoria) {
+                $query->where('url', $categoria);
+            })->paginate(20);
         };
-
-      } else {
-        $products = Product::whereHas('categories', function ($query) use ($categoria) {
-            $query->where('url', $categoria);
-        })->paginate(20);
-
-      };
 
 
         return view('shop')->with('products', $products);
@@ -200,15 +188,20 @@ class ProductController extends Controller
     {
 
         $product = Product::find($data->id);
+
+        // if(count($product->ProductPhotos)==0){
+        //     $error = "No puede subir productos sin foto";
+        //     return view('editproduct')->with('error', $error)->with('product', $product);
+        // }
+
         $product->name = $data->name;
         $product->price = $data->price;
         $product->description = $data->description;
         $product->stock = $data->stock;
         $product->save();
         $product->categories()->attach($data->category);
-
-        $filename = null;
-        if($data->hasfile('filename')){
+        // $filename = null;
+        if ($data->hasfile('filename')) {
             $destinationPath = public_path('uploads/product_photos');
             $filename = $product->id . $data->file('filename')->getClientOriginalName();
             $data->file('filename')->move($destinationPath, $filename);
@@ -216,13 +209,12 @@ class ProductController extends Controller
                 'filename' => $filename,
                 'product_id' => $product->id
             ]);
-
         };
 
         $products = Product::orderBy('id', 'DESC')->paginate(20);
         $categories = Category::all();
 
-        return redirect ('/admin/productslist')->with('products', $products);
+        return redirect('/admin/productslist')->with('products', $products);
     }
 
 
@@ -237,15 +229,19 @@ class ProductController extends Controller
     {
 
         $product = Product::find($id);
-        $product->delete();
 
-        $products = Product::orderBy('id', 'DESC')->paginate(20);
-        $categories = Category::all();
+        $photos = $product->ProductPhotos;
 
-        return redirect ('/admin/productslist')->with('products', $products);
+        foreach ($photos as $photo) {
+            $path = "uploads/product_photos/" . $photo->filename;
+            if (is_file($path)){
+            unlink($path);
+            }
+            }
+            $product->delete();
+            $products = Product::orderBy('id', 'DESC')->paginate(20);
+            $categories = Category::all();
+
+            return redirect('/admin/productslist')->with('products', $products);
+        }
     }
-
-
-
-
-}

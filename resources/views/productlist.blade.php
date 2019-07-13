@@ -23,8 +23,10 @@
             <th scope="row">{{$product->id}}</th>
             <td>{{$product->name}}</td>
             <td>{{$product->price}}</td>
+            @if(isset($product->productPhotos->first()->filename))
             <td> <img class="img-grid-admin"
                     src="/uploads/product_photos/{{$product->productPhotos->first()->filename}}" alt=""></td>
+                    @endif
             <td>
                     <a href="/admin/showproduct/{{$product->id}}"><button class="button">Editar</button> </a>
             </td>

@@ -31,11 +31,11 @@
                 @csrf
                 <div>
                     <label for="name">Nombre</label>
-                    <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
+                    <input class="form-control" type="text" name="name" value="{{ old('name') }}" required >
                 </div>
                 <div>
                     <label for="price">Precio</label>
-                    <input class="form-control" type="number" name="price" value="{{ old('price') }}">
+                    <input class="form-control" type="number" name="price" value="{{ old('price') }}" required>
                 </div>
                 <div>
                     <label for="category">Categoria</label>
@@ -47,15 +47,15 @@
                 </div>
                 <div>
                     <label for="stock">Unidades</label>
-                    <input class="form-control" type="number" name="stock" value="{{ old('stock') }}">
+                    <input class="form-control" type="number" name="stock" value="{{ old('stock') }}" required>
                 </div>
                 <div>
                     <label for="description">Descripcion</label>
-                    <input class="form-control" type="textarea" name="description" value="{{ old('description') }}">
+                    <input class="form-control" type="textarea" name="description" value="{{ old('description') }}" required>
                 </div>
                 <div>
                     <label for="filename">Imagenes</label>
-                    <input class="form-control" type="file" name="filename" value="{{ old('filename') }}">
+                    <input class="form-control" type="file" name="filename" value="{{ old('filename') }}" required>
                 </div>
                 <button type="submit">CREAR</button>
             </form>

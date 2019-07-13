@@ -9,18 +9,16 @@
     @csrf
     <input type="hidden" name="id" value="{{$product->id}}">
     <div>
-        <label class=""for="name">Nombre</label>
-        <input class="form-control" type="text" name="name" value="{{$product->name}}" >
+        <label class="" for="name">Nombre</label>
+        <input class="form-control" type="text" name="name" value="{{$product->name}}" required>
     </div>
     <div>
         <label class="" for="price">Precio</label>
-        <input class="form-control " type="number" name="price"
-            value="{{$product->price}}">
+        <input class="form-control " type="number" name="price" value="{{$product->price}}" required>
     </div>
     <div>
         <label class="" for="category">Categoria</label>
-        <select class="form-control select " type="select" name="category"
-            value="{{$product->category}}">
+        <select class="form-control select " type="select" name="category" value="{{$product->category}}" required>
             @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
@@ -28,29 +26,25 @@
     </div>
     <div>
         <label class="" for="stock">Unidades</label>
-        <input class="form-control " type="number" name="stock"
-            value="{{$product->stock}}">
+        <input class="form-control " type="number" name="stock" value="{{$product->stock}}" required>
     </div>
     <div>
         <label class="" for="description">Descripcion</label>
-        <textarea class="form-control " name="description" rows="4"
-            value="">{{$product->description}}</textarea>
+        <textarea class="form-control " name="description" rows="4" required value="">{{$product->description}}</textarea>
     </div>
     <div>
         <label class="" for="filename">Subir imagenes</label>
         <input class="form-control " type="file" name="filename" value="{{ old('filename') }}">
-        @if(isset($error))
-            <small>{{$error}}</small>
-        @endif
+     
     </div>
     <div>
         <p>Imagenes cargadas</p>
         <div class="deleteimg">
-                @foreach ($product->productPhotos as $photo)
-                <div>
-            <img class="img-grid-admin" src="/uploads/product_photos/{{$photo->filename}}" alt="">
-            <a href="/admin/deletephoto/{{$photo->id}}"><i class="far fa-trash-alt"></i></a>
-        </div>
+            @foreach ($product->productPhotos as $photo)
+            <div>
+                <img class="img-grid-admin" src="/uploads/product_photos/{{$photo->filename}}" alt="">
+                <a href="/admin/deletephoto/{{$photo->id}}"><i class="far fa-trash-alt"></i></a>
+            </div>
             @endforeach
         </div>
     </div>

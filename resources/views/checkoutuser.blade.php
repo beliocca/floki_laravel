@@ -40,32 +40,42 @@
             <input class="form-control " type="text" name="address_line1" @if($user->addresses->first())
             value="{{$user->addresses->first()->address_line1}}" @endif >
 
-            <input class="form-control " type="text"  name="address_line2" @if($user->addresses->first())
+            <input class="form-control " type="text" name="address_line2" @if($user->addresses->first())
             value="{{$user->addresses->first()->address_line2}}" @endif>
         </div>
         <div>
             <label for="city">Ciudad</label>
-            <input class="form-control " type="text"  name="city" @if($user->addresses->first())
+            <input class="form-control " type="text" name="city" @if($user->addresses->first())
             value="{{$user->addresses->first()->city}}" @endif>
 
         </div>
         <div>
             <label for="zipcode">Código postal</label>
-            <input class="form-control " type="text"  name="zipcode" @if($user->addresses->first())
+            <input class="form-control " type="text" name="zipcode" @if($user->addresses->first())
             value="{{$user->addresses->first()->zipcode}}" @endif>
 
         </div>
         <div>
             <label for="state">Provincia</label>
-            <input class="form-control " type="text"  name="state" @if($user->addresses->first())
+            <input class="form-control " type="text" name="state" @if($user->addresses->first())
             value="{{$user->addresses->first()->state}}" @endif>
         </div>
         <div>
             <label for="contry">Pais</label>
-            <input class="form-control " type="text"  name="country" @if($user->addresses->first())
+            <input class="form-control " type="text" name="country" @if($user->addresses->first())
             value="{{$user->addresses->first()->country}}" @endif>
+        </div>
+
+        <div>
+            <label>Pagá con:</label>
+            <div class="payment">
+            <div ><a href="https://www.mercadopago.com.ar/" ><img src="/images/payment/mercadopago.jpg" alt=""></a>
             </div>
-            <button class="button" type="submit">Comprar</button>
+            <div ><a href="https://www.paypal.com"><img src="/images/payment/paypal.jpg" alt=""></a>
+            </div>
+            </div>
+        </div>
+        <button class="button" type="submit">Comprar</button>
 
     </form>
 

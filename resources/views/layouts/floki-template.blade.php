@@ -2,71 +2,60 @@
 <html>
 {{-- lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 
-  <head>
+<head>
 
-            <!-- CSRF Token -->
-          <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-          <title>@yield('title')</title>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@yield('title')</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          <!--Bootstrap-->
-          <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-          />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-          <!--Google-->
-          <link
-          href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
-          rel="stylesheet"
-          />
-          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Google-->
+    <link href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
-          <!--FontAwesome-->
-          <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous"
-          />
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-          <!-- Favicon -->
-          <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}" />
 
-          <!--AOS Stylesheets-->
-          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--AOS Stylesheets-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-          <!--Floki's Stylesheets-->
-          <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/home.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/producto.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/cart.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
+    <!--Floki's Stylesheets-->
+    <link rel="stylesheet" href="{{ asset('css/style-general.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/forms.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/shop.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/producto.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/perfil.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}" />
 
 
 </head>
 
 <body>
     <p class="marquee">
-      <span>
-        Registrate y obtené 15% off en tu primera compra // Envíos gratis en
-        compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
-        con 20% off
-      </span>
+        <span>
+            Registrate y obtené 15% off en tu primera compra // Envíos gratis en
+            compras superiores a $1000 // Llevá 3 o mas unidades del mismo producto
+            con 20% off
+        </span>
     </p>
 
     <header>
@@ -76,45 +65,47 @@
             <div class="user-navbar">
                 <nav class="navbar navbar-expand-lg">
 
-                @if(Request::path()!=="cart")
+                    @if(Request::path()!=="cart" && Request::path()!=="checkoutGuest" && Request::path()!=="checkoutUser")
                     <div class="nav-item shopping-cart dropdown">
-                        @if(isset($currentUser))
+                        @auth
+                        @php
+                        $carts = \App\Cart::where('user_id', Auth::user()->id)->get();
+                        $precioTotal = 0;
+                        $cantidadProductos = 0;
+                        foreach ($carts as $cart) {
+                        $cantidadProductos += $cart->quantity;
+                        $precioTotal += $cart->product->price * $cart->quantity;
+                        }
+                        @endphp
+
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            @php
-                            $carts = \App\Cart::where('user_id', $currentUser->id)->get();
-                            $precioTotal = 0;
-                            $cantidadProductos = 0;
-                            foreach ($carts as $cart) {
-                            $cantidadProductos += $cart->quantity;
-                            $precioTotal += $cart->product->price * $cart->quantity;
-                            }
-                            @endphp
                             @if(!$carts->isEmpty())
                             <p>{{ $cantidadProductos }} Productos</p>
                             @endif
                         </a>
+
                         @elseif (Session::has('cart'))
+                        @php
+                        $cantidadProductos = 0;
+                        $precioTotal = 0;
+                        foreach (Session::get('cart') as $cartId => $product) {
+                        $cantidadProductos += $product['cantidad'];
+                        $precioTotal += $product['price'] * $product['cantidad'];
+                        }
+                        @endphp
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            @php
-                            $cantidadProductos = 0;
-                            $precioTotal = 0;
-                            foreach (Session::get('cart') as $cartId => $product) {
-                            $cantidadProductos += $product['cantidad'];
-                            $precioTotal += $product['price'] * $product['cantidad'];
-                            }
-                            @endphp
                             <p>{{ $cantidadProductos }} Productos</p>
                         </a>
-                        @endif
+                        @endauth
+
                         <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-shopping-cart "></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-                            @if(isset($currentUser) && !$carts->isEmpty())
-
+                            @if(Auth::check()&&!$carts->isEmpty())
                             <ul class="cart-menu dropdown-item">
                                 @foreach($carts as $cart)
                                 <li>
@@ -130,7 +121,10 @@
                                         <a href="/cart">Ver carrito</a>
                                     </button>
                                 </li>
-                                @elseif (Session::has('cart'))
+
+                            </ul>
+
+                            @elseif (Session::has('cart'))
                                 <ul class="cart-menu dropdown-item">
                                     @foreach (Session::get('cart') as $cartId => $product)
                                     <li>
@@ -153,10 +147,10 @@
                                         No hay productos en el carrito
                                     </li>
                                 </ul>
-                                @endif
+                                @endauth
 
-                            </div>
                         </div>
+                    </div>
                     @endif
 
                     @if (Route::has('login'))
@@ -230,7 +224,6 @@
                                 @endif
                             </li>
                         </ul>
-
                         @endauth
                     </div>
                     @endif
@@ -426,7 +419,9 @@
 
     <!--  scripts de AOS-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script> AOS.init();  </script>
+    <script>
+        AOS.init();
+    </script>
 
 
     <!--  scripts de Javascript-->

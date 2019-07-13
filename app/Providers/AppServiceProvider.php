@@ -31,15 +31,6 @@ class AppServiceProvider extends ServiceProvider
 
         Schema::defaultStringLength(191);
         View::share('categories', $categories);
-
-        view()->composer('*', function($view)
-        {
-            if (Auth::check()) {
-                $view->with('currentUser', Auth::user());
-            }else {
-                $view->with('currentUser', null);
-            }
-        });
     }
 
 }

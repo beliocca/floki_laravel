@@ -16,26 +16,29 @@ class CartController extends Controller
     public function show()
     {
         $products = Product::all();
-        $carts = Cart::all();
         return view('cart')->with('products', $products);
     }
 
     public function addToCart(Request $request)
     {
+
         $product = $request->all();
+
         // addtocart for users
-        if (isset($request->user_id)) {
+        if (Auth()->check()) {
+            $user = Auth::user();
+            
             $carts = Cart::where('product_id', $request->id)->get();
-            if (isset($carts[0])) {
+            if (!count($carts)== 0) {
                 $cart = $carts[0];
                 $newquantity = $cart->quantity + $product["cantidad"];
-                $cart->user_id = $product['user_id'];
+                $cart->user_id = $user->id;
                 $cart->product_id = $product['id'];
                 $cart->quantity = $newquantity;
                 $cart->save();
             } else {
                 $newCart = Cart::create([
-                    'user_id' => $product['user_id'],
+                    'user_id' => $user->id,
                     'product_id' => $product['id'],
                     'quantity' => $product['cantidad']
                 ]);
@@ -66,7 +69,7 @@ class CartController extends Controller
     {
         $product = $request->all();
 
-        if (isset($request->user_id)) {
+        if (Auth()->check()){
             $carts = Cart::where('product_id', $request->id)->get();
             $cart = $carts[0];
             $cart->user_id = $product['user_id'];
@@ -91,7 +94,7 @@ class CartController extends Controller
     public function deleteFromCart(Request $request)
     {
         $cartCambios = $request->all();
-        if (isset($request->user_id)) {
+        if (Auth()->check()) {
             $carts = Cart::where('product_id', $request->id)->get();
             $cart = $carts[0];
             $cart->delete();
@@ -139,6 +142,7 @@ class CartController extends Controller
                     ]);
                 }
             }
+
         }
         $carts = Cart::where('user_id', $user->id)->get();
         $total = 0;
