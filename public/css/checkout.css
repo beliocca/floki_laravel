@@ -4,6 +4,22 @@
 
 /* CHECKOUT */
 
+button {
+  text-decoration: none;
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  font-size: 15px;
+  background-color: #cfe3e3;
+  color: #0d4659;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 20px;
+  height: 40px;
+  /* width: 100px; */
+  border: none;
+  margin: auto;
+}
+
 .btn-delete {
     border: none;
     color: #0d4659;
@@ -40,7 +56,7 @@ font-family: "Work Sans", sans-serif;
 
 .order-list h2, .order-form h2{
     font-size: 20px;
-    margin-top:20px;    
+    margin-top:20px;
 }
 
 .order-form label {
@@ -59,5 +75,3 @@ font-family: "Work Sans", sans-serif;
     display: inline-block;
     margin: 20px auto;
 }
-
-

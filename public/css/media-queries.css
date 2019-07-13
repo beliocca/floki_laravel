@@ -99,6 +99,15 @@
 
 /* media query responsive HOME */
 @media (max-width: 992px) {
+  .home-parallax-title{
+    padding: 10px;
+    width: 65%;
+  }
+
+  .home-parallax-title h1{
+    font-size: 3em;
+  }
+
     /* stripe */
     .home-stripe {
         background-color: #cfe3e3;
@@ -190,6 +199,15 @@
 
 
 @media (max-width: 600px) {
+  .parallax-image {
+
+    background-attachment: scroll;
+
+   }
+
+  .home-parallax-title h1{
+    font-size: 2em;
+  }
     /* stripe */
     .home-stripe {
         background-color: #cfe3e3;
@@ -636,6 +654,129 @@
   }
 }
 
+
+/* media query responsive NOSOTROS */
+
+@media (max-width: 992px) {
+  .box-nosotros {
+    width: 100%;
+  }
+  .nosotros-title{
+    width: 100%;
+  }
+  .nosotros-title h1{
+    font-size: 3em;
+  }
+  .team {
+    width: 100%;
+  }
+  .team-member h2{
+    font-size: 1.5em;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0 60px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .div-inside-nosotros-parallax{
+    padding-top: 5vh;
+    width: 95%;
+  }
+
+  .nosotros-parallax{
+    background-attachment: scroll;
+  }
+  .nosotros-title h1{
+    font-size: 2em;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0 60px;
+  }
+
+  .team-member {
+    width: 100%;
+    margin: 20px auto;
+  }
+  .team-member h2{
+    font-size: 1.5em;
+    padding: 10px 5px;
+    width: 100%
+  }
+
+}
+
+/* media query responsive CART */
+
+@media (max-width: 992px) {
+
+  .cart-title h1{
+    font-size: 3em;
+  }
+
+  table .thead-light th {
+    font-size: 15px !important;
+  }
+
+
+}
+
+@media (max-width: 600px) {
+
+
+  .cart-container {
+    padding: 20px 0 !important;
+  }
+
+  .cart-foto{
+    display: none !important;
+  }
+
+  .cart-title{
+    margin: 0px auto 20px;
+  }
+
+  .cart-title h1{
+    font-size: 2em ;
+  }
+
+  table .thead-light th {
+    font-size: 12px !important;
+  }
+
+  .buttonssubmit a button{
+    font-size: 12px !important;
+    height: 60px !important;
+  }
+
+  .divcheckout, .checkouttotal{
+    font-size: 20px !important;
+  }
+
+  table {
+    width: 100% !important;
+  }
+
+  .no-items {
+    font-size: 15px;
+    margin: 100px 10px 300px
+  }
+
+}
 
 /* media query responsive PERFIL */
 

@@ -24,10 +24,15 @@
   align-self: center;
 }
 
-.home-parallax {
-  /* The image used */
-  background-image: url("../images/parallax/home/1.jpg");
 
+.home-parallax-grid{
+  display: grid;
+  grid-template: 1fr, 1fr;
+  width: 100vw;
+}
+
+.parallax-image {
+  grid-area: 1 / 1 / span 1 / span 1;
 
   /* Full height */
   height: 80vh;
@@ -37,50 +42,78 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  transition: background-image 2s;
-  transition-timing-function: ease-in-out 2s;
-
-
-  /* animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-name: slider;
-animation-timing-function: linear;
-
-animation-duration: 20s; */
-/* animation-direction: alternate; */
-
-
 }
 
-/* @keyframes slider{
-0%{background-image:url("../images/parallax/home/1.jpg");}
-15%{background-image:url("../images/parallax/home/1.jpg");}
-20%{background-image:url("../images/parallax/home/2.jpg");}
-35%{background-image:url("../images/parallax/home/2.jpg");}
-40%{background-image:url("../images/parallax/home/5.jpg");}
-55%{background-image:url("../images/parallax/home/5.jpg");}
-60%{background-image:url("../images/parallax/home/8.jpg");}
-75%{background-image:url("../images/parallax/home/8.jpg");}
-80%{background-image:url("../images/parallax/home/4.jpg");}
-95%{background-image:url("../images/parallax/home/4.jpg");}
-100%{background-image:url("../images/parallax/home/1.jpg");}
-} */
 
-
-
-.div-inside-home-parallax{
-  padding-top: 30vh;
-
+.paralax-home-img-1{
+    background-image: url("../images/parallax/home/5.jpg");
+    z-index: 5;
+    animation-name: fadeInOut1;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
 }
+
+@keyframes fadeInOut1{
+  0% {opacity:1;}
+  10% {opacity:1;}
+  20% {opacity:0;}
+  85% {opacity:0;}
+  95% {opacity:1;}
+  100% {opacity:1;}
+}
+
+.paralax-home-img-2{
+    background-image: url("../images/parallax/home/8.jpg");
+    z-index: 4;
+    animation-name: fadeInOut2;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+@keyframes fadeInOut2{
+  0% {opacity:1;}
+  35% {opacity:1;}
+  45% {opacity:0;}
+  99% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.paralax-home-img-3{
+    background-image: url("../images/parallax/home/1.jpg");
+    z-index: 3;
+    animation-name: fadeInOut3;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+}
+
+@keyframes fadeInOut3{
+  0% {opacity:1;}
+  60% {opacity:1;}
+  70% {opacity:0;}
+  99% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.paralax-home-img-4{
+    background-image: url("../images/parallax/home/2.jpg");
+    z-index: 2;
+}
+
 
 .home-parallax-title{
   border-color:  rgba(207, 227, 227, 0.9);
   border-width: 5px;
   border-style: solid;
-  margin: 5px auto;
+  margin: auto auto;
   padding: 10px;
   width: 50%;
+  grid-area: 1 / 1 / span 1 / span 1;
+  z-index: 10;
 }
 
 .home-parallax-title h1{
@@ -252,7 +285,7 @@ animation-duration: 20s; */
     padding: 2px;
 
 }
-.producto-top a {
+.producto-top .verMas {
     text-decoration: none;
     text-align: center;
     font-family: "Work Sans", sans-serif;
@@ -284,4 +317,9 @@ animation-duration: 20s; */
     text-align: center;
     padding: 3px;
     margin: 0 0 5px;
+}
+
+.producto-top a {
+  color: #0d4659;
+  text-align: center;
 }

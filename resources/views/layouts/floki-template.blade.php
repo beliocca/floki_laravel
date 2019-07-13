@@ -245,13 +245,15 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href="/shop">Todas las categorias</a>
+
                                 @foreach ($categories as $category)
                                 @if ($category->is_main)
                                 <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
                                 @endif
                                 @endforeach
 
-                                <a class="dropdown-item" href="/shop">Todas las categorias</a>
+
                             </div>
                         </li>
                         <li class="nav-item">

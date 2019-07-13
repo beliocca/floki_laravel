@@ -100,6 +100,9 @@ class CartController extends Controller
             $cartIdABorrar = $cartCambios['id'];
             unset($cart[$cartIdABorrar]);
             Session::put('cart', $cart);
+            if (empty($cart)) {
+              Session::forget('cart');
+            }
         }
     }
 
@@ -151,5 +154,3 @@ class CartController extends Controller
         return view('checkoutuser')->with('carts', $carts)->with('user', $user)->with('total', $total);
     }
 }
-
-

@@ -100,18 +100,19 @@
     @foreach ($productsRecomendados as $product)
 
       <article class="producto-recomendado">
+
         <div class="producto-recomendado-photo">
 
           @foreach ($product->productPhotos as $productPhoto)
-            <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
-                        alt="">
+            <a href="/product/{{ $product->id }}"><img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                        alt=""></a>
           @endforeach
 
         </div>
-        <h2>{{ $product->name }}</h2>
-        <h3>${{ $product->price }}</h3>
+        <h2><a href="/product/{{ $product->id }}">{{ $product->name }}</a></h2>
+        <h3><a href="/product/{{ $product->id }}">${{ $product->price }}</a></h3>
 
-        <a href="/product/{{ $product->id }}">Ver más</a>
+        <a class="verMas" href="/product/{{ $product->id }}">Ver más</a>
         {{-- @foreach ($product->categories as $category)
             <p>{{ $category->name }}</p>
         @endforeach --}}

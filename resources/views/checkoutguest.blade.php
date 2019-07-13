@@ -63,7 +63,7 @@
         </div>
 
 
-        <button class="button"  type="submit">Comprar</button>
+        <button class="btn-comprar button"  type="submit">Comprar</button>
 
     </form>
 </div>

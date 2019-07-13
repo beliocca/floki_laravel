@@ -28,7 +28,7 @@
 }
 
 .box-nosotros {
-  width: 70%;
+  width: 80%;
   /* height: 30em; */
   background-color: rgba(248, 248, 248, 0.9);
   margin: 20px auto 70px;
@@ -41,7 +41,7 @@
   border-style: solid;
   margin: 5px auto;
   padding: 10px;
-  width: 70%;
+  width: 80%;
 }
 
 .nosotros-title h1{
@@ -81,7 +81,7 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 
@@ -93,21 +93,21 @@ a:hover {
 }
 
 .team-member img {
-  width: 70%;
+  width: 60%;
   border-radius: 50%;
   margin: 20px auto;
 }
 
 .team-member h2{
   font-family: 'Work Sans', sans-serif;
-  font-size: 2em;
+  font-size: 1.7em;
   font-weight: lighter;
   color: #383838;
   background-color: rgba(207, 227, 227, 0.9);
   text-align: left;
   margin: 10px auto;
   width: 100%;
-  padding: 10px;
+  padding: 10px 5px;
   text-align: center;
 }
 
