@@ -2,6 +2,10 @@
 
 @section('title', 'Inspiráte! FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}"/>
+@endsection
+
 
 @section('content')
 
@@ -35,7 +39,7 @@
       </a>
   </section>
 
-  
+
   <!--carrusel con imagenes interactivas -->
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">

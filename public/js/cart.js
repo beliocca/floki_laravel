@@ -12,13 +12,13 @@ window.addEventListener("load", function() {
                 cantidadProductoNueva = 1;
             }
 
-            var precio = event.path[1].nextElementSibling.innerText;
+            var precio = event.path[1].nextElementSibling.innerText.substr(1);
             var cantidadProducto = event.target.defaultValue;
             var precioNuevo =
                 (precio / cantidadProducto) * cantidadProductoNueva;
 
             event.target.value = cantidadProductoNueva;
-            event.path[1].nextElementSibling.innerText = precioNuevo;
+            event.path[1].nextElementSibling.innerText = "$"+precioNuevo;
             event.target.defaultValue = cantidadProductoNueva;
 
             var total =
@@ -81,7 +81,7 @@ window.addEventListener("load", function() {
             var userId = document.querySelector(".currentuser").value;
             var precio = button_parent.getElementsByClassName(
                 "precioporproducto"
-            )[0].innerHTML;
+            )[0].innerHTML.substr(1);
             buttonClicked.parentElement.parentElement.parentElement.remove();
             var total = document.querySelector(".checkouttotal").innerHTML;
             var totalActualizado = parseInt(total) - parseInt(precio);
@@ -91,9 +91,11 @@ window.addEventListener("load", function() {
             ).innerHTML = totalActualizado;
 
             if (totalActualizado === 0) {
-                document.querySelector(".divcheckout").innerHTML =
-                    "No tiene productos en su carrito";
+
+                document.querySelector("table").style.display = "none";
+                document.querySelector(".divcheckout").style.display = "none";
                 document.querySelector(".buttonssubmit").innerHTML = "";
+                document.querySelector(".none-display").style.display = "block";
             }
 
             var product = {

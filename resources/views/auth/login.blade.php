@@ -2,6 +2,10 @@
 
 @section('title', 'Login - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+@endsection
+
 
 @section('content')
   <section class="section-login">

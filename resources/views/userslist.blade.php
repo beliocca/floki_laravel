@@ -2,6 +2,10 @@
 
 @section('title', 'Admin - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+@endsection
+
 @section('content')
 
 <h1 class="titleperfil">Listado Usuarios</h1>

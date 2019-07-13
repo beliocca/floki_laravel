@@ -2,6 +2,10 @@
 
 @section('title', 'Shop - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/shop.css') }}"/>
+@endsection
+
 @section('scripts')
 <script src="{{ asset('js/changePhotoOnHover.js') }}"></script>
 @endsection
@@ -103,15 +107,15 @@
             @foreach ($products as $product)
 
               <article class="producto js-img-hover">
-                      <div id="photo-shop" >
+                    <a href="/product/{{ $product->id }}">  <div id="photo-shop" >
                         @foreach ($product->productPhotos as $productPhoto)
-                          <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                            <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
                                       alt="">
                         @endforeach
-                      </div>
-                  <h2>{{ $product->name }}</h2>
+                      </div></a>
+                    <a href="/product/{{ $product->id }}"><h2>{{ $product->name }}</h2></a>
 
-                  <h3>${{ $product->price }}</h3>
+                    <a href="/product/{{ $product->id }}"><h3>${{ $product->price }}</h3></a>
 {{-- @foreach ($product->categories as $category)
     <p>{{ $category->name }}</p>
 @endforeach --}}

@@ -2,49 +2,49 @@
 <html>
 {{-- lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 
-<head>
+  <head>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+            <!-- CSRF Token -->
+          <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>@yield('title')</title>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+          <!--Bootstrap-->
+          <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+          />
 
-    <!--Google-->
-    <link href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+          <!--Google-->
+          <link
+          href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
+          rel="stylesheet"
+          />
+          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
-    <!--FontAwesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+          <!--FontAwesome-->
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
+          />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}" />
+          <!-- Favicon -->
+          <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
 
-    <!--AOS Stylesheets-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+          <!--AOS Stylesheets-->
+          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!--Floki's Stylesheets-->
-    <link rel="stylesheet" href="{{ asset('css/style-general.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/nosotros.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/inspiracion.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/forms.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/shop.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/producto.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/pago-guest.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/pago-user.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/perfil.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/cart.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}" />
+          <!--Floki's Stylesheets-->
+          <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
+          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
+          @yield('css')
+          <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
 
 
 </head>
@@ -249,13 +249,15 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+                                <a class="dropdown-item" href="/shop">Todas las categorias</a>
+
                                 @foreach ($categories as $category)
                                 @if ($category->is_main)
                                 <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
                                 @endif
                                 @endforeach
 
-                                <a class="dropdown-item" href="/shop">Todas las categorias</a>
+
                             </div>
                         </li>
                         <li class="nav-item">

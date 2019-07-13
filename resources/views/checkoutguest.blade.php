@@ -2,6 +2,10 @@
 
 @section('title', 'Checkout - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/checkout.css') }}"/>
+@endsection
+
 @section('content')
 
 <h1 class="titleperfil">Checkout</h1>
@@ -59,7 +63,7 @@
         </div>
 
 
-        <button class="button"  type="submit">Comprar</button>
+        <button class="btn-comprar button"  type="submit">Comprar</button>
 
     </form>
 </div>

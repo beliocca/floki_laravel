@@ -2,6 +2,10 @@
 
 @section('title', '¡Registrate! - FLOKI Deco & Design')
 
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/forms.css') }}"/>
+@endsection
+
 
 @section('content')
 
