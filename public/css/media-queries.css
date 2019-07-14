@@ -186,7 +186,7 @@
         width: 13em;
       }
 
-      .producto-top a {
+      .producto-top .verMas {
           font-size: 15px;
           padding: 5px;
           width: 90px;
@@ -270,7 +270,7 @@
         width: 11em;
       }
 
-      .producto-top a {
+      .producto-top .verMas {
           font-size: 15px;
           padding: 5px;
           width: 90px;
