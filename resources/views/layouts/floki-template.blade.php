@@ -2,49 +2,38 @@
 <html>
 {{-- lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 
-  <head>
+<head>
 
-            <!-- CSRF Token -->
-          <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-          <title>@yield('title')</title>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@yield('title')</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-          <!--Bootstrap-->
-          <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-          />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-          <!--Google-->
-          <link
-          href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700"
-          rel="stylesheet"
-          />
-          <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Google-->
+    <link href="https://fonts.googleapis.com/css?family=Lusitana|Roboto:300,400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
 
-          <!--FontAwesome-->
-          <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous"
-          />
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-          <!-- Favicon -->
-          <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}"  />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon_floki') }}" />
 
-          <!--AOS Stylesheets-->
-          <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--AOS Stylesheets-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-          <!--Floki's Stylesheets-->
-          <link rel="stylesheet" href="{{ asset('css/style-general.css') }}"/>
-          <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}"/>
-          @yield('css')
-          <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}"/>
+    <!--Floki's Stylesheets-->
+    <link rel="stylesheet" href="{{ asset('css/style-general.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/header-footer.css') }}" />
+    @yield('css')
+    <link rel="stylesheet" href="{{ asset('css/media-queries.css') }}" />
 
 
 </head>
@@ -65,9 +54,11 @@
             <div class="user-navbar">
                 <nav class="navbar navbar-expand-lg">
 
-                    @if(Request::path()!=="cart" && Request::path()!=="checkoutGuest" && Request::path()!=="checkoutUser")
+                    @if(Request::path()!=="cart" && Request::path()!=="checkoutGuest" &&
+                    Request::path()!=="checkoutUser")
                     <div class="nav-item shopping-cart dropdown">
                         @auth
+
                         @php
                         $carts = \App\Cart::where('user_id', Auth::user()->id)->get();
                         $precioTotal = 0;
@@ -75,12 +66,13 @@
                         foreach ($carts as $cart) {
                         $cantidadProductos += $cart->quantity;
                         $precioTotal += $cart->product->price * $cart->quantity;
+
                         }
                         @endphp
 
                         <a class=" dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            @if(!$carts->isEmpty())
+                            @if(count($carts)!==0)
                             <p>{{ $cantidadProductos }} Productos</p>
                             @endif
                         </a>
@@ -104,8 +96,11 @@
                             aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-shopping-cart "></i>
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
-                            @if(Auth::check()&&!$carts->isEmpty())
+
+                       @if(Auth::check() && count($carts)>0)
+
                             <ul class="cart-menu dropdown-item">
                                 @foreach($carts as $cart)
                                 <li>
@@ -121,34 +116,33 @@
                                         <a href="/cart">Ver carrito</a>
                                     </button>
                                 </li>
-
                             </ul>
 
                             @elseif (Session::has('cart'))
-                                <ul class="cart-menu dropdown-item">
-                                    @foreach (Session::get('cart') as $cartId => $product)
-                                    <li>
-                                        {{ $product["cantidad"] }}x {{  $product["name"]}}
-                                        ${{ $product["price"] * $product["cantidad"] }}
-                                    </li>
-                                    @endforeach
-                                    <li class="li-cart-total">
-                                        Total: ${{ $precioTotal }}
-                                    </li>
-                                    <li class="li-cart">
-                                        <button>
-                                            <a href="/cart">Ver carrito</a>
-                                        </button>
-                                    </li>
-                                </ul>
-                                @else
-                                <ul class="navbar-nav">
-                                    <li class="dropdown-item">
-                                        No hay productos en el carrito
-                                    </li>
-                                </ul>
-                                @endauth
+                            <ul class="cart-menu dropdown-item">
+                                @foreach (Session::get('cart') as $cartId => $product)
+                                <li>
+                                    {{ $product["cantidad"] }}x {{  $product["name"]}}
+                                    ${{ $product["price"] * $product["cantidad"] }}
+                                </li>
+                                @endforeach
+                                <li class="li-cart-total">
+                                    Total: ${{ $precioTotal }}
+                                </li>
+                                <li class="li-cart">
+                                    <button>
+                                        <a href="/cart">Ver carrito</a>
+                                    </button>
+                                </li>
+                            </ul>
+                            @else
+                            <ul class="navbar-nav">
+                                <li class="dropdown-item">
+                                    No hay productos en el carrito
+                                </li>
+                            </ul>
 
+                            @endauth
                         </div>
                     </div>
                     @endif

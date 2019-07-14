@@ -30,15 +30,20 @@ Route::get('/shop', 'ProductController@index');
 
 Route::get('/search', 'ProductController@search');
 
-Route::get('/profile', 'UserController@show')->middleware('auth');
+Route::group(['middleware' => 'auth'], function(){
 
-Route::post('/profile', 'UserController@update')->middleware('auth');
+Route::get('/profile', 'UserController@show');
 
-Route::get('/profile/orders/{id}', 'UserController@showOrders')->middleware('auth');
+Route::post('/profile', 'UserController@update');
 
-Route::get('/profile/addresses/{id}', 'UserController@showAddresses')->middleware('auth');
+Route::get('/profile/orders/{id}', 'OrderController@showOrders');
 
-Route::group(['middleware' => 'admin'], function () {
+Route::get('/profile/addresses/{id}', 'AddressController@showAddresses');
+
+Route::get('/profile/deleteaddress/{id}', 'AddressController@deleteAddress');
+});
+
+Route::group(['middleware' => 'admin'], function (){
 
     Route::post('/admin/addproducts', 'ProductController@create');
 

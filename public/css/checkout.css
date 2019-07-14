@@ -4,54 +4,75 @@
 
 /* CHECKOUT */
 
-button {
-  text-decoration: none;
-  text-align: center;
-  font-family: "Work Sans", sans-serif;
-  font-size: 15px;
-  background-color: #cfe3e3;
-  color: #0d4659;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 10px 20px;
-  height: 40px;
-  /* width: 100px; */
-  border: none;
-  margin: auto;
-}
 
-.btn-delete {
-    border: none;
+.container-checkout {
+    padding: 10px 0;
+    background-image: url("../images/parallax/backgrounds/marble.jpg");
+
+    /* Full height */
+    min-height: 85vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .no-items {
+    font-family: "Lusitana", serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: #0d4659;
-    outline: none;
-}
-.btn-delete:hover {
-    background-color: #0d4659;
-    color: #fff;
-}
-.btn-delete:active {
-    background-color: #0d4659;
-    color: #fff;
-    outline: none;
-}
+    font-weight: 100;
+    text-align: center;
+    font-size: 25px;
+    margin: 100px auto 200px ;
+    padding: 10px;
+  }
 
-.btn-delete-out{
-background-color: rgba(255, 0, 0, 0);
-border: none;
-outline: none;
-color: #0d4659;
-font-size: 16px;
-font-family: "Work Sans", sans-serif;
-/* padding: 8px 8px 0; */
-}
+  .none-display{
+    display: none;
+  }
+
+  .checkout-title{
+    border-color:  rgba(207, 227, 227, 0.9);
+    border-width: 5px;
+
+    margin: 10px auto;
+    padding: 5px;
+    width: 30%;
+  }
+
+  .checkout-title h1{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin: 10px auto;
+    width: 93%;
+    padding: 10px;
+    background-color: rgba(207, 227, 227, 0.9);
+    text-transform: uppercase;
+  }
 
 /* checkout */
 
 .order-list, .order-form{
     text-transform: uppercase;
-    width:60%;
+    width:50%;
     margin: 10px auto;
     color: #0d4659;
+}
+
+.order-list{
+    text-align: center;
+}
+.order-list a:hover{
+    color: #cfe3e3;
+    text-decoration: none;
+
 }
 
 .order-list h2, .order-form h2{
@@ -63,17 +84,19 @@ font-family: "Work Sans", sans-serif;
     margin-top:10px;
 }
 
+.order-form input{
+
+    color: #0d4659;
+    border: 1px solid #cfe3e3;
+
+}
+
 #addressline2{
     margin-top: 10px;
 }
 
 .titleperfil{
     margin-top: 20px;
-}
-
-.order-form .button{
-    display: inline-block;
-    margin: 20px auto;
 }
 
 .payment{
@@ -85,6 +108,21 @@ font-family: "Work Sans", sans-serif;
 .payment img{
     max-height: 12vh;
     border: 1px solid #ced4da;
-
 }
+
+.orderbutton  {
+    display:  block;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 15px;
+    background-color: #cfe3e3;
+    color: #0d4659;
+    text-transform: uppercase;
+
+    padding: 10px 20px;
+    height: 40px;
+    /* width: 100px; */
+    border: none;
+    margin: 20px auto;
+  }
 

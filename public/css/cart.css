@@ -5,7 +5,7 @@
 /* CART */
 
 .cart-container {
-  padding: 50px 0;
+  padding: 10px 0;
   background-image: url("../images/parallax/backgrounds/marble.jpg");
 
   /* Full height */
@@ -37,23 +37,23 @@
 .cart-title{
   border-color:  rgba(207, 227, 227, 0.9);
   border-width: 5px;
-  border-style: solid;
-  margin: 30px auto;
-  padding: 10px;
-  width: 80%;
+
+  margin: 10px auto;
+  padding: 5px;
+  width: 30%;
 }
 
 .cart-title h1{
   font-family: 'Work Sans', sans-serif;
-  font-size: 4em;
+  font-size: 2em;
   font-weight: 400;
   color: white;
   text-align: center;
   margin: 10px auto;
   width: 93%;
-
   padding: 10px;
   background-color: rgba(207, 227, 227, 0.9);
+
 
 }
 
@@ -111,7 +111,7 @@ table .thead-light td {
   padding: 10px;
 }
 
-.buttonssubmit a button{
+.buttonssubmit  button{
   text-decoration: none;
   text-align: center;
   font-family: "Work Sans", sans-serif;

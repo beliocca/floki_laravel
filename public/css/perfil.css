@@ -4,12 +4,13 @@
 
 /* PERFIL */
 
-.h2perfil {
+.h2perfil, .h2perfil2 {
     font-size: 25px;
 }
 
 
 .h2perfil,
+.h2perfil2,
 .listperfil,
 .titleperfil {
     text-transform: uppercase;
@@ -23,12 +24,15 @@
     padding: 0;
 }
 
+.h2perfil{
+    margin-left: 30px;
+}
 .listperfil:hover {
     text-decoration: none;
     color: #98dae0;
 }
 
-.perfil button {
+.perfilbtn{
     box-sizing: border-box;
     height: 40px;
     color: #0d4659;
@@ -76,8 +80,8 @@
 }
 
 .perfil {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .select {
@@ -92,18 +96,27 @@
     font-size: 13px;
     font-family: "Roboto", sans-serif;
     color: #0d4659;
-  
+
 }
 
 .ordercontainer{
     border: 1px solid #cfe3e3;
     display: flex;
-    margin: 20px auto;
-
+    margin: 20px auto 20px 0px;
+    background-color: white;
+    width: 95%;
 }
 
+.menu{
+    margin: 20px 0px 20px 30px;
+}
+
+.formperfil{
+    width: 60%;
+}
 .ordercol{
     margin: 5px 10px;
+
 }
 
 .ordercol.col1{
@@ -119,9 +132,47 @@
    }
 
 .addresscontainer{
-    max-width: 70%;
     border: 1px solid #cfe3e3;
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.menu {
+    margin-top: 20px;
+}
+
+.perfil {
+
+    background-image: url("../images/parallax/backgrounds/marble.jpg");
+
+    /* Full height */
+    min-height: 85vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .addresscontainer{
+    background-color: white;
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+    width:80%;
+
+}
+
+.deletebtn{
+        text-decoration: none;
+        font-size: 15px;
+        color: #0d4659;
+        border: none;
+        margin: auto;
+}
+
+.formperfil form, .formperfil {
+    width: 50%;
 }

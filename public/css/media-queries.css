@@ -488,13 +488,19 @@
 @media(max-width:578px){
 
 
-    .perfil form {
+    .formperfil form, .formperfil h2{
+        display: block;
         width: 100%;
-        margin: 0 auto;
+        margin-left: 30px;
+    }
+
+    .userorders{
+        display: block;
+        width: 100%;
+        margin-left: 30px;
     }
 
 }
-
 
 /* /ADMIN */
 

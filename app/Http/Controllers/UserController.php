@@ -10,7 +10,7 @@ use App\Category;
 use App\Role;
 use App\Order;
  use App\Address;
- 
+
 class UserController extends Controller
 {
     public function show(){
@@ -66,17 +66,6 @@ class UserController extends Controller
 
     }
 
-    protected function showOrders($id){
-        $user = User::find($id);
-        $orders = Order::where('user_id', $id)->get();
-        return view('orders')->with('orders', $orders)->with('user', $user);
-    }
-
-    protected function showAddresses($id){
-        $user = User::find($id);
-        $addresses = Address::where('user_id', $id)->get();
-        return view('addresses')->with('addresses', $addresses)->with('user', $user);
-    }
 
     protected function adminupdate(Request $data){
         $user = User::find($data->id);
@@ -96,5 +85,7 @@ class UserController extends Controller
         return redirect('/admin/userslist');
 
     }
+
+
 
 }

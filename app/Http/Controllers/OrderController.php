@@ -9,6 +9,7 @@ use App\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
 use Illuminate\Support\Facades\Session;
+use App\User;
 
 class OrderController extends Controller
 {
@@ -35,7 +36,7 @@ class OrderController extends Controller
 
         if (Auth::check()) {
             $user_id = Auth::user()->id;
-            
+
         } else {
             $user_id = null;
         }
@@ -133,9 +134,11 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
-    {
-        //
+
+    protected function showOrders($id){
+        $user = User::find($id);
+        $orders = Order::where('user_id', $id)->get();
+        return view('orders')->with('orders', $orders)->with('user', $user);
     }
 
     /**
