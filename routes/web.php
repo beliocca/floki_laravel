@@ -12,6 +12,12 @@ use App\Http\Middleware\Admin;
 |
 */
 
+// Route::get('/install', function() {
+//   Artisan::call('storage:link');
+//   Artisan::call('migrate:refresh');
+//   Artisan::call('db:seed');
+// });
+
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
