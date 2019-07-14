@@ -186,7 +186,7 @@
         width: 13em;
       }
 
-      .producto-top a {
+      .producto-top .verMas {
           font-size: 15px;
           padding: 5px;
           width: 90px;
@@ -270,7 +270,7 @@
         width: 11em;
       }
 
-      .producto-top a {
+      .producto-top .verMas {
           font-size: 15px;
           padding: 5px;
           width: 90px;
@@ -652,12 +652,24 @@
 
 }
 
-/* media query responsive CART */
+/* media query responsive CART y CHECKOUT */
 
 @media (max-width: 992px) {
 
+  .cart-title{
+    width: 50%;
+  }
+
   .cart-title h1{
-    font-size: 3em;
+    font-size: 1.5em;
+  }
+
+  .checkout-title{
+    width: 50%;
+  }
+
+  .checkout-title h1{
+    font-size: 1.5em;
   }
 
   table .thead-light th {
@@ -674,16 +686,30 @@
     padding: 20px 0 !important;
   }
 
+  .container-checkout {
+    padding: 20px 0 !important;
+  }
+
   .cart-foto{
     display: none !important;
   }
 
   .cart-title{
     margin: 0px auto 20px;
+    width: 60%;
+  }
+
+  .checkout-title h1{
+    font-size: 1.2em ;
+  }
+
+  .checkout-title{
+    margin: 0px auto 5px;
+    width: 60%;
   }
 
   .cart-title h1{
-    font-size: 2em ;
+    font-size: 1.2em ;
   }
 
   table .thead-light th {
@@ -707,6 +733,88 @@
     font-size: 15px;
     margin: 100px 10px 300px
   }
+
+  .checkout-box{
+    padding: 30px 0px;
+    margin: 3% 7%;
+  }
+  .order-list, .order-form{
+      text-transform: uppercase;
+      width:80%;
+      margin: 10px auto;
+      color: #0d4659;
+  }
+
+  .order-list h2, .order-form h2{
+      font-size: 16px;
+      margin-top:10px;
+  }
+
+  .productos-box{
+    padding: 0 0 5px !important;
+  }
+  .productos-title-box{
+    padding: 0 0 10px !important;
+  }
+  .productos-checkout{
+    font-size: 12px !important;
+  }
+
+}
+
+/* media query responsive CART y CHECKOUT */
+
+@media (max-width: 992px) {
+
+  .order-container {
+    padding: 20px 0 ;
+  }
+
+  .order-box {
+    padding: 10px 0;
+    margin: 3% 10vw;
+  }
+
+
+  .order-details{
+    padding: 50px auto;
+  }
+
+  .order-details h2{
+    font-size: 1.5em ;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+
+
+    .order-container {
+      padding: 20px 0 ;
+    }
+
+    .order-box {
+      padding: 10px 0;
+      margin: 3% 5vw;
+    }
+
+
+    .order-details{
+      padding: 50px auto;
+    }
+
+    .order-details h2{
+      font-size: 1.2em ;
+    }
+    .order-details ul{
+      font-size: 0.8em ;
+      padding-left: 10px;
+    }
+
+    .order-details p {
+      font-size: 0.8em ;
+    }
 
 }
 

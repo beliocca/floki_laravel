@@ -34,7 +34,7 @@
             <td>{{$order->items}}</td>
             <td>
                 <ul>
-                    @foreach ($order->orderDetail as $detail)
+                    @foreach ($order->orderDetails as $detail)
                     @foreach ($order->products as $product)
                     @if($detail->product_id == $product->id)
                     <li>{{$detail->amount}} {{$product->name}} : ${{$detail->amount*$detail->price}}</li>

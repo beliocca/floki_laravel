@@ -12,6 +12,12 @@ use App\Http\Middleware\Admin;
 |
 */
 
+// Route::get('/install', function() {
+//   Artisan::call('storage:link');
+//   Artisan::call('migrate:refresh');
+//   Artisan::call('db:seed');
+// });
+
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
@@ -103,3 +109,5 @@ Route::get('/checkoutguest', 'CartController@checkoutSession')->name('checkoutGu
 Route::get('/checkoutuser', 'CartController@checkoutUser')->middleware('auth')->name('checkoutUser');
 
 Route::post('/order', 'OrderController@create');
+
+Route::get('/order', 'OrderController@showTest');
