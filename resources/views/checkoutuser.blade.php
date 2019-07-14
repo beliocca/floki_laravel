@@ -45,7 +45,7 @@
                 @csrf
                 <input type="hidden" value="{{$carts}}" name="carts">
                 <input type="hidden" name="user_id" value="{{$user->id}}">
-                <input type="hidden" name="email" value="{{$user->email}}">
+                <input class= "email" type="hidden" name="email" value="{{$user->email}}">
                 <h2>Tus datos</h2>
                 <div>
                     <label for="name">Nombre</label>
@@ -73,18 +73,18 @@
                 </div>
                 <div>
                     <label for="zipcode">Código postal</label>
-                    <input class="form-control " type="text" name="zipcode" @if($user->addresses->first())
+                    <input class="form-control zipcode " type="text" name="zipcode" @if($user->addresses->first())
                     value="{{$user->addresses->first()->zipcode}}" @endif>
 
                 </div>
                 <div>
                     <label for="state">Provincia</label>
-                    <input class="form-control " type="text" name="state" @if($user->addresses->first())
+                    <input class="form-control state" type="text" name="state" @if($user->addresses->first())
                     value="{{$user->addresses->first()->state}}" @endif>
                 </div>
                 <div>
                     <label for="contry">Pais</label>
-                    <input class="form-control " type="text" name="country" @if($user->addresses->first())
+                    <input class="form-control country" type="text" name="country" @if($user->addresses->first())
                     value="{{$user->addresses->first()->country}}" @endif>
                 </div>
 
