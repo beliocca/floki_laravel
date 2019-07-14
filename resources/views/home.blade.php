@@ -113,11 +113,12 @@
 
       <article class="producto-top js-img-hover">
         <div class="producto-top-photo">
-
-          @foreach ($product->productPhotos as $productPhoto)
-            <a href="/product/{{ $product->id }}"><img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
-                        alt=""></a>
-          @endforeach
+            <a href="/product/{{ $product->id }}">
+              @foreach ($product->productPhotos as $productPhoto)
+              <img  class="productPhotosHover" class="img-fluid" src="/uploads/product_photos/{{$productPhoto->filename}}"
+                            alt="">
+              @endforeach
+          </a>
 
         </div>
         <h2><a href="/product/{{ $product->id }}">{{ $product->name }}</a></h2>
