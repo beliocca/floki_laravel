@@ -49,7 +49,7 @@
                         placeholder="{{ $message }}" @enderror @else placeholder="Apellido" @endif>
                 </p>
                 <p>
-                    <input id="email" type="text" class="userform" name="email" value="{{ old('email') }}"
+                    <input id="email" type="text" class="userform" name="email" value=""
                         autocomplete="email" autofocus @error('email') @if (isset($message))
                         placeholder="{{ $message }}" @enderror @else placeholder="Email" @endif>
                 </p>
