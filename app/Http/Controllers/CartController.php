@@ -111,6 +111,7 @@ class CartController extends Controller
 
     public function checkoutSession()
     {
+        
         $carts = Session::get('cart');
         $total = 0;
         foreach($carts as $cart){
