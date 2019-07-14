@@ -4,6 +4,7 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
 @endsection
 
 @section('content')
