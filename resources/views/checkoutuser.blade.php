@@ -13,26 +13,29 @@
 @section('content')
 
 <div class="container-checkout">
-    <div class="" data-aos="zoom-in" data-aos-duration="1000">
+    <div class="checkout-box" data-aos="zoom-in" data-aos-duration="1000">
 
         <div class="checkout-title">
             <h1>Checkout</h1>
         </div>
 
         <div class="order-list">
+          <div class="productos-title-box">
             <a href="#" id="navbarDropdown" role="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <h2>Productos</h2>
+                <h2 class="productos-title">Productos</h2><i class="fas fa-caret-down"></i>
             </a>
+          </div>
+
             <div class="collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto productos-checkout-ul">
                     @foreach($carts as $cart)
-                    <li class="nav-item active">
+                    <li class="nav-item active productos-checkout">
                         {{ $cart->quantity }} x {{ $cart->product->name}}
                         ${{ $cart->product->price * $cart->quantity}}
                     </li>
                     @endforeach
-                    <li class="li-cart-total">
+                    <li class="li-cart-total productos-checkout">
                         Total: ${{ $total }}
                     </li>
                 </ul>
@@ -91,10 +94,10 @@
                 <div>
                     <label>Pagá con:</label>
                     <div class="payment">
-                        <div><a href="https://www.mercadopago.com.ar/"><img src="/images/payment/mercadopago.jpg"
+                        <div><a href="https://www.mercadopago.com.ar/" target="_blank"><img src="/images/payment/mercadopago.jpg"
                                     alt=""></a>
                         </div>
-                        <div><a href="https://www.paypal.com"><img src="/images/payment/paypal.jpg" alt=""></a>
+                        <div><a href="https://www.paypal.com" target="_blank"><img src="/images/payment/paypal.jpg" alt=""></a>
                         </div>
                     </div>
                 </div>

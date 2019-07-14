@@ -13,7 +13,8 @@
 @section('content')
 
 <div class="cart-container">
-    <div class="" data-aos="zoom-in" data-aos-duration="1000">
+
+    <div class=" cart-box" data-aos="zoom-in" data-aos-duration="1000">
 
         <div class="cart-title">
             <h1>MI CARRITO</h1>

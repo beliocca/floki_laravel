@@ -103,3 +103,5 @@ Route::get('/checkoutguest', 'CartController@checkoutSession')->name('checkoutGu
 Route::get('/checkoutuser', 'CartController@checkoutUser')->middleware('auth')->name('checkoutUser');
 
 Route::post('/order', 'OrderController@create');
+
+Route::get('/order', 'OrderController@showTest');

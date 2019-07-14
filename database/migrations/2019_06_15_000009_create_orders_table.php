@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('items');
-            $table->decimal('amount', 10, 0);
+            $table->decimal('amount', 10, 2);
             $table->decimal('discount', 6, 2)->nullable();
             $table->bigInteger('order_status_id')->unsigned();
             $table->foreign('order_status_id')->references('id')->on('order_statuses')->nullable()->onDelete('cascade');

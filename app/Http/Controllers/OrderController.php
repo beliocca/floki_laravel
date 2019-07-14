@@ -69,6 +69,7 @@ class OrderController extends Controller
                 "amount" => $amount,
                 "order_status_id" => 1,
                 "address_id" => $address->id,
+                "shipping_id" => null,
             ]);
 
             foreach ($carts as $cart) {
@@ -86,6 +87,7 @@ class OrderController extends Controller
 
             // guest
         }else {
+
             $carts = Session::pull('cart');
             $items = 0;
             $amount = 0;
@@ -102,6 +104,7 @@ class OrderController extends Controller
                 "amount" => $amount,
                 "order_status_id" => 1,
                 "address_id" => $address->id,
+                "shipping_id" => null,
             ]);
 
             foreach ($carts as $cart) {
@@ -173,5 +176,11 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function showTest(){
+        $order = Order::all()->first();
+
+        return view('success')->with('order', $order);
     }
 }
