@@ -9,9 +9,9 @@
 @section('content')
 
 <div class=" perfil">
-    <div class="" data-aos="zoom-in" data-aos-duration="1000">
-        <div class="row">
-            <div class="col-12 col-sm-4 ">
+    <div class="profile-box" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="profile-grid">
+            <div class="profile-menu">
                 <h2 class="h2perfil">cuenta</h2>
                 <ul class="menu">
                     <li>
@@ -25,8 +25,15 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-sm-8  userorders addresses">
+            <div class="seccion-content  userorders addresses">
                 <h2 class="h2perfil2">Direcciones</h2>
+
+        @if ($addresses->count() == 0)
+
+                  <h3 class="h3perfil">No hay direcciones guardadas.</h3>
+
+                @endif
+
                 @foreach($addresses as $address)
                 <div class="addresscontainer">
                         <div>{{$address->address_line1}} {{$address->address_line2}} {{$address->city}} CP:{{$address->zipcode}} {{$address->state}} {{$address->country}}</div>

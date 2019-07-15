@@ -139,6 +139,7 @@ class OrderController extends Controller
      */
 
     protected function showOrders($id){
+      
         $user = User::find($id);
         $orders = Order::where('user_id', $id)->get();
         return view('orders')->with('orders', $orders)->with('user', $user);

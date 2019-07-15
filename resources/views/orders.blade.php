@@ -13,39 +13,50 @@
 
 
 <div class="perfil">
-    <div class="" data-aos="zoom-in" data-aos-duration="1000">
+    <div class="profile-box" data-aos="zoom-in" data-aos-duration="1000">
 
-        <div class="row">
-            <div class="col-12 col-sm-4 ">
-                <h2 class="h2perfil">cuenta</h2>
-                <ul class="menu">
-                    <li>
-                        <a class="listperfil" href="/profile">perfil</a>
-                    </li>
-                    <li>
-                        <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
-                    </li>
-                    <li>
-                        <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-8  userorders">
+      <div class="profile-grid">
+          <div class="profile-menu">
+              <h2 class="h2perfil">cuenta</h2>
+              <ul class="menu">
+                  <li>
+                      <a class="listperfil" href="/profile">perfil</a>
+                  </li>
+                  <li>
+                      <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
+                  </li>
+                  <li>
+                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="seccion-content  userorders">
                 <h2 class="h2perfil2">Ordenes</h2>
+                {{-- @php
+                  dd($orders)
+                @endphp --}}
+
+              @if ($orders->count() == 0)
+
+                <h3 class="h3perfil">No hay ordenes para mostrar.</h3>
+
+              @endif
+
+
                 @foreach($orders as $order)
                 <div class="ordercontainer">
                     <div class="ordercol col1">
-                        <div>Numero de Order: {{$order->id}} </div>
-                        <div>Nombre: {{$order->name}} {{$order->last_name}}</div>
+                        <div>Número de órden: {{$order->id}} </div>
+
                         <div>
                             <a href=""> @if(isset($order->shipping))
                                 {{$order->shipping->tracking_number}}{{$order->shipping->courier_company}}
                                 @endif </a></div>
                     </div>
-                    <div class="ordercol col2">Direccion:
-                        <div>{{$order->address->address_line1}} {{$order->address->address_line2}}</div>
-                        <div>{{$order->address->city}} CP:{{$order->address->zipcode}}</div>
-                        <div>{{$order->address->state}} {{$order->address->country}}</div>
+                    <div class="ordercol col2">Dirección:
+                        <div>{{$order->address['address_line1']}} {{$order->address['address_line2']}}</div>
+                        <div>{{$order->address['city']}} CP:{{$order->address['zipcode']}}</div>
+                        <div>{{$order->address['state']}} {{$order->address['country']}}</div>
                     </div>
                     <div class="ordercol col3">
                         <ul>

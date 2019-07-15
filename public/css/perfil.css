@@ -12,12 +12,16 @@
 .h2perfil,
 .h2perfil2,
 .listperfil,
-.titleperfil {
+.titleperfil, .h3perfil  {
     text-transform: uppercase;
     padding-top: 10px;
     padding-bottom: 10px;
     color: #0d4659;
+    font-weight: lighter;
+}
 
+.h3perfil{
+  font-size: 1.5em;
 }
 
 .perfil ul {
@@ -77,6 +81,7 @@
     margin-top: 3px;
     text-transform: uppercase;
     border: 1px solid #cfe3e3;
+    margin-bottom: 10px;
 }
 
 .perfil {
@@ -110,6 +115,26 @@
 .menu{
     margin: 20px 0px 20px 30px;
 }
+
+.profile-grid{
+  display: grid;
+  grid-template-columns: repite(8, 1fr);
+  grid-auto-rows: 1fr;
+  width: 100%;
+  min-height: 500px;
+}
+
+.profile-menu{
+  border-right: 1px solid #949494;
+  margin-right: 30px;
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.seccion-content{
+  grid-area: 1 / 2 / span 1 / span 7;
+  padding-left: 30px;
+}
+
 
 .formperfil{
     width: 60%;
@@ -171,8 +196,36 @@
         color: #0d4659;
         border: none;
         margin: auto;
+        background-color: #CFE3E3;
 }
 
 .formperfil form, .formperfil {
     width: 50%;
+}
+
+.profile-box{
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 50px;
+  margin: 3% 7%;
+  min-height: 600px;
+}
+
+.thead-light button,
+.button {
+    box-sizing: border-box;
+    font-size: 1em;
+    text-transform: uppercase;
+    background-color: #cfe3e3 !important;
+    color: #0d4659;
+    border: none;
+    border-radius: 0px;
+    padding: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+    width: 10em;
+    height: 40px !important;
+    border: none;
+    margin-top: 20px !important;
 }

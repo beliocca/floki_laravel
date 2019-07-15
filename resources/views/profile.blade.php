@@ -12,24 +12,24 @@
 
 
 <div class="perfil">
-    <div class="" data-aos="zoom-in" data-aos-duration="1000">
+    <div class="profile-box" data-aos="zoom-in" data-aos-duration="1000">
 
-        <div class="row">
-            <div class="col-12 col-sm-4 ">
-                <h2 class="h2perfil">cuenta</h2>
-                <ul class="menu">
-                    <li>
-                        <a class="listperfil" href="/profile">perfil</a>
-                    </li>
-                    <li>
-                        <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
-                    </li>
-                    <li>
-                        <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-sm-8 formperfil">
+      <div class="profile-grid">
+          <div class="profile-menu">
+              <h2 class="h2perfil">cuenta</h2>
+              <ul class="menu">
+                  <li>
+                      <a class="listperfil" href="/profile">perfil</a>
+                  </li>
+                  <li>
+                      <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
+                  </li>
+                  <li>
+                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="seccion-content formperfil">
                 <h2 class="h2perfil2">perfil</h2>
                 <form action="/profile" method="post" enctype="multipart/form-data">
                     @csrf
@@ -66,7 +66,7 @@
                         @endif
                     </div>
 
-                    <button class="perfilbtn" type="submit">Actualizar</button>
+                    <button class="button" type="submit">Actualizar</button>
                 </form>
             </div>
         </div>
