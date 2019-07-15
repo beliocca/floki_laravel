@@ -73,7 +73,7 @@ class ContactoController extends Controller
       else{
 
 
-        Mail::send(new ContactMail($request));
+        // Mail::send(new ContactMail($request));
 
        $mensajeEnviado = "Su mensaje ha sido enviado!";
 

@@ -477,80 +477,80 @@
 
 }
 
-/* media query responsive LOGIN */
+/* media query responsive FORMS login, registro, contacto */
 @media (max-width: 992px) {
-    .formulario-login {
-        width: 100%;
-        padding-top: 30px;
-    }
-    .ing {
-        width: 50%;
-    }
 
-    .userform {
-        width: 70%;
-    }
-}
-@media (max-width: 768px) {
-    .userform {
-        width: 90%;
-    }
+  .form-box{
+    width: 80%;
+  }
+
+  .form-box form input {
+    width: 80%;
+  }
+
+  .form-box form input::placeholder{
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
 
 }
+@media (max-width: 600px) {
+
+  .form-title{
+      font-size: 1.5em;
+    }
+
+  .form-box{
+    margin: 20px auto;
+    width: 95%;
+  }
 
 
-/* media query responsive REGISTRO */
-@media (max-width: 992px) {
-    .art2 {
-        width: 100%;
-        display: block;
-    }
-    .formulario-registro {
-        width: 100%;
-        padding-top: 30px;
-    }
-    .reg {
-        width: 50%;
-    }
-    .registrate {
-        margin-bottom: 20px;
-    }
-    .formulario-registro #nombre {
-        margin-top: 20px;
-    }
-    .formulario-registro #send-button {
-        width: 40%;
-    }
+  .form-box form input {
+    width: 100%;
+  }
+
+  .fa-circle{
+      font-size: 15px;
+      padding: 10px 0;
+  }
+
+  .hr {
+    width: 60%;
+  }
+
+  .form-box form input {
+    width: 70%;
+  }
+
+  .form-box form input::placeholder{
+    text-transform: uppercase;
+    font-size: 9px;
+  }
+
+  .mensaje-contacto {
+    width: 70%;
+  }
+
+  .opciones2 {
+    margin: 0 20px;
+  }
+
+  .checkbox-text {
+      font-size: 12px;
+  }
+  .checkbox{
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .contacto-mensaje-enviado h3 {
+    font-size: 1.2em;
+  }
+
 }
 
-
-/* media query responsive CONTACTO */
-
-@media (max-width: 992px) {
-    .section-contacto .art2 {
-        width: 100%;
-        display: block;
-    }
-    .section-contacto .formulario {
-        width: 100%;
-        padding-top: 30px;
-    }
-    .section-contacto .reg {
-        width: 50%;
-    }
-    .section-contacto .registrate {
-        margin-bottom: 20px;
-    }
-    .section-contacto #nombre {
-        margin-top: 20px;
-    }
-    .section-contacto #send-button {
-        margin-top: 10px;
-    }
-    .section-contacto textarea {
-        width: 70%;
-      }
-}
 
 /* PERFIL */
 
