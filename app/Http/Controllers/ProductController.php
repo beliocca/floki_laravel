@@ -59,17 +59,28 @@ class ProductController extends Controller
             'stock' => $data['stock'],
             'description' => $data['description']
         ]);
-        $product->categories()->attach($data->category);
+
+
+        foreach ($data['category'] as $category) {
+          $product->categories()->attach($category);
+        }
+
+
+
+        foreach ($data['filename'] as $photoFile) {
+
 
         $destinationPath = public_path('uploads/product_photos');
-        $filename = $product->id . $data->file('filename')->getClientOriginalName();
-        $data->file('filename')->move($destinationPath, $filename);
+        $filename = $product->id . $photoFile->getClientOriginalName();
+        $photoFile->move($destinationPath, $filename);
         ProductPhoto::create([
             'filename' => $filename,
             'product_id' => $product->id
         ]);
 
         $photos = $product->ProductPhotos;
+
+        }
 
         $products = Product::orderBy('id', 'DESC')->paginate(20);
         return redirect('/admin/productslist')->with('products', $products);
@@ -199,16 +210,24 @@ class ProductController extends Controller
         $product->description = $data->description;
         $product->stock = $data->stock;
         $product->save();
-        $product->categories()->attach($data->category);
+
+
+        $product->categories()->sync($data->category);
+
+
         // $filename = null;
         if ($data->hasfile('filename')) {
-            $destinationPath = public_path('uploads/product_photos');
-            $filename = $product->id . $data->file('filename')->getClientOriginalName();
-            $data->file('filename')->move($destinationPath, $filename);
-            ProductPhoto::create([
-                'filename' => $filename,
-                'product_id' => $product->id
-            ]);
+
+            foreach ($data['filename'] as $photoFile) {
+
+                  $destinationPath = public_path('uploads/product_photos');
+                  $filename = $product->id . $photoFile->getClientOriginalName();
+                  $photoFile->move($destinationPath, $filename);
+                  ProductPhoto::create([
+                      'filename' => $filename,
+                      'product_id' => $product->id
+                  ]);
+            }
         };
 
         $products = Product::orderBy('id', 'DESC')->paginate(20);

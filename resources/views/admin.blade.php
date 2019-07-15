@@ -11,10 +11,10 @@
 
 
 
-<div class="container perfil">
-    <div class="row">
-        <div class="col-12 col-sm-3 ">
-            <h2 class="h2perfil">admin</h2>
+<div class="admin-container">
+    <div class="admin-panel-grid">
+        <div class="admin-menu">
+            <h2 class="h2perfil">Panel admin</h2>
             <ul>
                 <li>
                     <a class="listperfil" href="/admin/productslist">productos</a>
@@ -30,7 +30,8 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-sm-9">
+
+        <div class="admin-panel">
             <h2 class="h2perfil">Agregar Productos</h2>
             <form action="/admin/addproducts" method="post" enctype="multipart/form-data">
                 @csrf
@@ -43,8 +44,8 @@
                     <input class="form-control" type="number" name="price" value="{{ old('price') }}" required>
                 </div>
                 <div>
-                    <label for="category">Categoria</label>
-                    <select class="form-control select" type="select" name="category" value="{{ old('category') }}">
+                    <label for="category">Categoria <span class="aclaracion">(presionar CTRL para selecionar varias opciones)</span></label>
+                    <select multiple class="form-control select" type="select" name="category[]" value="">
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
@@ -56,15 +57,16 @@
                 </div>
                 <div>
                     <label for="description">Descripcion</label>
-                    <input class="form-control" type="textarea" name="description" value="{{ old('description') }}" required>
+                    <textarea class="form-control" rows="5" type="textarea" name="description" value="{{ old('description') }}" required></textarea>
                 </div>
                 <div>
-                    <label for="filename">Imagenes</label>
-                    <input class="form-control" type="file" name="filename" value="{{ old('filename') }}" required>
+                    <label for="filename">Imagenes <span class="aclaracion">(presionar CTRL para selecionar varias imagenes)</span></label>
+                    <input multiple class="form-control" type="file" name="filename[]" value="{{ old('filename') }}" required>
                 </div>
-                <button type="submit">CREAR</button>
+                <button class="btn-admin" type="submit">CREAR</button>
             </form>
         </div>
+
     </div>
 
     <form action="/file-upload"

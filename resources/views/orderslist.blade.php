@@ -9,6 +9,24 @@
 
 @section('content')
 
+  <ul class="menu-admin-horizontal">
+      <li>
+          <a class="listperfil" href="/admin/productslist">productos</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/categorieslist">categorias</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/orderslist">ordenes</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/userslist">usuarios</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/profile">agregar producto</a>
+      </li>
+  </ul>
+
 <h1 class="titleperfil">Listado Ordenes</h1>
 
 <table class="table table-hover table-responsive-sm">
@@ -44,7 +62,7 @@
                     @endforeach
                 </ul>
             </td>
-            <td>{{$order->amount}}</td>
+            <td>${{$order->amount}}</td>
 
         </tr>
         @endforeach

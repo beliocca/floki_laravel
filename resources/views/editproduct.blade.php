@@ -8,6 +8,24 @@
 
 @section('content')
 
+  <ul class="menu-admin-horizontal">
+      <li>
+          <a class="listperfil" href="/admin/productslist">productos</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/categorieslist">categorias</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/orderslist">ordenes</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/userslist">usuarios</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/profile">agregar producto</a>
+      </li>
+  </ul>
+
 <h2 class="titleperfil">Editar Producto</h2>
 <form class="form-group form-edit" action="/admin/updateproduct" method="post" enctype="multipart/form-data">
     @csrf
@@ -21,12 +39,22 @@
         <input class="form-control " type="number" name="price" value="{{$product->price}}" required>
     </div>
     <div>
-        <label class="" for="category">Categoria</label>
-        <select class="form-control select " type="select" name="category" value="{{$product->category}}" required>
+        <label for="category">Categoria <span class="aclaracion">(presionar CTRL para selecionar varias opciones)</span></label>
+        <select multiple class="form-control select" type="select" name="category[]" value="{{$product->categories}}">
             @foreach ($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
+            <option
+
+              @foreach ($product->categories as $productCategory)
+
+                @if ($category->id == $productCategory->id)
+                  selected
+                @endif
+
+              @endforeach
+                    value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
+    </div>
     </div>
     <div>
         <label class="" for="stock">Unidades</label>
@@ -38,8 +66,8 @@
     </div>
     <div>
         <label class="" for="filename">Subir imagenes</label>
-        <input class="form-control " type="file" name="filename" value="{{ old('filename') }}">
-     
+        <input multiple class="form-control " type="file" name="filename[]" value="{{ old('filename') }}">
+
     </div>
     <div>
         <p>Imagenes cargadas</p>

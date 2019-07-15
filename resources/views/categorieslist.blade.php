@@ -4,11 +4,29 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
-  <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
+
 
 @endsection
 
 @section('content')
+
+  <ul class="menu-admin-horizontal">
+      <li>
+          <a class="listperfil" href="/admin/productslist">productos</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/categorieslist">categorias</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/orderslist">ordenes</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/admin/userslist">usuarios</a>
+      </li>
+      <li>
+          <a class="listperfil" href="/profile">agregar producto</a>
+      </li>
+  </ul>
 
 <h1 class="titleperfil">Listado Categorias</h1>
 

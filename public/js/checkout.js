@@ -5,12 +5,12 @@ window.addEventListener("load", function() {
         var last_nameChecked = false;
         var emailChecked = false;
         var address1Checked = false;
-        var address2Checked = false;
+        // var address2Checked = false;
         var cityChecked = false;
         var zipcodeChecked = false;
         var stateChecked = false;
         var countryChecked = false;
-    
+
         function validateName(){
             var att = document.createAttribute("placeholder");
             var nameinput = document.querySelector(".name");
@@ -87,24 +87,24 @@ window.addEventListener("load", function() {
             }
         }
 
-        function validateAddress2(){
-            var att = document.createAttribute("placeholder");
-            var address2input = document.querySelector(".address2");
-            var address2 = $(".address2").val();
-            if (!address2) {
-                address2input.classList.add("is-invalid");
-                att.value = "Debe completar este campo";
-                address2input.setAttributeNode(att);
-            } else if (address2.length < 3) {
-                address2input.value = "";
-                address2input.classList.add("is-invalid");
-                att.value = "El campo debe tener al menos 3 letras";
-                address2input.setAttributeNode(att);
-            }else{
-                address2Checked = true;
-                address2input.classList.remove("is-invalid");
-            }
-        }
+        // function validateAddress2(){
+        //     var att = document.createAttribute("placeholder");
+        //     var address2input = document.querySelector(".address2");
+        //     var address2 = $(".address2").val();
+        //     if (!address2) {
+        //         address2input.classList.add("is-invalid");
+        //         att.value = "Debe completar este campo";
+        //         address2input.setAttributeNode(att);
+        //     } else if (address2.length < 3) {
+        //         address2input.value = "";
+        //         address2input.classList.add("is-invalid");
+        //         att.value = "El campo debe tener al menos 3 letras";
+        //         address2input.setAttributeNode(att);
+        //     }else{
+        //         address2Checked = true;
+        //         address2input.classList.remove("is-invalid");
+        //     }
+        // }
 
         function validateCity(){
             var att = document.createAttribute("placeholder");
@@ -122,7 +122,7 @@ window.addEventListener("load", function() {
             }else{
                 cityChecked = true;
                 cityinput.classList.remove("is-invalid");
-            }   
+            }
         }
 
         function validateZipcode(){
@@ -161,7 +161,7 @@ window.addEventListener("load", function() {
             }else{
                 stateChecked = true;
                 stateinput.classList.remove("is-invalid");
-            }   
+            }
         }
 
 
@@ -181,27 +181,27 @@ window.addEventListener("load", function() {
             }else{
                 countryChecked = true;
                 countryinput.classList.remove("is-invalid");
-            }   
+            }
         }
         $(".name").blur(function() {
-            validateName();        
+            validateName();
         });
-    
+
         $(".last_name").blur(function() {
             validateLastName();
         });
-    
+
         $(".email").blur(function() {
             validateEmail();
         });
-    
+
         $(".address1").blur(function() {
             validateAddress1();
         });
-    
-        $(".address2").blur(function() {
-            validateAddress2();
-        });
+
+        // $(".address2").blur(function() {
+        //     validateAddress2();
+        // });
 
         $(".city").blur(function() {
             validateCity();
@@ -223,25 +223,25 @@ window.addEventListener("load", function() {
         $('form').submit(function(e){
 
             e.preventDefault()
-       
+
               validateName();
               validateLastName();
               validateEmail();
               validateAddress1();
-              validateAddress2(); 
+              // validateAddress2();
               validateCity();
               validateZipcode();
               validateState();
               validateCountry();
-            
-            
-            if(nameChecked, last_nameChecked, emailChecked, address1Checked, address2Checked, cityChecked, zipcodeChecked, stateChecked, countryChecked){
 
-               
+
+            if(nameChecked, last_nameChecked, emailChecked, address1Checked, cityChecked, zipcodeChecked, stateChecked, countryChecked){
+
+
                 this.submit();
             }
         })
-   
-   
+
+
 
 });
