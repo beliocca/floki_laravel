@@ -61,11 +61,11 @@
         <input class="form-control " type="number" name="stock" value="{{$product->stock}}" required>
     </div>
     <div>
-        <label class="" for="description">Descripcion</label>
+        <label class="" for="description">Descripción</label>
         <textarea class="form-control " name="description" rows="4" required value="">{{$product->description}}</textarea>
     </div>
     <div>
-        <label class="" for="filename">Subir imagenes</label>
+        <label class="" for="filename">Subir imágenes</label>
         <input multiple class="form-control " type="file" name="filename[]" value="{{ old('filename') }}">
 
     </div>

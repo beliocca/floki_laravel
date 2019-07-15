@@ -56,11 +56,11 @@
                     <input class="form-control" type="number" name="stock" value="{{ old('stock') }}" required>
                 </div>
                 <div>
-                    <label for="description">Descripcion</label>
+                    <label for="description">Descripción</label>
                     <textarea class="form-control" rows="5" type="textarea" name="description" value="{{ old('description') }}" required></textarea>
                 </div>
                 <div>
-                    <label for="filename">Imagenes <span class="aclaracion">(presionar CTRL para selecionar varias imagenes)</span></label>
+                    <label for="filename">Imágenes <span class="aclaracion">(presionar CTRL para selecionar varias imagenes)</span></label>
                     <input multiple class="form-control" type="file" name="filename[]" value="{{ old('filename') }}" required>
                 </div>
                 <button class="btn-admin" type="submit">CREAR</button>
