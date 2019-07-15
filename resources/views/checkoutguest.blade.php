@@ -46,37 +46,37 @@
                 <h2>Tus datos</h2>
                 <div>
                     <label for="name">Nombre</label>
-                    <input class="form-control " type="text" name="name" required>
+                    <input class="form-control name " type="text" name="name">
                 </div>
                 <div>
                     <label for="last_name">Apellido</label>
-                    <input class="form-control " type="text" name="last_name" required>
-                </div>
+                    <input class="form-control last_name " type="text" name="last_name" >
+              </div>
                 <div>
                     <label for="email">email</label>
-                    <input class="form-control " type="email" value="" name="email" required>
-                </div>
+                    <input class="form-control email " type="email" value="" name="email" >
+              </div>
                 <div>
                     <label for="address_line1">Direccion</label>
-                    <input class="form-control " type="text" value="" name="address_line1" required>
+                    <input class="form-control address1 " type="text" value="" name="address_line1" >
 
-                    <input class="form-control" id="addressline2" type="text" value="" name="address_line2" >
-                </div>
+                   <input class="form-control address2" id="addressline2" type="text" value="" name="address_line2" >
+              </div>
                 <div>
                     <label for="city">Ciudad</label>
-                    <input class="form-control " type="text" value="" name="city" required>
-                </div>
+                    <input class="form-control city" type="text" value="" name="city" >
+              </div>
                 <div>
                     <label for="zipcode">Código postal</label>
-                    <input class="form-control " type="text" value="" name="zipcode" required>
-                </div>
+                    <input class="form-control zipcode" type="text" value="" name="zipcode" >
+              </div>
                 <div>
                     <label for="state">Provincia</label>
-                    <input class="form-control " type="text" value="" name="state" required>
-                </div>
+                    <input class="form-control state " type="text" value="" name="state" >
+              </div>
                 <div>
-                    <label for="contry">Pais</label>
-                    <input class="form-control " type="text" value="" name="country" required  xp>
+                    <label for="country">Pais</label>
+                    <input class="form-control country" type="text" value="" name="country">
                 </div>
                 <div>
                     <label>Pagá con:</label>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
 
-                <button class="orderbutton" type="submit">Comprar</button>
+                <button class="orderbutton" type="submit" >Comprar</button>
 
 
             </form>

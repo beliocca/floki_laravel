@@ -4,6 +4,7 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('css/perfil.css') }}"/>
 @endsection
 
 @section('content')
@@ -34,7 +35,7 @@
             <td>{{$order->items}}</td>
             <td>
                 <ul>
-                    @foreach ($order->orderDetail as $detail)
+                    @foreach ($order->orderDetails as $detail)
                     @foreach ($order->products as $product)
                     @if($detail->product_id == $product->id)
                     <li>{{$detail->amount}} {{$product->name}} : ${{$detail->amount*$detail->price}}</li>
