@@ -28,6 +28,10 @@ Route::get('/inspiration', function () {
     return view('inspiration');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+});
+
 Route::get('/nosotros', function () {
     return view('nosotros');
 });

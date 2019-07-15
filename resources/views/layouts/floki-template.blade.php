@@ -390,10 +390,10 @@
 
         <div class="footer-list">
             <ul>
-                <li><a href="#">órdenes</a></li>
-                <li><a href="#">envíos y devoluciones</a></li>
-                <li><a href="#">f.a.q</a></li>
-                <li><a href="#">politica de privacidad</a></li>
+                <li><a href="/faq#ordenes">órdenes</a></li>
+                <li><a href="/faq#envios">envíos y devoluciones</a></li>
+                <li><a href="/faq#faq">f.a.q</a></li>
+                <li><a href="/faq#privacidad">politica de privacidad</a></li>
             </ul>
         </div>
 
