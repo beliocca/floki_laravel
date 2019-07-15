@@ -5,7 +5,12 @@
 /* PERFIL */
 
 .h2perfil, .h2perfil2 {
-    font-size: 25px;
+    font-size: 2em;
+}
+
+.listperfil,
+.titleperfil, .h3perfil{
+    font-size: 1em;
 }
 
 
@@ -112,6 +117,13 @@
     width: 95%;
 }
 
+.profile-box{
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 50px;
+  margin: 3% 7%;
+  min-height: 600px;
+}
+
 .menu{
     margin: 20px 0px 20px 30px;
 }
@@ -128,6 +140,7 @@
   border-right: 1px solid #949494;
   margin-right: 30px;
   grid-area: 1 / 1 / span 1 / span 1;
+  padding-right: 15px;
 }
 
 .seccion-content{
@@ -137,7 +150,7 @@
 
 
 .formperfil{
-    width: 60%;
+    width: 60vw;
 }
 .ordercol{
     margin: 5px 10px;
@@ -200,15 +213,10 @@
 }
 
 .formperfil form, .formperfil {
-    width: 50%;
+    width: 60%;
 }
 
-.profile-box{
-  background-color: rgba(238, 238, 238, 0.8);
-  padding: 50px;
-  margin: 3% 7%;
-  min-height: 600px;
-}
+
 
 .thead-light button,
 .button {

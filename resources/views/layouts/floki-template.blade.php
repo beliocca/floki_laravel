@@ -255,7 +255,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/inspiration">Inspiración</a>
+                            <a class="nav-link" href="/inspiracion">Inspiración</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/nosotros">Sobre Flöki</a>
@@ -300,6 +300,11 @@
                                 SHOP
                             </a>
                             <ul class="collapse nav-item" id="shop">
+
+                              <li>
+                                  <a href="/shop">Todas las categorias</a>
+                              </li>
+
                                 @foreach ($categories as $category)
                                 @if ($category->is_main)
                                 <li>
@@ -308,9 +313,7 @@
                                 @endif
                                 @endforeach
 
-                                <li>
-                                    <a href="/shop">Todas las categorias</a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="dropdown-item nav-item">

@@ -17,16 +17,16 @@
 
       <div class="profile-grid">
           <div class="profile-menu">
-              <h2 class="h2perfil">cuenta</h2>
+              <h2 class="h2perfil">Hola {{ $user->name }}!</h2>
               <ul class="menu">
                   <li>
                       <a class="listperfil" href="/profile">perfil</a>
                   </li>
                   <li>
-                      <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
+                      <a class="listperfil" href="/profile/orders/{{$user->id}}">ordenes</a>
                   </li>
                   <li>
-                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
+                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones</a>
                   </li>
               </ul>
           </div>
@@ -64,7 +64,7 @@
                             @foreach ($order->products as $product)
                             @foreach ($order->orderDetails as $detail)
                             @if($detail->product_id == $product->id)
-                            <li>{{$detail->amount}} {{$product->name}} {{$detail->price}} =
+                            <li>{{$detail->amount}} x {{$product->name}} (${{$detail->price}}) =
                                 ${{$detail->amount*$detail->price}}</li>
                             @endif
                             @endforeach

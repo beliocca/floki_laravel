@@ -12,16 +12,16 @@
     <div class="profile-box" data-aos="zoom-in" data-aos-duration="1000">
         <div class="profile-grid">
             <div class="profile-menu">
-                <h2 class="h2perfil">cuenta</h2>
+                <h2 class="h2perfil">Hola {{ $user->name }}!</h2>
                 <ul class="menu">
                     <li>
                         <a class="listperfil" href="/profile">perfil</a>
                     </li>
                     <li>
-                        <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
+                        <a class="listperfil" href="/profile/orders/{{$user->id}}">ordenes</a>
                     </li>
                     <li>
-                        <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
+                        <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones</a>
                     </li>
                 </ul>
             </div>

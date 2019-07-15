@@ -24,7 +24,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/inspiration', function () {
+Route::get('/inspiracion', function () {
     return view('inspiration');
 });
 

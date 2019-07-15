@@ -22,10 +22,10 @@
                       <a class="listperfil" href="/profile">perfil</a>
                   </li>
                   <li>
-                      <a class="listperfil" href="/profile/orders/{{$user->id}}">historial de ordenes</a>
+                      <a class="listperfil" href="/profile/orders/{{$user->id}}">ordenes</a>
                   </li>
                   <li>
-                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones guardadas</a>
+                      <a class="listperfil" href="/profile/addresses/{{$user->id}}">direcciones</a>
                   </li>
               </ul>
           </div>
