@@ -71,7 +71,7 @@ class ProductController extends Controller
 
 
         $destinationPath = public_path('uploads/product_photos');
-        $filename = $product->id . $photoFile->getClientOriginalName();
+        $filename = $product->id . "-" . $photoFile->getClientOriginalName();
         $photoFile->move($destinationPath, $filename);
         ProductPhoto::create([
             'filename' => $filename,
@@ -221,7 +221,7 @@ class ProductController extends Controller
             foreach ($data['filename'] as $photoFile) {
 
                   $destinationPath = public_path('uploads/product_photos');
-                  $filename = $product->id . $photoFile->getClientOriginalName();
+                  $filename = $product->id . "-" . $photoFile->getClientOriginalName();
                   $photoFile->move($destinationPath, $filename);
                   ProductPhoto::create([
                       'filename' => $filename,
