@@ -39,6 +39,15 @@
 
              <p>STOCK: {{ $product->stock }} unidades.</p>
 
+             <hr class="tag-line">
+
+             <div class="tags-categorias">
+
+               @foreach ($product->categories as $category)
+                   <button class="btn-tag" type="button" name="button"># {{ $category->name }}</button>
+               @endforeach
+             </div>
+
              <form class="form-producto" action="/addtocart" method="post">
                @csrf
 
@@ -76,7 +85,7 @@
               <input type="hidden" name="price" value="{{ $product->price }}">
               <input type="hidden" name="photo" value="{{$product->productPhotos->first()->filename }}">
 
-              <button type="submit" name="button">COMPRAR</button>
+              <button class="btn-comprar" type="submit" name="button">COMPRAR</button>
              </form>
 
 
@@ -113,6 +122,15 @@
         <h3><a href="/product/{{ $product->id }}">${{ $product->price }}</a></h3>
 
         <a class="verMas" href="/product/{{ $product->id }}">Ver más</a>
+
+        <hr class="tag-line">
+
+        <div class="tags-categorias">
+
+          @foreach ($product->categories as $category)
+              <button class="btn-tag" type="button" name="button"># {{ $category->name }}</button>
+          @endforeach
+        </div>
         {{-- @foreach ($product->categories as $category)
             <p>{{ $category->name }}</p>
         @endforeach --}}

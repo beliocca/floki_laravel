@@ -406,7 +406,76 @@
 
 }
 
+/* media query responsive INSPIRACION */
+@media (max-width: 992px) {
 
+  .div-inside-style-parallax{
+    padding-top: 135px;
+  }
+
+  .style-title{
+    width: 27em;
+  }
+
+  .style-title h1{
+    font-size: 3em;
+  }
+
+  .inspo-style-carousel img {
+      width: 60vw;
+  }
+
+  .btn-style{
+    font-size: 1em;
+  }
+
+  .inspo-style-carousel i {
+      font-size: 2.5em;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .style-parallax {
+    /* Full height */
+    height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: scroll;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 900px;
+  }
+
+  .div-inside-style-parallax{
+    padding-top: 140px;
+  }
+
+  .style-title{
+    width: 17em;
+  }
+
+  .style-title h1{
+    font-size: 2em;
+  }
+
+  .inspo-style-carousel img {
+      width: 80vw;
+      padding: 0;
+      margin: 0 5px;
+  }
+
+  .btn-style{
+    font-size: 1em;
+    margin: 30px auto 70px;
+  }
+
+  .inspo-style-carousel i {
+      font-size: 1.5em;
+      margin: auto;
+  }
+
+}
 
 /* media query responsive LOGIN */
 @media (max-width: 992px) {

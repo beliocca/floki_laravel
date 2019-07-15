@@ -116,9 +116,6 @@
                     <a href="/product/{{ $product->id }}"><h2>{{ $product->name }}</h2></a>
 
                     <a href="/product/{{ $product->id }}"><h3>${{ $product->price }}</h3></a>
-{{-- @foreach ($product->categories as $category)
-    <p>{{ $category->name }}</p>
-@endforeach --}}
 
                   <a href="/product/{{ $product->id }}">Ver más!</a>
 
@@ -134,8 +131,18 @@
                    @if (isset($currentUser))
                    <input type="hidden" name="user_id" value={{$currentUser->id}}>
                    @endif
-                   <button type="submit" name="button">COMPRAR</button>
+                   <button class="btn-comprar" type="submit" name="button">COMPRAR</button>
                   </form>
+
+                  <hr class="tag-line">
+
+                  <div class="tags-categorias">
+
+                    @foreach ($product->categories as $category)
+                        <button class="btn-tag" type="button" name="button"># {{ $category->name }}</button>
+                    @endforeach
+                  </div>
+
               </article>
               @endforeach
           </section>

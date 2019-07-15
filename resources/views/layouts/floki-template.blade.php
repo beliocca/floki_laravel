@@ -358,12 +358,12 @@
 
         <div class="footer-menu">
             <ul class="footer-shop ">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropup">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         shop
                     </a>
-                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         @foreach ($categories as $category)
                         @if ($category->is_main)
                         <a class="dropdown-item" href="/shop/{{ $category->url }}">{{ $category->name }}</a>
