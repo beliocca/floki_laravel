@@ -161,6 +161,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 80%;
+  height: 50px;
+  margin: 0 auto;
 }
 
 
@@ -173,6 +175,7 @@
   border-radius: 10px;
   margin: 0 3px 3px;
   padding: 2px 7px;
+  height: 17px;
 }
 
 .btn-tag:hover, .btn-tag, .tags-categorias:hover {
